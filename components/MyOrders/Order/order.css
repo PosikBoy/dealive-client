@@ -1,0 +1,30 @@
+.order {
+  border-radius: 10px;
+  font-weight: bold;
+  margin: 2px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #417ef00c;
+  border-radius: 40px;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.order__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.order__pickup-address-info,
+.order__destination-address-info {
+  margin-top: 4px;
+  border-radius: 7px;
+  border-bottom: 1px solid black;
+  background: rgba(248, 60, 69, 0.13);
+  padding: 12px;
+  width: 100%;
+  font-weight: bold;
+}

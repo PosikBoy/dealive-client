@@ -1,0 +1,59 @@
+"use client";
+
+import styles from "./miniForm.module.scss";
+import { useForm } from "react-hook-form";
+import InputField from "@/components/Ui/InputField/InputField";
+import Button from "@/components/Ui/Button/Button";
+import Heading3 from "@/components/Ui/Heading3/Heading3";
+import { useRouter } from "next/navigation";
+import { useTypedDispatch } from "@/hooks/redux.hooks";
+import { addData } from "@/store/orderForm/orderForm.slice";
+
+interface IMiniForm {
+  pickupAddress: string;
+  destinationAddress: string;
+}
+
+const MiniForm = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    getValues,
+  } = useForm<IMiniForm>({
+    mode: "onBlur",
+  });
+
+  const router = useRouter();
+  const dispatch = useTypedDispatch();
+  const onSubmitHandler = (data: IMiniForm) => {
+    dispatch(addData(data));
+    console.log("asdf");
+    router.push("/order");
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmitHandler)} className={styles.miniForm}>
+      <div className={styles.miniForm__body}>
+        <Heading3 className={styles.miniForm__heading}>
+          Оставьте заявку
+        </Heading3>
+        <div className={styles.miniForm__inputs}>
+          <InputField
+            type="text"
+            placeholder="Где забрать?"
+            {...register("pickupAddress")}
+          />
+          <InputField
+            type="text"
+            placeholder="Куда доставить?"
+            {...register("destinationAddress")}
+          />
+        </div>
+        <Button type="submit">Рассчитать стоимость</Button>
+      </div>
+    </form>
+  );
+};
+
+export default MiniForm;

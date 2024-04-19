@@ -1,0 +1,39 @@
+.tile {
+  height: 70px;
+  width: 100%;
+  max-width: 375px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-blue);
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media (max-width: 992px) {
+  .tile {
+    height: 50px;
+    font-size: 16px;
+  }
+}
+
+// @media (max-width: 431px) {
+//   .tile {
+//     height: 150px;
+//     width: 150px;
+//     padding: 10px;
+//     font-size: 14px;
+//   }
+// }
+// @media (max-width: 375px) {
+//   .tile {
+//     height: 130px;
+//     width: 130px;
+//     padding: 10px;
+//     font-size: 14px;
+//   }
+// }

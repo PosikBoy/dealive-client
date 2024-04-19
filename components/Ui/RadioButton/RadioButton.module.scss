@@ -1,0 +1,22 @@
+.radio {
+  &__button {
+    display: block;
+  }
+  &__input {
+    display: none;
+  }
+  &__text {
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.3s;
+    background-color: rgb(233, 233, 233);
+    border: 1px solid #999999;
+  }
+  &__input:checked + &__text {
+    border-color: #3586ff;
+    background-color: #3586ff;
+    color: white;
+    transition: all 0.3s;
+  }
+}

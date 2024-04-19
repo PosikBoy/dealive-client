@@ -1,0 +1,250 @@
+.orderForm {
+  max-width: 800px;
+  width: 100%;
+  &__parcel {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &__parcelSuggestions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: #5c5c5c;
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none; /* Для IE и Edge */
+  }
+  &__parcelSuggestions::-webkit-scrollbar {
+    display: none;
+  }
+  &__info {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--main-block-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.151);
+  }
+  &__weightTitle {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__radio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  &__radios {
+    display: flex;
+    gap: 12px;
+  }
+  &__body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  &__heading {
+    margin-bottom: 10px;
+  }
+  &__inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+  &__weightError {
+    color: red;
+    font-size: 12px;
+    transition: all 0.3s;
+    margin-left: 8px;
+  }
+}
+
+.addressForm {
+  padding: 15px;
+  background-color: var(--main-block-color);
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.151);
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__delete {
+    position: relative;
+    width: 30px;
+    height: 20px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 12px;
+      top: 50%;
+      left: 50%;
+      background-color: #bebebe;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+    &::before {
+      transform: rotate(135deg);
+    }
+  }
+  &__address {
+    display: flex;
+    gap: 12px;
+  }
+  &__row {
+    display: flex;
+    gap: 12px;
+  }
+  &__phone {
+    display: flex;
+    gap: 12px;
+    min-width: 155px;
+  }
+}
+
+.additional {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__floor {
+    width: 100%;
+  }
+  &__apartment {
+    width: 100%;
+  }
+  &__addressInfo {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__toggle {
+    cursor: pointer;
+    position: relative;
+    padding-left: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 12px;
+      top: 50%;
+      left: 0;
+      background-color: black;
+      transition: 0.3s ease-in all;
+    }
+
+    &::before {
+      transform: rotate(90deg);
+    }
+
+    &.active::after {
+      transform: rotate(45deg);
+      transition: 0.3s ease-in all;
+    }
+    &.active::before {
+      transform: rotate(135deg);
+      transition: 0.3s ease-in all;
+    }
+  }
+}
+
+.sendOrder {
+  max-width: 800px;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--main-block-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__price {
+    display: flex;
+    gap: 12px;
+  }
+  &__priceField {
+    max-width: 170px;
+  }
+  &__priceInfo {
+    margin-top: 6px;
+  }
+  &__infoHeading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__infoHeading p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__close {
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 30px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 12px;
+      top: 50%;
+      left: 50%;
+      background-color: #bebebe;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+    &::before {
+      transform: rotate(135deg);
+    }
+  }
+  &__infoContainer {
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 800px;
+    padding: 17px;
+  }
+  &__info {
+    padding: 15px;
+    background-color: var(--main-block-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  &__button {
+  }
+}

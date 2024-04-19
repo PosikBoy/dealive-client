@@ -1,0 +1,57 @@
+.field {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  &__input {
+    padding: 10px 15px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    outline: none;
+    font-size: 14px;
+    position: relative;
+    transition: all 0.3s;
+    border: 1px solid #999999;
+    border-radius: 9px;
+  }
+  &__input:focus {
+    border-color: #3586ff !important;
+    transition: all 0.3s;
+  }
+  &__placeholder {
+    z-index: 1;
+    font-size: 12px;
+    position: absolute;
+    top: 20px;
+    color: var(--placeholder-color);
+    transform: translateY(-50%);
+    left: 15px;
+    pointer-events: none;
+    transition: all 0.3s;
+    background-color: white;
+  }
+  &__input:focus + &__placeholder {
+    top: -8.5px;
+    left: 2px;
+    transform: scale(85%);
+    transition: all 0.3s;
+    color: var(--blue) !important;
+  }
+  &__input:not(:placeholder-shown) + &__placeholder {
+    top: -8.5px;
+    left: 2px;
+    transform: scale(85%);
+    transition: all 0.3s;
+    color: var(--placeholder-color);
+  }
+
+  &__error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    transition: all 0.3s;
+    margin-left: 8px;
+  }
+}

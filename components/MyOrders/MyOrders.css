@@ -1,0 +1,12 @@
+.my-orders__body {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.my-orders__title {
+  font-size: 24px;
+  font-weight: bold;
+  width: 100%;
+}

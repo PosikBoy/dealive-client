@@ -1,0 +1,15 @@
+// Heading.module.scss
+
+.heading {
+  font-size: 24px;
+  color: white;
+  @media (max-width: 768px) {
+    // стили для планшета
+    font-size: 20px;
+  }
+
+  @media (max-width: 425px) {
+    // стили для телефона
+    font-size: 16px;
+  }
+}

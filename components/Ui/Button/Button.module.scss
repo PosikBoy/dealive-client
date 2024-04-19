@@ -1,0 +1,32 @@
+.button {
+  border-radius: 19px;
+  padding: 10px 15px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: #ffffff;
+  background: var(--blue);
+  transition: background-color 0.3s;
+
+  @media (max-width: 768px) {
+    & {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 425px) {
+    & {
+      font-size: 12px;
+    }
+  }
+  @media (hover: hover) {
+    &:hover {
+      background-color: #3c4ef0;
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      background-color: #3c4ef0;
+    }
+  }
+}

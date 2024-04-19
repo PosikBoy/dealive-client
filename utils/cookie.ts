@@ -6,7 +6,7 @@ class Cookies {
     document.cookie = `${name}=${value}; ${expires}; path=/`;
   }
   deleteCookie(name: string): void {
-    this.setCookie(name, null, null);
+    this.setCookie(name, "", 0);
   }
   getCookie(name: string): string | null {
     const cookies = document.cookie.split(";");

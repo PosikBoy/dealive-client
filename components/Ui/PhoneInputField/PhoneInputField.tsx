@@ -13,7 +13,8 @@ interface IPhoneField extends InputHTMLAttributes<HTMLInputElement> {
 
 const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
   ({ onChange, error, placeholder, required, ...rest }, ref) => {
-    const phoneChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const phoneChangeHandler = (e: any) => {
+      //React.ChangeEvent<HTMLInputElement>
       const regex = /[0-9]|\+/;
       let value = e.target.value;
       if (e.nativeEvent.data == null) {
@@ -148,6 +149,7 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
               {...rest}
               onChange={phoneChangeHandler}
               onPaste={phonePasteHandler}
+              type="tel"
             />
             <span
               className={

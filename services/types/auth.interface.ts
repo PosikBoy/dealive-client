@@ -1,5 +1,3 @@
-import { IUser } from "./profile.interface";
-
 export interface IEmailPassword {
   email: string;
   password: string;

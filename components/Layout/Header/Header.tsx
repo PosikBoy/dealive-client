@@ -32,7 +32,7 @@ const Header = () => {
       {isAuthModalOpen && (
         <Brightness
           onClick={() => {
-            document.body.classList.toggle("modal-open");
+            document.body.classList.remove("modal-open");
             setIsAuthModalOpen(!isAuthModalOpen);
           }}
         />

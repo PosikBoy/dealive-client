@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
+    icon: "https://dealive-client.vercel.app/favicon.ico",
+    shortcut: "https://dealive-client.vercel.app/favicon.ico",
   },
   manifest: "https://dealive-client.vercel.app/manifest.json",
   twitter: {

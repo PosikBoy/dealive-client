@@ -1,0 +1,26 @@
+{
+  "lang": "ru",
+  "name": "Dealive - доставка",
+  "short_name": "Dealive",
+  "scope": "/",
+  "start_url": "/order",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#3586ff",
+  "background_color": "#3586ff",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "205x31",
+      "type": "image/png"
+    }
+  ],
+  "splash_screens": [
+    {
+      "src": "/icon.png",
+      "sizes": "205x31",
+      "type": "image/png"
+    }
+  ],
+  "gcm_sender_id": "103953800507"
+}

@@ -1,4 +1,4 @@
-import "./MainPage.css";
+import "./MainPage.scss";
 import Tile from "@/components/Ui/Tile/Tile";
 import { FC } from "react";
 import MiniForm from "./MiniForm/MiniForm";
@@ -21,9 +21,11 @@ const MainPage: FC = () => {
                 быстро найдем<span className="highlighted"> вам</span> курьера!
               </Heading2>
             </div>
-            <MiniForm />
+            <div className="main-page__mini-form">
+              <MiniForm />
+            </div>
           </div>
-          <Heading3 className="main-page__title">
+          <Heading3 className="main-page__losung">
             Живи - а доставку<span className="highlighted"> оставь </span>нам
           </Heading3>
           <div className="main-page__tiles">

@@ -100,6 +100,7 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
           "-" +
           value[9] +
           value[10];
+        onChange(value);
       } else if (value[0] == "8") {
         value =
           value[0] +
@@ -117,6 +118,7 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
           "-" +
           value[9] +
           value[10];
+        onChange(value);
       } else if (value[0] == "9") {
         value =
           "+7 (" +
@@ -133,8 +135,8 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
           "-" +
           value[8] +
           value[9];
+        onChange(value);
       }
-      onChange(value);
     };
     return (
       <>

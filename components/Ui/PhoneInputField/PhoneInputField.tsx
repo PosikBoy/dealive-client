@@ -134,6 +134,7 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
         onChange(value);
         return;
       }
+      onChange("11111");
     };
     return (
       <>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: [
     "срочная доставка, Москва быстрая доставка, экспресс доставка по Москве, курьер в Москве, Москва доставить посылку",
   ],
-  metadataBase: new URL("https://dealive.ru"),
+  metadataBase: new URL("https://dealive-client.vercel.app/order"),
   openGraph: {
     locale: "ru",
     url: "/",

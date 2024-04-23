@@ -143,7 +143,8 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
               ref={ref}
               placeholder=""
               {...rest}
-              onChange={phoneChangeHandler}
+              onInput={phoneChangeHandler}
+              // onChange={phoneChangeHandler}
               onPaste={phonePasteHandler}
               type="tel"
             />

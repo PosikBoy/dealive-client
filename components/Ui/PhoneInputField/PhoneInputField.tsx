@@ -1,5 +1,5 @@
 import styles from "./PhoneInputField.module.scss";
-import { forwardRef, InputHTMLAttributes } from "react";
+import { forwardRef, InputHTMLAttributes, useState } from "react";
 
 interface IPhoneField extends InputHTMLAttributes<HTMLInputElement> {
   onChange: any;
@@ -13,10 +13,12 @@ interface IPhoneField extends InputHTMLAttributes<HTMLInputElement> {
 
 const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
   ({ onChange, error, placeholder, required, ...rest }, ref) => {
+    const [inputValue, setInputValue] = useState<string>("");
     const phoneChangeHandler = (e: any) => {
       //React.ChangeEvent<HTMLInputElement>
       const regex = /[0-9]|\+/;
       let value = e.target.value;
+      setInputValue(e.target.value);
       if (e.nativeEvent.data == null) {
         onChange(value);
         return;
@@ -80,6 +82,7 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
     };
     const phonePasteHandler = (e: React.ClipboardEvent<HTMLInputElement>) => {
       e.preventDefault();
+      setInputValue(e.clipboardData.getData("text"));
       let value = e.clipboardData.getData("text");
       value = value.replaceAll(/\D/g, "").slice(0, 11);
       if (value[0] == "7") {
@@ -136,6 +139,7 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
       <>
         <div className={styles.field}>
           <label>
+            <p>{inputValue}</p>
             <input
               className={
                 styles.field__input + (error?.message ? " " + styles.error : "")

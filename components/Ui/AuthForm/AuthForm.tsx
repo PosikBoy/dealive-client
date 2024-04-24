@@ -8,7 +8,6 @@ import { register as authRegister, login } from "@/store/auth/auth.actions";
 import InputField from "@/components/Ui/InputField/InputField";
 import { FC, useState } from "react";
 import Button from "../Button/Button";
-import Heading3 from "../Heading3/Heading3";
 
 interface IFormData {
   email: string;

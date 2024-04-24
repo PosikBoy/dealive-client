@@ -11,6 +11,7 @@ import TextArea from "@/components/Ui/TextArea/TextArea";
 import Image from "next/image";
 import Brightness from "@/components/Ui/Brightness/Brightness";
 import { useTypedSelector } from "@/hooks/redux.hooks";
+import ModalWindow from "@/components/Ui/ModalWindow/ModalWindow";
 
 interface IAddress {
   address: string;
@@ -81,37 +82,7 @@ const OrderForm = () => {
       <div className={styles.orderForm__body}>
         <div className={styles.orderForm__info}>
           <p className={styles.orderForm__parcel}>О посылке</p>
-          {/* <div className={styles.orderForm__field}>
-            <Controller
-              name="phone"
-              control={control}
-              defaultValue=""
-              rules={{
-                required: "Нужно для связи с вами",
-                pattern: {
-                  value: /^(?:\+7|\b8)\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/,
-                  message: "Введите номер телефона",
-                },
-              }}
-              render={({ field }) => (
-                <PhoneInputField
-                  onChange={(value: any) => field.onChange(value)}
-                  value={field.value}
-                  error={errors.phone}
-                  onBlur={field.onBlur}
-                  placeholder="Номер телефона"
-                  required
-                />
-              )}
-            />
-          </div>
-          <div className={styles.orderForm__field}>
-            <InputField
-              type="text"
-              placeholder="Как к вам обращаться"
-              {...register("phoneName")}
-            />
-          </div> */}
+
           <div className={styles.orderForm__field}>
             <InputField
               type="text"
@@ -273,7 +244,7 @@ const OrderForm = () => {
           </div>
         )}
 
-        <div className={styles.orderForm__sendOrder + " " + styles.sendOrder}>
+        <div className={styles.sendOrder}>
           <p className={styles.sendOrder__title}>Предложите цену</p>
           <div className={styles.sendOrder__price}>
             <div className={styles.sendOrder__priceField}>
@@ -304,34 +275,27 @@ const OrderForm = () => {
                 />
               </button>
               {isPriceInfo && (
-                <>
-                  <div className={styles.sendOrder__infoContainer}>
-                    <div className={styles.sendOrder__info}>
-                      <div className={styles.sendOrder__infoHeading}>
-                        <p>О цене</p>
-                        <div
-                          className={styles.sendOrder__close}
-                          onClick={() => setIsPriceInfo(false)}
-                        ></div>
-                      </div>
-                      <p>
-                        Пока что наш сервис не умеет считать цену, поэтому у вас
-                        есть возможность предложить цену самостоятельно.
-                      </p>
-                      <p>
-                        Обратите внимание, что курьеры не поедут за сильно
-                        маленькую цену и с радостью выполнят ваш заказ, если он
-                        будет хорошо оплачен.
-                      </p>
-                      <p>Примерные цены:</p>
-                      <p>Доставка внутри МКАД: 700р.</p>
-                      <p>Доставка за МКАД до 5 км: 1000р.</p>
-                      <p>Доставка за МКАД до 15 км: 1400р.</p>
-                    </div>
+                <ModalWindow
+                  title="О цене"
+                  callback={() => setIsPriceInfo(false)}
+                  className={styles.modalWindow}
+                >
+                  <div className={styles.modalWindow__content}>
+                    <p>
+                      Пока что наш сервис не умеет считать цену, поэтому у вас
+                      есть возможность предложить цену самостоятельно.
+                    </p>
+                    <p>
+                      Обратите внимание, что курьеры не поедут за сильно
+                      маленькую цену и с радостью выполнят ваш заказ, если он
+                      будет хорошо оплачен.
+                    </p>
+                    <p>Примерные цены:</p>
+                    <p>Доставка внутри МКАД: 700р.</p>
+                    <p>Доставка за МКАД до 5 км: 1000р.</p>
+                    <p>Доставка за МКАД до 15 км: 1400р.</p>
                   </div>
-
-                  <Brightness onClick={() => setIsPriceInfo(false)} />
-                </>
+                </ModalWindow>
               )}
             </div>
           </div>

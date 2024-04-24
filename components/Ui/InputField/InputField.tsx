@@ -20,7 +20,7 @@ const InputField = forwardRef<HTMLInputElement, IField>(
                 " " +
                 (error?.message ? " " + styles.error : "")
               }
-              placeholder=""
+              placeholder=" "
               type={type}
               ref={ref}
               {...rest}

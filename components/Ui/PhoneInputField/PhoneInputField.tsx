@@ -13,12 +13,10 @@ interface IPhoneField extends InputHTMLAttributes<HTMLInputElement> {
 
 const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
   ({ onChange, error, placeholder, required, ...rest }, ref) => {
-    const [inputValue, setInputValue] = useState<string>("");
     const phoneChangeHandler = (e: any) => {
       //React.ChangeEvent<HTMLInputElement>
       const regex = /[0-9]|\+/;
       let value = e.target.value;
-      setInputValue(e.target.value);
       if (e.nativeEvent.data == null) {
         onChange(value);
         return;
@@ -26,45 +24,27 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
 
       if (regex.test(value[value.length - 1]) && value.length < 19) {
         value = value.replaceAll(/\D/g, "");
+        if (value[0] == "9") {
+          value = "7" + value;
+        }
         if (value[0] == "7") {
           value =
-            "+" +
-            value[0] +
-            " (" +
-            (value[1] ? value[1] : "") +
-            (value[2] ? value[2] : "") +
-            (value[3] ? value[3] + ") " : "") +
-            (value[4] ? value[4] : "") +
-            (value[5] ? value[5] : "") +
-            (value[6] ? value[6] + "-" : "") +
-            (value[7] ? value[7] : "") +
-            (value[8] ? value[8] + "-" : "") +
-            (value[9] ? value[9] : "") +
-            (value[10] ? value[10] : "");
-          onChange(value);
-          return;
-        }
-        if (value[0] == "8") {
-          value =
-            value[0] +
-            " (" +
-            (value[1] ? value[1] : "") +
-            (value[2] ? value[2] : "") +
-            (value[3] ? value[3] + ") " : "") +
-            (value[4] ? value[4] : "") +
-            (value[5] ? value[5] : "") +
-            (value[6] ? value[6] + "-" : "") +
-            (value[7] ? value[7] : "") +
-            (value[8] ? value[8] + "-" : "") +
-            (value[9] ? value[9] : "") +
-            (value[10] ? value[10] : "");
-          onChange(value);
-          return;
-        }
-        if (value[0] == "9") {
-          value =
             "+7 (" +
-            value[0] +
+            (value[1] ? value[1] : "") +
+            (value[2] ? value[2] : "") +
+            (value[3] ? value[3] + ") " : "") +
+            (value[4] ? value[4] : "") +
+            (value[5] ? value[5] : "") +
+            (value[6] ? value[6] + "-" : "") +
+            (value[7] ? value[7] : "") +
+            (value[8] ? value[8] + "-" : "") +
+            (value[9] ? value[9] : "") +
+            (value[10] ? value[10] : "");
+          onChange(value);
+          return;
+        } else if (value[0] == "8") {
+          value =
+            "8 (" +
             (value[1] ? value[1] : "") +
             (value[2] ? value[2] : "") +
             (value[3] ? value[3] + ") " : "") +
@@ -82,14 +62,14 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
     };
     const phonePasteHandler = (e: React.ClipboardEvent<HTMLInputElement>) => {
       e.preventDefault();
-      setInputValue(e.clipboardData.getData("text"));
       let value = e.clipboardData.getData("text");
       value = value.replaceAll(/\D/g, "").slice(0, 11);
+      if (value[0] == "9") {
+        value = "7" + value;
+      }
       if (value[0] == "7") {
         value =
-          "+" +
-          value[0] +
-          " (" +
+          "+7 (" +
           (value[1] ? value[1] : "") +
           (value[2] ? value[2] : "") +
           (value[3] ? value[3] + ") " : "") +
@@ -104,8 +84,7 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
         return;
       } else if (value[0] == "8") {
         value =
-          value[0] +
-          " (" +
+          "8 (" +
           (value[1] ? value[1] : "") +
           (value[2] ? value[2] : "") +
           (value[3] ? value[3] + ") " : "") +
@@ -118,40 +97,22 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
           (value[10] ? value[10] : "");
         onChange(value);
         return;
-      } else if (value[0] == "9") {
-        value =
-          "+7 (" +
-          value[0] +
-          (value[1] ? value[1] : "") +
-          (value[2] ? value[2] + ")" : "") +
-          (value[3] ? value[3] : "") +
-          (value[4] ? value[4] : "") +
-          (value[5] ? value[5] + "-" : "") +
-          (value[6] ? value[6] : "") +
-          (value[7] ? value[7] + "-" : "") +
-          (value[8] ? value[8] : "") +
-          (value[9] ? value[9] : "");
-        onChange(value);
-        return;
       }
-      onChange("11111");
     };
     return (
       <>
         <div className={styles.field}>
           <label>
-            <p>{inputValue}</p>
             <input
               className={
                 styles.field__input + (error?.message ? " " + styles.error : "")
               }
               ref={ref}
-              placeholder=""
-              {...rest}
-              onInput={phoneChangeHandler}
-              // onChange={phoneChangeHandler}
+              placeholder=" "
+              onChange={phoneChangeHandler}
               onPaste={phonePasteHandler}
               type="tel"
+              {...rest}
             />
             <span
               className={

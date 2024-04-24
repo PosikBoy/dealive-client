@@ -1,0 +1,49 @@
+.modalWindow {
+  position: fixed;
+
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px;
+  &__title {
+    color: black;
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    background-color: var(--main-block-color);
+    border-radius: 10px;
+  }
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__close {
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 30px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 12px;
+      top: 50%;
+      left: 50%;
+      background-color: #bebebe;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+    &::before {
+      transform: rotate(135deg);
+    }
+  }
+}

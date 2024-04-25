@@ -17,7 +17,8 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
       //React.ChangeEvent<HTMLInputElement>
       const regex = /[0-9]|\+/;
       let value = e.target.value;
-      if (e.nativeEvent.data == null) {
+      console.log(e);
+      if (e.nativeEvent.data === null) {
         onChange(value);
         return;
       }
@@ -107,9 +108,10 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
               className={
                 styles.field__input + (error?.message ? " " + styles.error : "")
               }
+              autoComplete="phone"
               ref={ref}
               placeholder=" "
-              onChange={phoneChangeHandler}
+              onInput={phoneChangeHandler}
               onPaste={phonePasteHandler}
               type="tel"
               {...rest}

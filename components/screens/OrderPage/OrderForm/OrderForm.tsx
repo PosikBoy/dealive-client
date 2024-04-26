@@ -12,6 +12,7 @@ import Image from "next/image";
 import Brightness from "@/components/Ui/Brightness/Brightness";
 import { useTypedSelector } from "@/hooks/redux.hooks";
 import ModalWindow from "@/components/Ui/ModalWindow/ModalWindow";
+import Heading3 from "@/components/Ui/Heading3/Heading3";
 
 interface IAddress {
   address: string;
@@ -128,7 +129,7 @@ const OrderForm = () => {
             )}
           </div>
         </div>
-
+        <Heading3> Маршрут курьера</Heading3>
         {fields.map((address, index) => {
           return (
             <div className={styles.addressForm} key={address.id}>

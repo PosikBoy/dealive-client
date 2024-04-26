@@ -9,7 +9,17 @@ interface IField extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const InputField = forwardRef<HTMLInputElement, IField>(
-  ({ type = "text", placeholder, required = false, error, ...rest }, ref) => {
+  (
+    {
+      type = "text",
+      placeholder,
+      required = false,
+      error,
+      autoComplete,
+      ...rest
+    },
+    ref
+  ) => {
     return (
       <>
         <div className={styles.field}>
@@ -23,6 +33,7 @@ const InputField = forwardRef<HTMLInputElement, IField>(
               placeholder=" "
               type={type}
               ref={ref}
+              autoComplete={autoComplete}
               {...rest}
             />
             <span

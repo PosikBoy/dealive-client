@@ -42,11 +42,13 @@ const MiniForm = () => {
           <InputField
             type="text"
             placeholder="Где забрать?"
+            autoComplete="address-line1"
             {...register("pickupAddress")}
           />
           <InputField
             type="text"
             placeholder="Куда доставить?"
+            autoComplete="off"
             {...register("destinationAddress")}
           />
         </div>

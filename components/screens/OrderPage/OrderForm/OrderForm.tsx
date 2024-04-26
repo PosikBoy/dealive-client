@@ -41,6 +41,7 @@ const OrderForm = () => {
     control,
     reset,
     setValue,
+    clearErrors,
   } = useForm<IOrderData>({
     defaultValues: {
       addresses: [{ address: "" }, { address: "" }],
@@ -78,16 +79,17 @@ const OrderForm = () => {
     "Вещи",
     "Хрупкое",
   ];
+
   return (
     <form className={styles.orderForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.orderForm__body}>
         <div className={styles.orderForm__info}>
           <p className={styles.orderForm__parcel}>О посылке</p>
-
           <div className={styles.orderForm__field}>
             <InputField
               type="text"
               placeholder="Что везем"
+              autoComplete="off"
               required
               {...register("parcelType", {
                 required:
@@ -100,7 +102,10 @@ const OrderForm = () => {
                 return (
                   <span
                     className={styles.orderForm__parcelSuggestion}
-                    onClick={() => setValue("parcelType", value)}
+                    onClick={() => {
+                      setValue("parcelType", value);
+                      clearErrors("parcelType");
+                    }}
                   >
                     {value}
                   </span>
@@ -149,6 +154,7 @@ const OrderForm = () => {
                 <InputField
                   type="text"
                   placeholder="Введите адрес"
+                  autoComplete="address-line1"
                   {...register(`addresses.${index}.address`, {
                     required: "Заполните адрес",
                   })}
@@ -187,6 +193,7 @@ const OrderForm = () => {
                   <div className={styles.additional__phoneName}>
                     <InputField
                       type="text"
+                      autoComplete="name"
                       placeholder="Контактное лицо"
                       {...register(`addresses.${index}.phoneName`)}
                     />
@@ -195,12 +202,14 @@ const OrderForm = () => {
                     <div className={styles.additional__floor}>
                       <InputField
                         type="text"
+                        autoComplete="address-line2"
                         placeholder="Этаж"
                         {...register(`addresses.${index}.floor`)}
                       />
                     </div>
                     <div className={styles.additional__apartment}>
                       <InputField
+                        autoComplete="address-line2"
                         type="text"
                         placeholder="Квартира"
                         {...register(`addresses.${index}.apartment`)}
@@ -210,6 +219,7 @@ const OrderForm = () => {
 
                   <div className={styles.additional__comment}>
                     <TextArea
+                      autoComplete="note"
                       placeholder="Комментарий"
                       {...register(`addresses.${index}.info`)}
                     ></TextArea>

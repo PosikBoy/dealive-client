@@ -4,7 +4,7 @@
   "short_name": "Dealive",
   "scope": "/",
   "start_url": "/order",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#3586ff",
   "background_color": "#3586ff",

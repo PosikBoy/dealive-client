@@ -106,6 +106,7 @@ const AuthForm: FC = () => {
           type="text"
           placeholder="Электронная почта"
           required
+          autoComplete="username"
           {...register("email", {
             required: "Заполните это поле",
             minLength: {
@@ -121,6 +122,7 @@ const AuthForm: FC = () => {
         />
         <InputField
           type="password"
+          autoComplete="password"
           placeholder="Пароль"
           required
           {...register("password", {

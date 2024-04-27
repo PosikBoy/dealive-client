@@ -1,10 +1,17 @@
+export interface IUser {
+  id: number;
+  name: string;
+  email: string;
+  phoneNumber: string;
+}
+
 export interface IEmailPassword {
   email: string;
   password: string;
 }
 
 export interface IAuthResponse {
-  userId: number;
+  user: IUser;
   accessToken: string;
 }
 

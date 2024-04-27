@@ -8,15 +8,16 @@ import {
 import axios from "axios";
 
 import { getContentType } from "@/api/api.helper";
+import instance from "@/api/api.interceptor";
 
 class AuthService {
   async auth(type: "login" | "register", data: IEmailPassword) {
     try {
-      const response = await axios.post<
+      const response = await instance.post<
         IEmailPassword,
         { data: IAuthResponse }
       >(process.env.SERVER_URL + "/" + type, data, getContentType());
-
+      console.log(response.data.accessToken);
       if (response.data.accessToken) {
         saveDataToStorage(response.data);
       }
@@ -27,7 +28,7 @@ class AuthService {
   }
   async getNewTokens() {
     try {
-      const response = await axios.post<string, { data: IAuthResponse }>(
+      const response = await instance.get<string, { data: IAuthResponse }>(
         process.env.SERVER_URL + "/refresh",
         getContentType()
       );
@@ -42,10 +43,11 @@ class AuthService {
   }
   async logOut() {
     try {
-      const response = await axios.get<string, { data: { message: string } }>(
-        process.env.SERVER_URL + "/logout",
-        getContentType()
-      );
+      const response = await instance.post<
+        string,
+        { data: { message: string } }
+      >(process.env.SERVER_URL + "/logout");
+      console.log(response);
       if (response.data) removeInfoStorage();
       return response.data;
     } catch (error: any) {

@@ -9,7 +9,6 @@ import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
 import RadioButton from "@/components/Ui/RadioButton/RadioButton";
 import TextArea from "@/components/Ui/TextArea/TextArea";
 import Image from "next/image";
-import Brightness from "@/components/Ui/Brightness/Brightness";
 import { useTypedSelector } from "@/hooks/redux.hooks";
 import ModalWindow from "@/components/Ui/ModalWindow/ModalWindow";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
@@ -61,10 +60,14 @@ const OrderForm = () => {
   const [isPriceInfo, setIsPriceInfo] = useState(false);
 
   const state = useTypedSelector((state) => state.orderForm);
-
+  const user = useTypedSelector((state) => state.auth.user);
   useEffect(() => {
     setValue(`addresses.${0}.address`, state.pickupAddress);
     setValue(`addresses.${1}.address`, state.destinationAddress);
+    if (user) {
+      setValue("phone", user.phoneNumber || "");
+      setValue("phoneName", user.name || "");
+    }
   }, []);
 
   const onSubmit = (data: any) => {
@@ -98,9 +101,10 @@ const OrderForm = () => {
               error={errors.parcelType}
             />
             <div className={styles.orderForm__parcelSuggestions}>
-              {parcelSuggestions.map((value) => {
+              {parcelSuggestions.map((value, index) => {
                 return (
                   <span
+                    key={index}
                     className={styles.orderForm__parcelSuggestion}
                     onClick={() => {
                       setValue("parcelType", value);

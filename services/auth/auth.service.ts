@@ -6,7 +6,7 @@ import {
 } from "@/services/auth/auth.helper";
 
 import axios from "axios";
-
+import instance from "@/api/api.interceptor";
 import { getContentType } from "@/api/api.helper";
 
 class AuthService {
@@ -42,10 +42,10 @@ class AuthService {
   }
   async logOut() {
     try {
-      const response = await axios.get<string, { data: { message: string } }>(
-        process.env.SERVER_URL + "/logout",
-        getContentType()
-      );
+      const response = await instance.post<
+        string,
+        { data: { message: string } }
+      >(process.env.SERVER_URL + "/logout", getContentType());
       if (response.data) removeInfoStorage();
       return response.data;
     } catch (error: any) {

@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IProfileInfo, IUser } from "../profile/profile.interface";
 import profileService from "@/services/profile/profile.service";
+import { saveDataToStorage } from "@/services/auth/auth.helper";
 
 export const getProfile = createAsyncThunk<IUser, void>(
   "profile/getProfile",
@@ -15,10 +16,11 @@ export const getProfile = createAsyncThunk<IUser, void>(
 );
 
 export const updateProfile = createAsyncThunk<IUser, IProfileInfo>(
-  "auth/login",
+  "profile/updateProfile",
   async (data, thunkApi) => {
     try {
       const response = await profileService.updateProfile(data);
+
       return response;
     } catch (error) {
       return thunkApi.rejectWithValue(error);

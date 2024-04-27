@@ -11,7 +11,6 @@ const initialState: IInitialState = {
   user: {
     id: 0,
     name: "",
-    secondName: "",
     email: "",
     phoneNumber: "",
   },
@@ -39,6 +38,7 @@ export const profileSlice = createSlice({
       })
       .addCase(updateProfile.fulfilled, (state, action) => {
         state.isLoading = false;
+        console.log(action.payload);
         state.user = action.payload;
       })
       .addCase(updateProfile.rejected, (state) => {

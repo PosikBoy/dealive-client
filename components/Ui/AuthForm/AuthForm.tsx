@@ -8,6 +8,7 @@ import { register as authRegister, login } from "@/store/auth/auth.actions";
 import InputField from "@/components/Ui/InputField/InputField";
 import { FC, useState } from "react";
 import Button from "../Button/Button";
+import { IProfileResponse } from "@/services/types/profile.interface";
 
 interface IFormData {
   email: string;
@@ -18,7 +19,7 @@ interface IFormData {
 interface ResponseType {
   payload: {
     accessToken: string;
-    userId: number;
+    user: IProfileResponse;
   };
 }
 
@@ -34,7 +35,6 @@ const AuthForm: FC = () => {
   });
 
   const [type, setType] = useState("register");
-  const router = useRouter();
 
   const { error, isLoading } = useTypedSelector((state) => state.auth);
   const dispatch = useTypedDispatch();
@@ -50,11 +50,6 @@ const AuthForm: FC = () => {
       response = (await dispatch(authRegister(authData))) as ResponseType;
     } else {
       response = (await dispatch(login(authData))) as ResponseType;
-    }
-
-    if (response.payload.accessToken) {
-      router.replace("/");
-      reset();
     }
   };
 

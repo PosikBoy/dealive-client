@@ -10,7 +10,6 @@ import { useForm } from "react-hook-form";
 
 interface IUserFormData {
   name: string;
-  secondName: string;
   email: string;
   phoneNumber: string;
 }
@@ -23,7 +22,7 @@ const ProfileInfo = () => {
     reset,
   } = useForm();
   const router = useRouter();
-  const userId = useTypedSelector((state) => state.auth.userId);
+  const user = useTypedSelector((state) => state.auth.user);
   const dispatch = useTypedDispatch();
   const logOutHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -31,11 +30,9 @@ const ProfileInfo = () => {
     router.replace("/");
   };
   useEffect(() => {
-    if (!userId) {
+    if (!user?.id) {
       router.replace("/");
     }
-    const user = dispatch(getProfile());
-    console.log(user);
     reset(user);
   }, [dispatch]);
   const onSubmit = async (data: any) => {

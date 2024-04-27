@@ -1,15 +1,16 @@
-import { getUserIdStorage } from "@/services/auth/auth.helper";
+import { getUserStorage } from "@/services/auth/auth.helper";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { checkAuth, login, logOut, register } from "./auth.actions";
 import { isError } from "../utils/isError";
+import { IUser } from "./auth.interface";
 interface IInitialState {
-  userId: number | null;
+  user: IUser | null;
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: IInitialState = {
-  userId: (getUserIdStorage() as number) || null,
+  user: getUserStorage() || null,
   isLoading: false,
   error: null,
 };
@@ -25,7 +26,8 @@ export const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userId = action.payload.userId;
+        console.log(action.payload);
+        state.user = action.payload.user;
       })
 
       .addCase(login.pending, (state) => {
@@ -33,7 +35,8 @@ export const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userId = action.payload.userId;
+        console.log(action.payload);
+        state.user = action.payload.user;
       })
       .addCase(logOut.pending, (state) => {
         state.isLoading = true;
@@ -47,7 +50,7 @@ export const authSlice = createSlice({
       })
       .addCase(checkAuth.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userId = action.payload.userId;
+        state.user = action.payload.user;
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.error = action.payload;

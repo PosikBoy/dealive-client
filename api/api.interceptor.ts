@@ -5,11 +5,12 @@ import {
 import axios from "axios";
 import { errorCatch } from "./api.helper";
 import authService from "@/services/auth/auth.service";
+import Cookies from "@/utils/cookie";
 
 const instance = axios.create({
+  withCredentials: true,
   baseURL: process.env.SERVER_URL,
   headers: { "Content-Type": "application/json" },
-  withCredentials: true,
 });
 
 instance.interceptors.request.use((config) => {
@@ -17,6 +18,7 @@ instance.interceptors.request.use((config) => {
   if (config.headers && accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
+  console.log(config);
   return config;
 });
 

@@ -1,19 +1,14 @@
 import instance from "@/api/api.interceptor";
 import { IProfileResponse } from "../types/profile.interface";
 import { getContentType } from "@/api/api.helper";
+import { saveDataToStorage, saveProfileStorage } from "../auth/auth.helper";
 
 const USERS_URL = process.env.SERVER_URL + "/profile";
 
-interface profileInfo {
+interface IProfileInfo {
   name: string;
-  secondName: string;
   email: string;
   phoneNumber: string;
-}
-
-interface IUpdateProfileResponse {
-  message: string;
-  profile: IProfileResponse;
 }
 
 class ProfileService {
@@ -24,13 +19,16 @@ class ProfileService {
     });
     return response.data;
   }
-  async updateProfile(data: profileInfo) {
-    const response = await instance.put<IUpdateProfileResponse>(
+  async updateProfile(data: IProfileInfo) {
+    const response = await instance.put<IProfileResponse>(
       process.env.SERVER_URL + "/profile",
       data,
       getContentType()
     );
-    return response.data.profile;
+    if (response.data) {
+      saveProfileStorage(response.data);
+    }
+    return response.data;
   }
 }
 

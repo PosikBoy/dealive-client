@@ -17,7 +17,7 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
       //React.ChangeEvent<HTMLInputElement>
       const regex = /[0-9]|\+/;
       let value = e.target.value;
-      console.log(e);
+
       if (e.nativeEvent.data === null) {
         onChange(value);
         return;

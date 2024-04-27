@@ -12,13 +12,15 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
-  const userId = useTypedSelector((state) => state.auth.userId);
+  const user = useTypedSelector((state) => state.auth.user);
 
   const onLinkHandler = () => {
     document.body.classList.toggle("modal-open");
     setIsOpen(!isOpen);
   };
-
+  useEffect(() => {
+    setIsAuthModalOpen(false);
+  }, [user]);
   return (
     <header className={styles.header}>
       {isOpen && (
@@ -109,7 +111,7 @@ const Header = () => {
             >
               О нас
             </Link>
-            {userId ? (
+            {user?.id ? (
               <Link
                 href="/profile"
                 onClick={onLinkHandler}

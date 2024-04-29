@@ -35,7 +35,7 @@ const MiniForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)} className={styles.miniForm}>
       <div className={styles.miniForm__body}>
-        <Heading3 className={styles.miniForm__heading}>
+        <Heading3 color="black" className={styles.miniForm__heading}>
           Оставьте заявку
         </Heading3>
         <div className={styles.miniForm__inputs}>

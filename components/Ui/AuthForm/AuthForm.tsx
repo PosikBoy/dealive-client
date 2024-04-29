@@ -2,13 +2,13 @@
 
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import styles from "./AuthForm.module.scss";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { register as authRegister, login } from "@/store/auth/auth.actions";
 import InputField from "@/components/Ui/InputField/InputField";
 import { FC, useState } from "react";
 import Button from "../Button/Button";
 import { IProfileResponse } from "@/services/types/profile.interface";
+import { useRouter } from "next/navigation";
 
 interface IFormData {
   email: string;
@@ -33,9 +33,9 @@ const AuthForm: FC = () => {
   } = useForm<IFormData>({
     mode: "onChange",
   });
-
+  const router = useRouter();
   const [type, setType] = useState("register");
-
+  const [shownError, setShownError] = useState(false);
   const { error, isLoading } = useTypedSelector((state) => state.auth);
   const dispatch = useTypedDispatch();
 
@@ -51,6 +51,10 @@ const AuthForm: FC = () => {
     } else {
       response = (await dispatch(login(authData))) as ResponseType;
     }
+    if (response.payload.user) {
+      router.replace("/profile");
+    }
+    setShownError(true);
   };
 
   const validateRepeatPasword = () => {
@@ -68,6 +72,7 @@ const AuthForm: FC = () => {
         <button
           type="button"
           onClick={(e) => {
+            setShownError(false);
             e.preventDefault();
             setType("login");
           }}
@@ -81,6 +86,7 @@ const AuthForm: FC = () => {
         </button>
         <button
           onClick={(e) => {
+            setShownError(false);
             e.preventDefault();
             setType("register");
           }}
@@ -95,7 +101,9 @@ const AuthForm: FC = () => {
         </button>
       </div>
       {isLoading && <p>..Loading</p>}
-      {error && <p>{error}</p>}
+      {error && shownError && !isLoading && (
+        <div className={styles.authForm__error}>{error}</div>
+      )}
       <div className={styles.authForm__inputs}>
         <InputField
           type="text"

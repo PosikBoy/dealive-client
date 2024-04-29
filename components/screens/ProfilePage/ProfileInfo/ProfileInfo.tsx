@@ -9,13 +9,25 @@ import Button from "@/components/Ui/Button/Button";
 import { updateProfile } from "@/store/profile/profile.actions";
 import { logOut as logOutAction } from "@/store/auth/auth.actions";
 import { useRouter } from "next/navigation";
+import Heading3 from "@/components/Ui/Heading3/Heading3";
+import { useState } from "react";
 
 interface IFormState {
   name: string;
   phoneNumber: string;
   email: string;
 }
+
+interface ResponseType {
+  payload: {
+    name: string;
+    id: number;
+    phoneNumber: string;
+    email: string;
+  };
+}
 const ProfileInfo = () => {
+  const [success, setSuccess] = useState("");
   const user = useTypedSelector((state) => state.auth.user);
   const router = useRouter();
   const {
@@ -31,9 +43,16 @@ const ProfileInfo = () => {
       email: user?.email || "",
     },
   });
+
+  const profile = useTypedSelector((state) => state.profile);
   const dispatch = useTypedDispatch();
-  const onSubmit = (data: IFormState) => {
-    dispatch(updateProfile(data));
+  const onSubmit = async (data: IFormState) => {
+    const response = (await dispatch(updateProfile(data))) as ResponseType;
+    console.log(response);
+    if (response?.payload?.name) {
+      setSuccess("Ваши данные были успешно изменены");
+    }
+    setTimeout(() => setSuccess(""), 3000);
   };
 
   const logOut = async () => {
@@ -47,6 +66,16 @@ const ProfileInfo = () => {
         onSubmit={handleSubmit(onSubmit)}
         className={styles.profileInfo__form}
       >
+        <Heading3 color="black" className={styles.profileInfo__title}>
+          Ваши данные
+        </Heading3>
+        {profile.error ? (
+          <div className={styles.profileInfo__error}>{profile.error}</div>
+        ) : null}
+        {success ? (
+          <div className={styles.profileInfo__success}>{success}</div>
+        ) : null}
+
         <InputField placeholder="Имя пользователя" {...register("name")} />
 
         <Controller
@@ -70,7 +99,24 @@ const ProfileInfo = () => {
           )}
         />
 
-        <InputField placeholder="Электронная почта" {...register("email")} />
+        <InputField
+          type="text"
+          placeholder="Электронная почта"
+          required
+          autoComplete="username"
+          {...register("email", {
+            required: "Заполните это поле",
+            minLength: {
+              value: 3,
+              message: "Введите электронную почту",
+            },
+            pattern: {
+              value: /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/,
+              message: "Введите электронную почту",
+            },
+          })}
+          error={errors?.email}
+        />
         <div className={styles.profileInfo__buttons}>
           <Button type="submit">Обновить данные</Button>
           <Button type="button" onClick={() => logOut()}>

@@ -12,29 +12,30 @@ import { getContentType } from "@/api/api.helper";
 class AuthService {
   async auth(type: "login" | "register", data: IEmailPassword) {
     try {
-      const response = await instance.post<
+      const response = await axios.post<
         IEmailPassword,
         { data: IAuthResponse }
-      >(process.env.SERVER_URL + "/" + type, data, getContentType());
-      console.log(response.data.accessToken);
-      if (response.data.accessToken) {
+      >(process.env.SERVER_URL + "/" + type, data, { withCredentials: true });
+      if (response?.data.accessToken) {
         saveDataToStorage(response.data);
       }
       return response.data;
     } catch (error: any) {
+      console.log(error);
       throw Error(error.response.data.message);
     }
   }
   async getNewTokens() {
     try {
-      const response = await instance.get<string, { data: IAuthResponse }>(
+      const response = await axios.get<string, { data: IAuthResponse }>(
         process.env.SERVER_URL + "/refresh",
-        getContentType()
+        { withCredentials: true }
       );
 
       if (response.data.accessToken) {
         saveDataToStorage(response.data);
       }
+
       return response.data;
     } catch (error: any) {
       throw Error(error.response.data.message);

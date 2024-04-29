@@ -23,7 +23,9 @@ const ModalWindow: FC<IModalWindow> = ({
         <div className="container">
           <div className={styles.modalWindow__body}>
             <div className={styles.modalWindow__heading}>
-              <Heading3 className={styles.modalWindow__title}>{title}</Heading3>
+              <Heading3 color="black" className={styles.modalWindow__title}>
+                {title}
+              </Heading3>
               <div
                 className={styles.modalWindow__close}
                 onClick={callback}

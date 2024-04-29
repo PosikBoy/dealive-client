@@ -16,4 +16,19 @@
     display: flex;
     gap: 10px;
   }
+  &__title {
+    color: var(--black);
+  }
+  &__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+  }
+  &__success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+  }
 }

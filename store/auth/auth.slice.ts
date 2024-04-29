@@ -52,6 +52,7 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
+        console.log(action.payload);
         state.error = action.payload;
         state.isLoading = false;
       });

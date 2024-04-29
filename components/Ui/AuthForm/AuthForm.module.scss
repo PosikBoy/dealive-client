@@ -14,10 +14,15 @@
     display: flex;
     background-color: #d1d1d1;
     border-radius: 12px;
-    margin-bottom: 15px;
     transition: all 0.3s;
   }
-
+  &__error {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
   &__type {
     display: flex;
     padding: 6px 0;

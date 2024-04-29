@@ -18,7 +18,6 @@ instance.interceptors.request.use((config) => {
   if (config.headers && accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
-  console.log(config);
   return config;
 });
 
@@ -32,7 +31,7 @@ instance.interceptors.response.use(
         errorCatch(error) === "jwt expired" ||
         errorCatch(error) === "Auth required") &&
       error.config &&
-      error._isRetry
+      !error.config._isRetry
     ) {
       originalRequest._isRetry = true;
       try {

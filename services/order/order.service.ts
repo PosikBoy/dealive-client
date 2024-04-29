@@ -1,13 +1,14 @@
 import instance from "@/api/api.interceptor";
 
 interface IOrderData {
-  phone: string;
-  phoneName: string;
-  parcelType: string;
-  weight: string;
-  status: string;
-  info: string;
-  price: number;
+  orderData: {
+    phone?: string;
+    phoneName?: string;
+    parcelType: string;
+    weight: string;
+    info?: string;
+    price: number;
+  };
   addresses: IAddress[];
 }
 
@@ -27,7 +28,7 @@ class OrderService {
     return instance.get(process.env.SERVER_URL + "/orders");
   }
   async sendOrder(data: IOrderData) {
-    return instance.post(process.env.SERVER_URL + "/orders", data);
+    return instance.post(process.env.SERVER_URL + "/order", data);
   }
 }
 

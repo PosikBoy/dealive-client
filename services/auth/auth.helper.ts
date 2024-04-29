@@ -3,8 +3,7 @@ import { IAuthResponse } from "../types/auth.interface";
 import { IProfileResponse } from "../types/profile.interface";
 
 export const saveAccessTokenStorage = (accessToken: string) => {
-  console.log("saveAccessTokenStorage", accessToken);
-  Cookies.setCookie("accessToken", accessToken);
+  localStorage.setItem("accessToken", accessToken);
 };
 
 export const saveProfileStorage = (data: IProfileResponse) => {
@@ -17,12 +16,12 @@ export const saveDataToStorage = (data: IAuthResponse) => {
 };
 
 export const removeInfoStorage = () => {
-  Cookies.deleteCookie("accessToken");
+  localStorage.removeItem("accessToken");
   localStorage.removeItem("user");
 };
 
 export const getAccessTokenStorage = () => {
-  const accessToken = Cookies.getCookie("accessToken");
+  const accessToken = localStorage.getItem("accessToken")
 
   return accessToken || null;
 };

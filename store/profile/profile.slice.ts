@@ -5,6 +5,7 @@ import { IUser } from "./profile.interface";
 interface IInitialState {
   user: IUser;
   isLoading: boolean;
+  error: string | null | undefined;
 }
 
 const initialState: IInitialState = {
@@ -15,6 +16,7 @@ const initialState: IInitialState = {
     phoneNumber: "",
   },
   isLoading: false,
+  error: null,
 };
 
 export const profileSlice = createSlice({
@@ -28,9 +30,11 @@ export const profileSlice = createSlice({
       })
       .addCase(getProfile.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = null;
         state.user = action.payload;
       })
-      .addCase(getProfile.rejected, (state) => {
+      .addCase(getProfile.rejected, (state, action) => {
+        state.error = action.error.message;
         state.isLoading = false;
       })
       .addCase(updateProfile.pending, (state) => {
@@ -38,10 +42,11 @@ export const profileSlice = createSlice({
       })
       .addCase(updateProfile.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
         state.user = action.payload;
+        state.error = null;
       })
-      .addCase(updateProfile.rejected, (state) => {
+      .addCase(updateProfile.rejected, (state, action) => {
+        state.error = action.error.message;
         state.isLoading = false;
       });
   },

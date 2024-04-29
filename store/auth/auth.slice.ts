@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { checkAuth, login, logOut, register } from "./auth.actions";
 import { isError } from "../utils/isError";
 import { IUser } from "./auth.interface";
+
 interface IInitialState {
   user: IUser | null;
   isLoading: boolean;
@@ -26,10 +27,8 @@ export const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
         state.user = action.payload.user;
       })
-
       .addCase(login.pending, (state) => {
         state.isLoading = true;
       })
@@ -42,9 +41,9 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(logOut.fulfilled, (state) => {
+        state.user = null;
         state.isLoading = false;
       })
-
       .addCase(checkAuth.pending, (state) => {
         state.isLoading = true;
       })

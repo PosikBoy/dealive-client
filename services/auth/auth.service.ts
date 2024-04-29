@@ -8,7 +8,6 @@ import {
 import axios from "axios";
 import instance from "@/api/api.interceptor";
 import { getContentType } from "@/api/api.helper";
-import instance from "@/api/api.interceptor";
 
 class AuthService {
   async auth(type: "login" | "register", data: IEmailPassword) {
@@ -47,8 +46,8 @@ class AuthService {
         string,
         { data: { message: string } }
       >(process.env.SERVER_URL + "/logout");
-      console.log(response);
       if (response.data) removeInfoStorage();
+      console.log(response);
       return response.data;
     } catch (error: any) {
       throw Error(error.response.data.message);

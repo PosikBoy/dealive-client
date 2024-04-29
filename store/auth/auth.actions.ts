@@ -40,6 +40,7 @@ export const logOut = createAsyncThunk<ILogOutResponse, undefined>(
   async (_, thunkApi) => {
     try {
       const response = await authService.logOut();
+
       return response;
     } catch (error: any) {
       return thunkApi.rejectWithValue({

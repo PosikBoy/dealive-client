@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-
 import styles from "./header.module.scss";
 import Link from "next/link";
 import { useState } from "react";

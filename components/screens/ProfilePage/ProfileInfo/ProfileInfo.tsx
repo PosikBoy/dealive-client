@@ -36,8 +36,8 @@ const ProfileInfo = () => {
     dispatch(updateProfile(data));
   };
 
-  const logOut = () => {
-    dispatch(logOutAction());
+  const logOut = async () => {
+    const response = await dispatch(logOutAction());
     router.replace("/");
   };
 

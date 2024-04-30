@@ -28,7 +28,6 @@ const MiniForm = () => {
   const dispatch = useTypedDispatch();
   const onSubmitHandler = (data: IMiniForm) => {
     dispatch(addData(data));
-    console.log("asdf");
     router.push("/order");
   };
 

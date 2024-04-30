@@ -9,8 +9,8 @@ export const getProfile = createAsyncThunk<IUser, void>(
     try {
       const response = await profileService.getProfile();
       return response;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error);
+    } catch (error: any) {
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -22,8 +22,9 @@ export const updateProfile = createAsyncThunk<IUser, IProfileInfo>(
       const response = await profileService.updateProfile(data);
 
       return response;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error);
+    } catch (error: any) {
+      console.log(error);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );

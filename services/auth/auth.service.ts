@@ -21,7 +21,6 @@ class AuthService {
       }
       return response.data;
     } catch (error: any) {
-      console.log(error);
       throw Error(error.response.data.message);
     }
   }
@@ -48,7 +47,6 @@ class AuthService {
         { data: { message: string } }
       >(process.env.SERVER_URL + "/logout");
       if (response.data) removeInfoStorage();
-      console.log(response);
       return response.data;
     } catch (error: any) {
       throw Error(error.response.data.message);

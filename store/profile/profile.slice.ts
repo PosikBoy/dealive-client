@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { updateProfile, getProfile } from "./profile.actions";
 import { IUser } from "./profile.interface";
+import { isError } from "../utils/isError";
 
 interface IInitialState {
   user: IUser;
@@ -33,10 +34,6 @@ export const profileSlice = createSlice({
         state.error = null;
         state.user = action.payload;
       })
-      .addCase(getProfile.rejected, (state, action) => {
-        state.error = action.error.message;
-        state.isLoading = false;
-      })
       .addCase(updateProfile.pending, (state) => {
         state.isLoading = true;
       })
@@ -45,8 +42,8 @@ export const profileSlice = createSlice({
         state.user = action.payload;
         state.error = null;
       })
-      .addCase(updateProfile.rejected, (state, action) => {
-        state.error = action.error.message;
+      .addMatcher(isError, (state, action: PayloadAction<string>) => {
+        state.error = action.payload;
         state.isLoading = false;
       });
   },

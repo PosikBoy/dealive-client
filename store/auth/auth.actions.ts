@@ -43,9 +43,7 @@ export const logOut = createAsyncThunk<ILogOutResponse, undefined>(
 
       return response;
     } catch (error: any) {
-      return thunkApi.rejectWithValue({
-        error: error.message,
-      });
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -56,11 +54,11 @@ export const checkAuth = createAsyncThunk(
     try {
       const response = await authService.getNewTokens();
       return response;
-    } catch (error) {
+    } catch (error: any) {
       if (errorCatch(error) === "jwt expired") {
         thunkApi.dispatch(logOut());
       }
-      return thunkApi.rejectWithValue(error);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );

@@ -28,14 +28,15 @@ export const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload.user;
+        state.error = null;
       })
       .addCase(login.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
         state.user = action.payload.user;
+        state.error = null;
       })
       .addCase(logOut.pending, (state) => {
         state.isLoading = true;
@@ -43,6 +44,7 @@ export const authSlice = createSlice({
       .addCase(logOut.fulfilled, (state) => {
         state.user = null;
         state.isLoading = false;
+        state.error = null;
       })
       .addCase(checkAuth.pending, (state) => {
         state.isLoading = true;
@@ -50,9 +52,9 @@ export const authSlice = createSlice({
       .addCase(checkAuth.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload.user;
+        state.error = null;
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
-        console.log(action.payload);
         state.error = action.payload;
         state.isLoading = false;
       });

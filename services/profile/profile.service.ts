@@ -20,15 +20,20 @@ class ProfileService {
     return response.data;
   }
   async updateProfile(data: IProfileInfo) {
-    const response = await instance.put<IProfileResponse>(
-      process.env.SERVER_URL + "/profile",
-      data,
-      getContentType()
-    );
-    if (response.data) {
-      saveProfileStorage(response.data);
+    try {
+      const response = await instance.put<IProfileResponse>(
+        process.env.SERVER_URL + "/profile",
+        data,
+        getContentType()
+      );
+      console.log("response", response);
+      if (response.data) {
+        saveProfileStorage(response.data);
+      }
+      return response.data;
+    } catch (error: any) {
+      throw Error(error.response.data.message);
     }
-    return response.data;
   }
 }
 

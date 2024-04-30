@@ -36,7 +36,7 @@ const ProfileInfo = () => {
     control,
     handleSubmit,
   } = useForm<IFormState>({
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues: {
       phoneNumber: user?.phoneNumber || "",
       name: user?.name || "",
@@ -47,9 +47,11 @@ const ProfileInfo = () => {
   const profile = useTypedSelector((state) => state.profile);
   const dispatch = useTypedDispatch();
   const onSubmit = async (data: IFormState) => {
+    setSuccess("");
+
     const response = (await dispatch(updateProfile(data))) as ResponseType;
-    console.log(response);
-    if (response?.payload?.name) {
+
+    if (response.payload.name) {
       setSuccess("Ваши данные были успешно изменены");
     }
     setTimeout(() => setSuccess(""), 3000);
@@ -111,7 +113,7 @@ const ProfileInfo = () => {
               message: "Введите электронную почту",
             },
             pattern: {
-              value: /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/,
+              value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
               message: "Введите электронную почту",
             },
           })}

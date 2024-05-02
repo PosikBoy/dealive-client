@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: [
     "срочная доставка, Москва быстрая доставка, экспресс доставка по Москве, курьер в Москве, Москва доставить посылку",
   ],
-  metadataBase: new URL("https://dealive-client.vercel.app/order"),
+  metadataBase: new URL("https://dealive.ru/"),
   openGraph: {
     locale: "ru",
     url: "/",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "Срочная доставка в Москве. Экспресс курьер по городу.",
     images: [
       {
-        url: "https://dealive-client.vercel.app/icon.png", // Must be an absolute URL
+        url: "https://dealive.ru/icon.png", // Must be an absolute URL
         width: 128,
         height: 128,
       },
@@ -36,15 +36,15 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "https://dealive-client.vercel.app/favicon.ico",
-    shortcut: "https://dealive-client.vercel.app/favicon.ico",
+    icon: "https://dealive.ru/favicon.ico",
+    shortcut: "https://dealive.ru/favicon.ico",
   },
-  manifest: "https://dealive-client.vercel.app/manifest.json",
+  manifest: "https://dealive.ru/manifest.json",
   twitter: {
     title: "Срочная доставка в Москве. Экспресс курьер по городу.",
     description:
       "Срочная, надежная и безопасная доставка для бизнеса в Москве. Мы поможем вам найти курьера для доставки. Максимально гибкий подход - наши курьеры готовы выполнять дополнительные задания за дополнительную плату.",
-    images: ["https://dealive-client.vercel.app/icon.png"], // Must be an absolute URL
+    images: ["https://dealive.ru/icon.png"], // Must be an absolute URL
   },
   verification: {
     google: "google",

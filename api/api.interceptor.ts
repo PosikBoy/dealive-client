@@ -5,7 +5,7 @@ import {
 import axios from "axios";
 import { errorCatch } from "./api.helper";
 import authService from "@/services/auth/auth.service";
-import Cookies from "@/utils/cookie";
+
 
 const instance = axios.create({
   withCredentials: true,

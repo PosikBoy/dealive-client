@@ -3,7 +3,7 @@ import styles from "./Button.module.scss";
 
 interface IButtonProps {
   type?: "button" | "submit" | "reset" | undefined;
-  buttonColor?: "white" | "blue";
+  color?: "white" | "blue";
   children: ReactNode;
   className?: string;
   onClick?: () => void;
@@ -11,12 +11,10 @@ interface IButtonProps {
 
 const Button: FC<IButtonProps> = ({
   type = "button",
-  buttonColor = "blue",
+  color = "blue",
   children,
   className,
-  onClick = (e: any) => {
-    e.preventDefault();
-  },
+  onClick,
 }) => {
   return (
     <button
@@ -24,8 +22,8 @@ const Button: FC<IButtonProps> = ({
       className={styles.button + " " + className}
       onClick={onClick}
       style={{
-        backgroundColor: buttonColor === "white" ? "#FFFFFF" : "var(--blue)",
-        color: buttonColor === "white" ? "var(--black)" : "white",
+        backgroundColor: color === "white" ? "#FFFFFF" : "var(--blue)",
+        color: color === "white" ? "var(--blue)" : "white",
       }}
     >
       {children}

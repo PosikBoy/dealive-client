@@ -41,6 +41,7 @@ const AuthForm: FC = () => {
   const dispatch = useTypedDispatch();
 
   const onSubmit = async (data: IFormData) => {
+    console.log("asdc");
     const authData = {
       email: data.email,
       password: data.password,
@@ -49,6 +50,7 @@ const AuthForm: FC = () => {
 
     if (type === "register") {
       response = (await dispatch(authRegister(authData))) as ResponseType;
+      console.log(response);
     } else {
       response = (await dispatch(login(authData))) as ResponseType;
     }
@@ -151,6 +153,7 @@ const AuthForm: FC = () => {
               required: "Заполните это поле",
               validate: validateRepeatPasword,
             })}
+            autoComplete="new-password"
             error={errors?.repeatPassword}
           />
         </div>
@@ -158,6 +161,7 @@ const AuthForm: FC = () => {
       <Button type="submit">
         <span className={styles.authForm__buttonText}>Войти</span>
       </Button>
+      <button type="submit">Отправить</button>
     </form>
   );
 };

@@ -1,0 +1,55 @@
+{
+  "window.openFilesInNewWindow": "off",
+  "editor.tabSize": 2,
+  "editor.folding": false,
+  "editor.insertSpaces": false,
+  "editor.smoothScrolling": true,
+  "editor.minimap.enabled": false,
+  "editor.detectIndentation": true,
+  "editor.suggestSelection": "first",
+  "window.zoomLevel": 1,
+  // Wrapping
+  "editor.wordWrap": "bounded",
+  "editor.wrappingIndent": "same",
+  "editor.wordWrapColumn": 80,
+  "editor.scrollBeyondLastLine": true,
+  // Rename tags
+  "editor.linkedEditing": true,
+  // Auto closing tags
+  "html.autoClosingTags": true,
+  "javascript.autoClosingTags": true,
+  "typescript.autoClosingTags": true,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.glyphMargin": false,
+
+  "window.density.editorTabHeight": "compact",
+  "workbench.activityBar.location": "top",
+  "editor.accessibilitySupport": "off",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "symbols.hidesExplorerArrows": false,
+  // Cursor
+  "editor.cursorBlinking": "expand",
+  "editor.cursorStyle": "line-thin",
+  "editor.cursorSmoothCaretAnimation": "explicit",
+  // Font
+  "editor.fontSize": 14,
+  "editor.lineHeight": 20,
+  "editor.fontLigatures": true,
+  //Explorer
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  //Разрешить уменьшение размера вкладок, когда доступного места недостаточно для отображения всех вкладок одновременно.
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.startupEditor": "newUntitledFile",
+  //JS & TS
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove",
+  // Использование экспериментальных декораторов в JS/TS
+  "js/ts.implicitProjectConfig.experimentalDecorators": true
+}

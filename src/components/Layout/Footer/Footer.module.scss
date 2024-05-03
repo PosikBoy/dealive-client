@@ -1,0 +1,103 @@
+.footerTop {
+  width: 100vw;
+  height: 150px;
+  background-image: url("/footer-top.svg");
+}
+
+.footer {
+  background-color: rgba(86, 154, 255, 1);
+  padding: 30px 0;
+  &__headingRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__headingColumn {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__headingColumn span {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  &__headingColumn2 {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 40px;
+  }
+  &__heading {
+    margin-bottom: 20px;
+  }
+  &__headingTitle {
+    color: white;
+    font-weight: bold;
+    text-align: right;
+  }
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+  }
+  &__bodyColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  // &__bodyColumn::after {
+  //   content: "";
+  //   width: 1px;
+  //   height: 90%;
+  //   top: 17px;
+  //   background-color: white;
+  //   position: absolute;
+  //   right: -10px;
+  // }
+  &__bodyColumnTitle {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  &__bodyLink {
+    color: white;
+    font-weight: regular;
+    font-size: 14px;
+  }
+  &__bodySocials {
+    display: flex;
+    gap: 10px;
+  }
+  &__bodyContactPhone,
+  &__bodyContactEmail {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  &__bodyForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    &__body {
+      align-items: center;
+      flex-direction: column;
+    }
+    &__bodyColumn {
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}

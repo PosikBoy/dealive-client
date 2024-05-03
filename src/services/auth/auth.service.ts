@@ -10,10 +10,15 @@ import instance from "@/api/api.interceptor";
 class AuthService {
   async auth(type: "login" | "register", data: IEmailPassword) {
     try {
+      console.log(SERVER_URL);
+
       const response = await axios.post<
         IEmailPassword,
         { data: IAuthResponse }
-      >(SERVER_URL + "/" + type, data, { withCredentials: true });
+      >(SERVER_URL + "/" + type, data, {
+        withCredentials: true,
+      });
+      console.log(response);
       if (response?.data.accessToken) {
         saveDataToStorage(response.data);
       }

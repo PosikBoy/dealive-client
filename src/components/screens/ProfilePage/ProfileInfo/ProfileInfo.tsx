@@ -48,17 +48,15 @@ const ProfileInfo = () => {
   const dispatch = useTypedDispatch();
   const onSubmit = async (data: IFormState) => {
     setSuccess("");
-
     const response = (await dispatch(updateProfile(data))) as ResponseType;
-
-    if (response.payload.name) {
+    if (response.payload.id) {
       setSuccess("Ваши данные были успешно изменены");
     }
     setTimeout(() => setSuccess(""), 3000);
   };
 
   const logOut = async () => {
-    const response = await dispatch(logOutAction());
+    await dispatch(logOutAction());
     router.replace("/");
   };
 
@@ -78,13 +76,23 @@ const ProfileInfo = () => {
           <div className={styles.profileInfo__success}>{success}</div>
         ) : null}
 
-        <InputField placeholder="Имя пользователя" {...register("name")} />
+        <InputField
+          type="text"
+          autoComplete="name"
+          placeholder="Имя пользователя"
+          required
+          {...register("name", {
+            required: "Введите ваше имя",
+          })}
+          error={errors?.name}
+        />
 
         <Controller
           name={"phoneNumber"}
           control={control}
           defaultValue=""
           rules={{
+            required: "Заполните это поле",
             pattern: {
               value: /^(?:\+7|\b8)\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/,
               message: "Введите номер телефона",
@@ -92,6 +100,7 @@ const ProfileInfo = () => {
           }}
           render={({ field }) => (
             <PhoneInputField
+              required
               onBlur={field.onBlur}
               onChange={(value: any) => field.onChange(value)}
               value={field.value}
@@ -120,7 +129,9 @@ const ProfileInfo = () => {
           error={errors?.email}
         />
         <div className={styles.profileInfo__buttons}>
-          <Button type="submit">Обновить данные</Button>
+          <Button type="submit">
+            <span>Обновить данные</span>
+          </Button>
           <Button type="button" onClick={() => logOut()}>
             Выйти
           </Button>

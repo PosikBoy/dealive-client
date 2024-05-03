@@ -6,6 +6,7 @@ interface IField extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
   required?: boolean;
   error?: any;
+  color?: "default" | "white";
 }
 
 const InputField = forwardRef<HTMLInputElement, IField>(
@@ -16,6 +17,7 @@ const InputField = forwardRef<HTMLInputElement, IField>(
       required = false,
       error,
       autoComplete,
+      color,
       ...rest
     },
     ref
@@ -28,7 +30,8 @@ const InputField = forwardRef<HTMLInputElement, IField>(
               className={
                 styles.field__input +
                 " " +
-                (error?.message ? " " + styles.error : "")
+                (error?.message ? " " + styles.error : "") +
+                (color === "white" ? " " + styles.white : "")
               }
               placeholder=" "
               type={type}
@@ -41,6 +44,10 @@ const InputField = forwardRef<HTMLInputElement, IField>(
                 styles.field__placeholder +
                 (error?.message ? " " + styles.error : "")
               }
+              style={{
+                color: color === "white" ? "white" : "black",
+                backgroundColor: color === "white" ? "#00000000" : "white",
+              }}
             >
               {placeholder + (required ? "*" : "")}
             </span>

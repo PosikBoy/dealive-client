@@ -10,6 +10,9 @@
     position: relative;
     transition: all 0.3s;
   }
+  &__input.white {
+    border: 1px solid #ffffff;
+  }
   &__input:focus {
     border-color: #3586ff;
     transition: all 0.3s;
@@ -33,6 +36,7 @@
     transition: all 0.3s;
     background-color: white;
   }
+
   &__placeholder.error {
     transition: all 0.3s;
   }

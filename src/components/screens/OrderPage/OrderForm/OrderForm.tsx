@@ -89,7 +89,7 @@ const OrderForm = () => {
     };
     console.log(order);
     const response = await orderService.sendOrder(order);
-    if (response.data.orderId) {
+    if (response.data.order.id) {
       //Change to data.orderId
       setIsModalOpen(true);
       reset();

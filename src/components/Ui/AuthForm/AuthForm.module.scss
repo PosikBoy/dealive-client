@@ -1,0 +1,75 @@
+.authForm {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  &__heading {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--black);
+  }
+  &__toggleType {
+    display: flex;
+    background-color: #d1d1d1;
+    border-radius: 12px;
+    transition: all 0.3s;
+  }
+  &__error {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  &__type {
+    display: flex;
+    padding: 6px 0;
+    width: 160px;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s;
+    font-size: 14px;
+  }
+
+  &__type.active {
+    color: white;
+    font-weight: 600;
+    background-color: #3586ff;
+    transition: all 0.3s;
+  }
+  &__inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  @media (hover: hover) {
+    &__toggleType:hover {
+      transition: all 0.3s;
+      background-color: #bebebe !important;
+    }
+  }
+  @media (hover: none) {
+    &__toggleType:active {
+      transition: all 0.3s;
+      background-color: #bebebe !important;
+    }
+  }
+  &__repeatPassword {
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+
+    transition: all 0.3s ease-in-out;
+    &.show {
+      visibility: visible;
+      max-height: 100px;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

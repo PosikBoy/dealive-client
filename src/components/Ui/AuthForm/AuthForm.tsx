@@ -138,13 +138,7 @@ const AuthForm: FC = () => {
           })}
           error={errors?.password}
         />
-
-        <div
-          className={
-            styles.authForm__repeatPassword +
-            (type === "register" ? " " + styles.show : "")
-          }
-        >
+        {type === "register" && (
           <InputField
             type="password"
             placeholder="Пароль повторно"
@@ -156,12 +150,11 @@ const AuthForm: FC = () => {
             autoComplete="new-password"
             error={errors?.repeatPassword}
           />
-        </div>
+        )}
       </div>
       <Button type="submit">
         <span className={styles.authForm__buttonText}>Войти</span>
       </Button>
-      <button type="submit">Отправить</button>
     </form>
   );
 };

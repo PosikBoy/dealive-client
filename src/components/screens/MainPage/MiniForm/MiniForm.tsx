@@ -8,6 +8,7 @@ import Heading3 from "@/components/Ui/Heading3/Heading3";
 import { useRouter } from "next/navigation";
 import { useTypedDispatch } from "@/hooks/redux.hooks";
 import { addData } from "@/store/orderForm/orderForm.slice";
+import AddressInputField from "@/components/Ui/AddressInput/AddressInput";
 
 interface IMiniForm {
   pickupAddress: string;
@@ -19,6 +20,7 @@ const MiniForm = () => {
     register,
     formState: { errors },
     handleSubmit,
+    control,
     getValues,
   } = useForm<IMiniForm>({
     mode: "onBlur",
@@ -38,9 +40,8 @@ const MiniForm = () => {
           Оставьте заявку
         </Heading3>
         <div className={styles.miniForm__inputs}>
-          <InputField
-            type="text"
-            placeholder="Где забрать?"
+          <AddressInputField
+            control={control}
             autoComplete="address-line1"
             {...register("pickupAddress")}
           />

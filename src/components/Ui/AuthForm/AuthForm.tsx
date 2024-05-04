@@ -41,7 +41,6 @@ const AuthForm: FC = () => {
   const dispatch = useTypedDispatch();
 
   const onSubmit = async (data: IFormData) => {
-    console.log("asdc");
     const authData = {
       email: data.email,
       password: data.password,

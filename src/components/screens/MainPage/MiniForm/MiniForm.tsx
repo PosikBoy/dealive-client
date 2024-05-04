@@ -40,7 +40,7 @@ const MiniForm = () => {
           Оставьте заявку
         </Heading3>
         <div className={styles.miniForm__inputs}>
-          <AddressInputField
+          <InputField
             control={control}
             autoComplete="address-line1"
             {...register("pickupAddress")}

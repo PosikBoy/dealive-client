@@ -41,7 +41,8 @@ const MiniForm = () => {
         </Heading3>
         <div className={styles.miniForm__inputs}>
           <InputField
-            control={control}
+            type="text"
+            placeholder="Где забрать?"
             autoComplete="address-line1"
             {...register("pickupAddress")}
           />

@@ -8,7 +8,6 @@ import Heading3 from "@/components/Ui/Heading3/Heading3";
 import { useRouter } from "next/navigation";
 import { useTypedDispatch } from "@/hooks/redux.hooks";
 import { addData } from "@/store/orderForm/orderForm.slice";
-import AddressInputField from "@/components/Ui/AddressInput/AddressInput";
 
 interface IMiniForm {
   pickupAddress: string;

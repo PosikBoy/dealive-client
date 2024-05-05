@@ -50,7 +50,6 @@ const MiniForm = () => {
                 value={field.value}
                 error={errors?.pickupAddress?.message}
                 placeholder="Где забрать?"
-                required
               />
             )}
           />
@@ -64,7 +63,6 @@ const MiniForm = () => {
                 value={field.value}
                 error={errors?.destinationAddress?.message}
                 placeholder="Куда доставить?"
-                required
               />
             )}
           />

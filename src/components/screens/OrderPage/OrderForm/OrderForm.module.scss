@@ -129,7 +129,18 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-
+  visibility: hidden;
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+  &.active {
+    visibility: visible;
+    height: 220px;
+    max-height: 100%;
+    overflow: visible;
+    transition: all 0.3s;
+  }
   &__floor {
     width: 100%;
   }

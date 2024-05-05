@@ -13,6 +13,7 @@ import { useTypedSelector } from "@/hooks/redux.hooks";
 import ModalWindow from "@/components/Ui/ModalWindow/ModalWindow";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
 import orderService from "@/services/order/order.service";
+import AddressInput from "@/components/Ui/AddressInput/AddressInput";
 
 interface IAddress {
   address: string;
@@ -214,15 +215,22 @@ const OrderForm = () => {
                 </div>
 
                 <div className={styles.addressForm__address}>
-                  <InputField
-                    type="text"
-                    placeholder="Введите адрес"
-                    autoComplete="address-line1"
-                    {...register(`addresses.${index}.address`, {
-                      required: "Заполните адрес",
-                    })}
-                    required
-                    error={errors?.addresses?.[index]?.address}
+                  <Controller
+                    name={`addresses.${index}.address`}
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: "Введите адрес",
+                    }}
+                    render={({ field }) => (
+                      <AddressInput
+                        onChange={(value: any) => field.onChange(value)}
+                        value={field.value}
+                        error={errors?.addresses?.[index]?.address}
+                        placeholder="Введите адрес"
+                        required
+                      />
+                    )}
                   />
                 </div>
                 <div className={styles.addressForm__row}>
@@ -251,44 +259,48 @@ const OrderForm = () => {
                     />
                   </div>
                 </div>
-                {additionalFields[index] && (
-                  <div className={styles.additional}>
-                    <div className={styles.additional__phoneName}>
+                <div
+                  className={
+                    styles.additional +
+                    (additionalFields[index] ? " " + styles.active : "")
+                  }
+                >
+                  <div className={styles.additional__phoneName}>
+                    <InputField
+                      type="text"
+                      autoComplete="name"
+                      placeholder="Контактное лицо"
+                      {...register(`addresses.${index}.phoneName`)}
+                    />
+                  </div>
+                  <div className={styles.additional__addressInfo}>
+                    <div className={styles.additional__floor}>
                       <InputField
                         type="text"
-                        autoComplete="name"
-                        placeholder="Контактное лицо"
-                        {...register(`addresses.${index}.phoneName`)}
+                        autoComplete="address-line2"
+                        placeholder="Этаж"
+                        {...register(`addresses.${index}.floor`)}
                       />
                     </div>
-                    <div className={styles.additional__addressInfo}>
-                      <div className={styles.additional__floor}>
-                        <InputField
-                          type="text"
-                          autoComplete="address-line2"
-                          placeholder="Этаж"
-                          {...register(`addresses.${index}.floor`)}
-                        />
-                      </div>
-                      <div className={styles.additional__apartment}>
-                        <InputField
-                          autoComplete="address-line2"
-                          type="text"
-                          placeholder="Квартира"
-                          {...register(`addresses.${index}.apartment`)}
-                        />
-                      </div>
-                    </div>
-
-                    <div className={styles.additional__comment}>
-                      <TextArea
-                        autoComplete="note"
-                        placeholder="Комментарий"
-                        {...register(`addresses.${index}.info`)}
-                      ></TextArea>
+                    <div className={styles.additional__apartment}>
+                      <InputField
+                        autoComplete="address-line2"
+                        type="text"
+                        placeholder="Квартира"
+                        {...register(`addresses.${index}.apartment`)}
+                      />
                     </div>
                   </div>
-                )}
+
+                  <div className={styles.additional__comment}>
+                    <TextArea
+                      autoComplete="note"
+                      placeholder="Комментарий"
+                      {...register(`addresses.${index}.info`)}
+                    ></TextArea>
+                  </div>
+                </div>
+
                 <div
                   className={
                     styles.additional__toggle +

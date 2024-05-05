@@ -13,8 +13,8 @@ class SuggestionsService {
       const response = await axios.post<ISuggestionsResponse>(SUGGESTIONS_URL, {
         query: query,
       });
-      console.log(response.data);
-      return response.data;
+      console.log(response.data.suggestions);
+      return response.data.suggestions;
     } catch (error: any) {
       throw Error(error.response.data.message);
     }

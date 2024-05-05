@@ -1,13 +1,14 @@
 "use client";
 
 import styles from "./miniForm.module.scss";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import InputField from "@/components/Ui/InputField/InputField";
 import Button from "@/components/Ui/Button/Button";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
 import { useRouter } from "next/navigation";
 import { useTypedDispatch } from "@/hooks/redux.hooks";
 import { addData } from "@/store/orderForm/orderForm.slice";
+import AddressInput from "@/components/Ui/AddressInput/AddressInput";
 
 interface IMiniForm {
   pickupAddress: string;
@@ -39,20 +40,36 @@ const MiniForm = () => {
           Оставьте заявку
         </Heading3>
         <div className={styles.miniForm__inputs}>
-          <InputField
-            type="text"
-            placeholder="Где забрать?"
-            autoComplete="address-line1"
-            {...register("pickupAddress")}
+          <Controller
+            name="pickupAddress"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <AddressInput
+                onChange={(value: any) => field.onChange(value)}
+                value={field.value}
+                error={errors?.pickupAddress?.message}
+                placeholder="Где забрать?"
+                required
+              />
+            )}
           />
-          <InputField
-            type="text"
-            placeholder="Куда доставить?"
-            autoComplete="off"
-            {...register("destinationAddress")}
+          <Controller
+            name="destinationAddress"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <AddressInput
+                onChange={(value: any) => field.onChange(value)}
+                value={field.value}
+                error={errors?.destinationAddress?.message}
+                placeholder="Куда доставить?"
+                required
+              />
+            )}
           />
         </div>
-        <Button type="submit">Рассчитать стоимость</Button>
+        <Button type="submit">Оформить доставку</Button>
       </div>
     </form>
   );

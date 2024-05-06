@@ -53,7 +53,7 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
       const newValue = e.target.value;
-      console.log(newValue);
+      
       onChange(newValue);
     };
 
@@ -83,7 +83,7 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
             <input
               type="text"
               placeholder=" "
-              required
+              
               ref={inputRef}
               autoComplete="address-line1"
               onInput={handleInputChange}

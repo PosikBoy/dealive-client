@@ -103,6 +103,11 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 60px;
+  }
+  @media (max-width: 768px) {
+    &__content {
+      gap: 30px;
+    }
   }
 }

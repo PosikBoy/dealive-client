@@ -24,7 +24,7 @@
   }
 
   &__text {
-    padding: 20px 20px 20px 20px;
+    padding: 30px 30px 30px 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -55,6 +55,9 @@
     }
     &.reversed {
       flex-direction: column-reverse;
+    }
+    &__text {
+      padding: 20px 20px 20px 20px;
     }
     &__title {
       font-size: 28px;

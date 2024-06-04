@@ -1,4 +1,12 @@
-.main-page {
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 30px;
+}
+
+.welcome {
   height: 100%;
   width: 100%;
   &__content {
@@ -83,5 +91,18 @@
       height: 230px;
       width: 100%;
     }
+  }
+}
+
+.info {
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }

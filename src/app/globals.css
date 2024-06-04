@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 /* Reset and base styles  */
 * {
@@ -10,10 +9,10 @@
 :root {
   --main-block-color: white;
   --placeholder-color: rgb(78, 78, 78);
-  --main-background-color: #3586ff;
+  --main-background-color: #0569ff;
   --black: #423e3e;
-  --blue: #3586ff;
-  --light-blue: #81b3ff;
+  --blue: #0569ff;
+  --light-blue: #448fff;
 }
 *,
 *::before,

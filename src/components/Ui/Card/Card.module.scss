@@ -1,0 +1,89 @@
+.card {
+  display: flex;
+  gap: 50px;
+  background-color: var(--light-blue);
+  border-radius: 43px;
+  overflow: hidden;
+  align-items: stretch;
+  min-height: fit-content;
+  &.reversed {
+    flex-direction: row-reverse;
+  }
+  &__image {
+    width: 200px;
+    flex-shrink: 0;
+    border-radius: 43px;
+    position: relative;
+    overflow: hidden;
+  }
+  &__image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+
+  &__text {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 140%;
+    letter-spacing: -0.05em;
+    color: #fff;
+  }
+  &__subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 170%;
+    color: #fff;
+  }
+  &__imageDescription {
+    font-weight: 600;
+    font-size: 18px;
+    color: #81b3ff;
+  }
+  @media (max-width: 768px) {
+    & {
+      flex-direction: column-reverse;
+      min-height: auto;
+      gap: 0px;
+    }
+    &.reversed {
+      flex-direction: column-reverse;
+    }
+    &__title {
+      font-size: 28px;
+    }
+    &__subtitle {
+      font-size: 20px;
+    }
+    &__image {
+      width: 100%;
+      height: 200px;
+      border-radius: 43px;
+      position: relative;
+      overflow: hidden;
+    }
+    &__image img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: initial;
+      object-fit: cover;
+    }
+  }
+  @media (max-width: 425px) {
+    &__title {
+      font-size: 22px;
+    }
+    &__subtitle {
+      font-size: 16px;
+    }
+    // стили для телефона
+    font-size: 16px;
+  }
+}

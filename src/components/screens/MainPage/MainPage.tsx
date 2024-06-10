@@ -20,7 +20,7 @@ const MainPage: FC = () => {
                 <strong>
                   <Heading className="welcome__title">
                     Срочная доставка
-                    <span className="highlighted">в Москве</span>
+                    <span className="highlighted"> в Москве</span>
                   </Heading>
                 </strong>
                 <strong>

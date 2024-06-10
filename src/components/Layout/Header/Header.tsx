@@ -49,6 +49,7 @@ const Header = () => {
             <Link
               href="/"
               className={styles.header__link}
+              title="Оставить заказ на доставку"
               onClick={() => {
                 document.body.classList.remove("modal-open");
                 setIsOpen(false);

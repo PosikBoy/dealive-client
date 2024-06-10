@@ -17,21 +17,30 @@ const MainPage: FC = () => {
           <div className="welcome__content">
             <div className="welcome__block">
               <div className="welcome__offer">
-                <Heading className="welcome__title">
-                  Срочная доставка <span className="highlighted">в Москве</span>
-                </Heading>
-                <Heading2 className="welcome__subtitle">
-                  быстро найдем<span className="highlighted"> вам</span>{" "}
-                  курьера!
-                </Heading2>
+                <strong>
+                  <Heading className="welcome__title">
+                    Срочная доставка
+                    <span className="highlighted">в Москве</span>
+                  </Heading>
+                </strong>
+                <strong>
+                  <Heading2 className="welcome__subtitle">
+                    быстро найдем<span className="highlighted"> вам</span>{" "}
+                    курьера!
+                  </Heading2>
+                </strong>
               </div>
               <div className="welcome__mini-form">
                 <MiniForm />
               </div>
             </div>
-            <Heading3 className="welcome__losung">
-              Живи - а доставку<span className="highlighted"> оставь </span>нам
-            </Heading3>
+            <strong>
+              <Heading3 className="welcome__losung">
+                Срочная <span className="highlighted"> день в день </span>
+                доставка
+              </Heading3>
+            </strong>
+
             <div className="welcome__tiles">
               <Tile title="Доставка по городу" />
               <Tile title="Выкуп и отправка" />
@@ -45,7 +54,6 @@ const MainPage: FC = () => {
         <div className="container">
           <div className="info__content">
             <Heading2 className="info__title">А чем мы занимаемся?</Heading2>
-
             <Card
               img={dealiveryGuyImage}
               alt="Изображение курьера"
@@ -61,6 +69,22 @@ const MainPage: FC = () => {
               imageDescription="На фото то, что мы перевозим"
               reversed={true}
             />
+            <div className="info__indicators">
+              <div className="info__indicator">
+                <div className="info__indicator-value">100+</div>
+                <div className="info__indicator-title">Курьеров онлайн</div>
+              </div>
+              <div className="info__indicator">
+                <div className="info__indicator-value">1300+</div>
+                <div className="info__indicator-title">Довольных клиентов</div>
+              </div>
+              <div className="info__indicator">
+                <div className="info__indicator-value">25/7</div>
+                <div className="info__indicator-title">
+                  Ищем курьеров для вас
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

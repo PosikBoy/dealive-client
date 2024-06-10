@@ -105,9 +105,39 @@
     flex-direction: column;
     gap: 60px;
   }
+  &__indicators {
+    display: flex;
+    padding: 70px 50px;
+    gap: 30px;
+    background-color: var(--main-block-color);
+    border-radius: 32px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  &__indicator-value {
+    font-weight: bold;
+    font-size: 34px;
+  }
+  &__indicator-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--black);
+  }
   @media (max-width: 768px) {
     &__content {
       gap: 30px;
+    }
+    &__indicators {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      align-items: center;
     }
   }
 }

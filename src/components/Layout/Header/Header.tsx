@@ -59,8 +59,8 @@ const Header = () => {
             </Link>
           </div>
           <div className={styles.header__phone}>
-            <a href="tel:+79897281597" title="Номер компании">
-              +7 (989) 728-15-97
+            <a href="tel:+79937017264" title="Номер компании">
+              +7 (993) 701-72-64
             </a>
           </div>
           <div

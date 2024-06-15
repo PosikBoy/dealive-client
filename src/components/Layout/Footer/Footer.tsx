@@ -111,8 +111,8 @@ const Footer = () => {
               <span className={styles.footer__bodyColumnTitle}>Контакты</span>
               <div className={styles.footer__bodyContactPhone}>
                 <Image src={phone} alt="Телефон" width={20} height={20} />
-                <a href="tel:+79897281597" className={styles.footer__bodyLink}>
-                  +7 (989) 728-15-97
+                <a href="tel:+79937017264" className={styles.footer__bodyLink}>
+                  +7 (993) 701-72-64
                 </a>
               </div>
               <div className={styles.footer__bodyContactPhone}>

@@ -34,10 +34,14 @@ instance.interceptors.response.use(
     ) {
       originalRequest._isRetry = true;
       try {
-        authService.getNewTokens();
+        await authService.getNewTokens();
+        console.log("asdf");
         return instance.request(originalRequest);
       } catch (error) {
-        if (errorCatch(error) === "jwt expired") {
+        if (
+          errorCatch(error) === "jwt expired" ||
+          errorCatch(error) === "Auth required"
+        ) {
           removeInfoStorage();
         }
       }

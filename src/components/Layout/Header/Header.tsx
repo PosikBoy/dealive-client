@@ -12,7 +12,7 @@ const Header = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const user = useTypedSelector((state) => state.auth.user);
-
+  const isOpenedClassName = isOpen ? " " + styles.open : " " + styles.closed;
   const onLinkHandler = () => {
     document.body.classList.toggle("modal-open");
     setIsOpen(!isOpen);
@@ -64,22 +64,12 @@ const Header = () => {
             </a>
           </div>
           <div
-            className={
-              styles.header__burger +
-              " " +
-              (isOpen ? styles.open : styles.closed)
-            }
+            className={styles.header__burger + isOpenedClassName}
             onClick={onLinkHandler}
           >
             <span></span>
           </div>
-          <nav
-            className={
-              styles.header__mobileNav +
-              " " +
-              (isOpen ? styles.open : styles.closed)
-            }
-          >
+          <nav className={styles.header__mobileNav + isOpenedClassName}>
             <Link
               href="/"
               className={styles.header__mobileLogo}

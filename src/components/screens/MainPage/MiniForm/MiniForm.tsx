@@ -2,7 +2,6 @@
 
 import styles from "./miniForm.module.scss";
 import { Controller, useForm } from "react-hook-form";
-import InputField from "@/components/Ui/InputField/InputField";
 import Button from "@/components/Ui/Button/Button";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
 import { useRouter } from "next/navigation";

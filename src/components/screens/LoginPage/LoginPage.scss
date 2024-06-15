@@ -1,0 +1,13 @@
+.welcome {
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__form {
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+  }
+}

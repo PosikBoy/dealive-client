@@ -97,7 +97,7 @@ const Footer = () => {
                 </Link>
               </div>
               <span className={styles.footer__bodyColumnTitle}>Аккаунт</span>
-              <Link href="/auth" className={styles.footer__bodyLink}>
+              <Link href="/login" className={styles.footer__bodyLink}>
                 - Вход / регистрация
               </Link>
               <Link href="/my-orders" className={styles.footer__bodyLink}>

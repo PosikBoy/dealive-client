@@ -1,4 +1,4 @@
-
+import AboutPage from "@/components/screens/AboutPage/AboutPage";
 import { Metadata, NextPage, Viewport } from "next";
 
 export const metadata: Metadata = {
@@ -46,9 +46,7 @@ export const viewport: Viewport = {
   themeColor: "#3586ff",
 };
 const Order: NextPage = () => {
-	return (
-		<></>
-	);
+  return <AboutPage />;
 };
 
 export default Order;

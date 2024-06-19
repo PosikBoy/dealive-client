@@ -6,7 +6,7 @@ import Heading from "@/components/Ui/Heading/Heading";
 import Heading2 from "@/components/Ui/Heading2/Heading2";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
 import Card from "@/components/Ui/Card/Card";
-import dealiveryGuyImage from "@/assets/images/dealiveryGuy1.png";
+import deliveryGuyImage from "@/assets/images/deliveryGuy1.png";
 import giftImage from "@/assets/images/gift.png";
 import Image from "next/image";
 
@@ -36,8 +36,8 @@ const MainPage: FC = () => {
                 </strong>
                 <strong>
                   <Heading2 className="welcome__subtitle">
-                    быстро найдем<span className="highlighted"> вам</span>{" "}
-                    курьера!
+                    найдем<span className="highlighted"> вам</span> курьера за
+                    15 минут!
                   </Heading2>
                 </strong>
               </div>
@@ -53,10 +53,10 @@ const MainPage: FC = () => {
             </strong>
 
             <div className="welcome__tiles">
-              <Tile title="Доставка по городу" />
-              <Tile title="Выкуп и отправка" />
-              <Tile title="Сбор ПВЗ" />
-              <Tile title="И другие поручения" />
+              <Tile title="Заберем посылку" />
+              <Tile title="Выкупим и отправим" />
+              <Tile title="Соберем товар с пвз" />
+              <Tile title="Доставим за 90 минут" />
             </div>
           </div>
         </div>
@@ -66,13 +66,6 @@ const MainPage: FC = () => {
           <div className="info__content">
             <Heading2 className="info__title">А чем мы занимаемся?</Heading2>
             <Card
-              img={dealiveryGuyImage}
-              alt="Изображение курьера"
-              title="Идеальное решение для тех, кто ценит свое время и ждать просто нет возможности! "
-              subtitle="Оставьте заявку прямо сейчас и убедитесь, что срочная доставка может быть действительно быстрой, надежной и клиентоориентированной!"
-              imageDescription="На фото наши курьеры"
-            />
-            <Card
               img={giftImage}
               alt="Изображение подарка"
               title="Доставляем что угодно и выполняем почти любые поручения!"
@@ -80,20 +73,29 @@ const MainPage: FC = () => {
               imageDescription="На фото то, что мы перевозим"
               reversed={true}
             />
-            <div className="info__indicators">
-              <div className="info__indicator">
-                <div className="info__indicator-value">100+</div>
-                <div className="info__indicator-title">Курьеров онлайн</div>
-              </div>
-              <div className="info__indicator">
-                <div className="info__indicator-value">1300+</div>
-                <div className="info__indicator-title">Довольных клиентов</div>
-              </div>
-              <div className="info__indicator">
-                <div className="info__indicator-value">25/7</div>
-                <div className="info__indicator-title">
-                  Ищем курьеров для вас
+            <Card
+              img={deliveryGuyImage}
+              alt="Изображение курьера"
+              title="Идеальное решение для тех, кто ценит свое время и ждать просто нет возможности! "
+              subtitle="Оставьте заявку прямо сейчас и убедитесь, что срочная доставка может быть действительно быстрой, надежной и клиентоориентированной!"
+              imageDescription="На фото наши курьеры"
+            />
+            <div className="info__indicators indicators">
+              <div className="indicators__indicator">
+                <div className="indicators__indicator-value">135</div>
+                <div className="indicators__indicator-title">
+                  Курьеров онлайн
                 </div>
+              </div>
+              <div className="indicators__indicator">
+                <div className="indicators__indicator-value">1300+</div>
+                <div className="indicators__indicator-title">
+                  Довольных клиентов
+                </div>
+              </div>
+              <div className="indicators__indicator">
+                <div className="indicators__indicator-value">24/7</div>
+                <div className="indicators__indicator-title">Ищем курьеров</div>
               </div>
             </div>
           </div>
@@ -118,7 +120,7 @@ const MainPage: FC = () => {
                       src={cardImage1}
                       alt="Пункт выдачи заказов"
                       fill={true}
-                      quality={80}
+                      quality={60}
                       loading="lazy"
                     />
                   </div>
@@ -132,7 +134,7 @@ const MainPage: FC = () => {
                       src={cardImage2}
                       alt="Пункт выдачи заказов"
                       fill={true}
-                      quality={80}
+                      quality={60}
                       loading="lazy"
                     />
                   </div>
@@ -148,7 +150,7 @@ const MainPage: FC = () => {
                       src={cardImage3}
                       alt="Пункт выдачи заказов"
                       fill={true}
-                      quality={80}
+                      quality={60}
                       loading="lazy"
                     />
                   </div>
@@ -162,12 +164,12 @@ const MainPage: FC = () => {
                       src={cardImage4}
                       alt="Пункт выдачи заказов"
                       fill={true}
-                      quality={80}
+                      quality={60}
                       loading="lazy"
                     />
                   </div>
                   <div className="additional-info__card-title">
-                    Осмотр перед выкупом
+                    Осмотрим перед выкупом
                   </div>
                 </div>
               </div>
@@ -178,7 +180,7 @@ const MainPage: FC = () => {
                       src={cardImage5}
                       alt="Пункт выдачи заказов"
                       fill={true}
-                      quality={80}
+                      quality={60}
                       loading="lazy"
                     />
                   </div>
@@ -192,12 +194,12 @@ const MainPage: FC = () => {
                       src={cardImage6}
                       alt="Пункт выдачи заказов"
                       fill={true}
-                      quality={80}
+                      quality={60}
                       loading="lazy"
                     />
                   </div>
                   <div className="additional-info__card-title">
-                    Выкуп товара
+                    Выкупим товар
                   </div>
                 </div>
               </div>
@@ -208,12 +210,12 @@ const MainPage: FC = () => {
                       src={cardImage7}
                       alt="Пункт выдачи заказов"
                       fill={true}
-                      quality={80}
+                      quality={60}
                       loading="lazy"
                     />
                   </div>
                   <div className="additional-info__card-title">
-                    И многое другое по договоренности с курьером
+                    И многое другое
                   </div>
                 </div>
               </div>

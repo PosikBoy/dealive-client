@@ -88,13 +88,6 @@ const Header = () => {
               Оставить заказ
             </Link>
             <Link
-              href="/reviews"
-              className={styles.header__mobileLink}
-              onClick={onLinkHandler}
-            >
-              Отзывы
-            </Link>
-            <Link
               href="/about"
               className={styles.header__mobileLink}
               onClick={onLinkHandler}

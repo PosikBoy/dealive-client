@@ -6,3 +6,27 @@
     gap: 12px;
   }
 }
+
+.breadcrumb {
+  align-self: flex-start;
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  &__link {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    line-height: 250%;
+  }
+  &__link a {
+    color: #fff;
+  }
+  &__link:not(:last-child)::after {
+    margin-left: 7px;
+    content: ">";
+    color: #fff;
+  }
+}

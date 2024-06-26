@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import styles from "./Card.module.scss";
 import { FC } from "react";
+import Heading3 from "./../Heading3/Heading3";
 interface ICardProps {
   img: StaticImageData;
   alt: string;
@@ -24,7 +25,7 @@ const Card: FC<ICardProps> = ({
         <Image src={img} alt={alt} fill={true} quality={100} loading="lazy" />
       </div>
       <div className={styles.card__text}>
-        <div className={styles.card__title}>{title}</div>
+        <Heading3>{title}</Heading3>
         <div className={styles.card__subtitle}>{subtitle}</div>
         <div className={styles.card__imageDescription}>{imageDescription}</div>
       </div>

@@ -35,7 +35,6 @@ instance.interceptors.response.use(
       originalRequest._isRetry = true;
       try {
         await authService.getNewTokens();
-        console.log("asdf");
         return instance.request(originalRequest);
       } catch (error) {
         if (

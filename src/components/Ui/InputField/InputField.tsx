@@ -4,6 +4,7 @@ import { forwardRef, InputHTMLAttributes } from "react";
 interface IField extends InputHTMLAttributes<HTMLInputElement> {
   type?: string;
   placeholder: string;
+  className?: string;
   required?: boolean;
   error?: any;
   color?: "default" | "white";
@@ -18,13 +19,14 @@ const InputField = forwardRef<HTMLInputElement, IField>(
       error,
       autoComplete,
       color,
+      className,
       ...rest
     },
     ref
   ) => {
     return (
       <>
-        <div className={styles.field}>
+        <div className={styles.field + " " + (className || "")}>
           <label>
             <input
               className={
@@ -45,8 +47,9 @@ const InputField = forwardRef<HTMLInputElement, IField>(
                 (error?.message ? " " + styles.error : "")
               }
               style={{
-                color: color === "white" ? "white" : "black",
-                backgroundColor: color === "white" ? "#00000000" : "white",
+                color: color === "white" ? "var(--white)" : "var(--black)",
+                backgroundColor:
+                  color === "white" ? "#00000000" : "var(--white)",
               }}
             >
               {placeholder + (required ? "*" : "")}

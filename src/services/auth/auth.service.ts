@@ -1,4 +1,4 @@
-import { IEmailPassword, IAuthResponse } from "@/services/types/auth.interface";
+import { IEmailPassword, IAuthResponse } from "@/types/auth.interface";
 import {
   removeInfoStorage,
   saveDataToStorage,
@@ -10,8 +10,6 @@ import instance from "@/api/api.interceptor";
 class AuthService {
   async auth(type: "login" | "register", data: IEmailPassword) {
     try {
-      console.log(SERVER_URL);
-
       const response = await axios.post<
         IEmailPassword,
         { data: IAuthResponse }
@@ -49,7 +47,7 @@ class AuthService {
         string,
         { data: { message: string } }
       >(LOGOUT_URL);
-      if (response.data.message === "logout was successfull")
+      if (response.data.message === "logout was successful")
         removeInfoStorage();
       return response.data;
     } catch (error: any) {

@@ -86,28 +86,10 @@ const ProfileInfo = () => {
           })}
           error={errors?.name}
         />
-
-        <Controller
-          name={"phoneNumber"}
+        <PhoneInputField
           control={control}
-          defaultValue=""
-          rules={{
-            required: "Заполните это поле",
-            pattern: {
-              value: /^(?:\+7|\b8)\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/,
-              message: "Введите номер телефона",
-            },
-          }}
-          render={({ field }) => (
-            <PhoneInputField
-              required
-              onBlur={field.onBlur}
-              onChange={(value: any) => field.onChange(value)}
-              value={field.value}
-              error={errors?.phoneNumber}
-              placeholder="Номер телефона"
-            />
-          )}
+          name="phoneNumber"
+          error={errors?.phoneNumber}
         />
 
         <InputField

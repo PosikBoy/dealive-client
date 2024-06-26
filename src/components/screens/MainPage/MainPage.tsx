@@ -1,7 +1,7 @@
 import "./MainPage.scss";
 import Tile from "@/components/Ui/Tile/Tile";
 import { FC } from "react";
-import MiniForm from "./MiniForm/MiniForm";
+import MiniForm from "./components/MiniForm/MiniForm";
 import Heading from "@/components/Ui/Heading/Heading";
 import Heading2 from "@/components/Ui/Heading2/Heading2";
 import Heading3 from "@/components/Ui/Heading3/Heading3";

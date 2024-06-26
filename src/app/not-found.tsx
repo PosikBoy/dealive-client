@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect } from "react";
 import styles from "./notFound.module.scss";
-import notFoundCar from "@/assets/notFoundCat.png";
+import notFoundCar from "@/assets/icons/notFoundCat.png";
 import Image from "next/image";
 import { Metadata } from "next";
-import { title } from "process";
 import { useRouter } from "next/navigation";
 type Props = {};
 
@@ -19,11 +18,13 @@ export const metadata: Metadata = {
 
 const notFound = (props: Props) => {
   const router = useRouter();
+
   useEffect(() => {
     setTimeout(() => {
       router.push("/");
     }, 3000);
   }, []);
+
   return (
     <div className={styles.notFound}>
       <div className="container">

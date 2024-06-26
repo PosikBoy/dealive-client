@@ -2,7 +2,7 @@ import { getUserStorage } from "@/services/auth/auth.helper";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { checkAuth, login, logOut, register } from "./auth.actions";
 import { isError } from "../utils/isError";
-import { IUser } from "./auth.interface";
+import { IUser } from "@/types/auth.interface";
 
 interface IInitialState {
   user: IUser | null;

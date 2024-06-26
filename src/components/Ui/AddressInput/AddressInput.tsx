@@ -2,13 +2,14 @@ import suggestionsService from "@/services/suggestions/suggestions.service";
 import styles from "./AddressInput.module.scss";
 import {
   ChangeEvent,
+  FC,
   forwardRef,
   InputHTMLAttributes,
   useEffect,
   useRef,
   useState,
 } from "react";
-import { Controller } from "react-hook-form";
+import { Control, Controller } from "react-hook-form";
 
 interface IField extends InputHTMLAttributes<HTMLInputElement> {
   onChange: any;
@@ -16,23 +17,61 @@ interface IField extends InputHTMLAttributes<HTMLInputElement> {
   error?: any;
   value: string;
 }
+
 interface SuggestionItem {
   value: string;
 }
+
+interface IAddressInputController {
+  name: string;
+  control: Control<any>;
+  error: any;
+  placeholder?: string;
+  required?: boolean;
+  rules?: any;
+}
+
+const AddressInputController: FC<IAddressInputController> = ({
+  name,
+  control,
+  error,
+  placeholder = "Введите адрес",
+  required,
+  rules = {
+    required: "Введите адрес",
+  },
+}) => {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      defaultValue=""
+      rules={rules}
+      render={({ field }) => (
+        <AddressInput
+          onChange={(value: any) => field.onChange(value)}
+          value={field.value}
+          error={error}
+          placeholder={placeholder}
+          required={required}
+        />
+      )}
+    />
+  );
+};
 
 const AddressInput = forwardRef<HTMLInputElement, IField>(
   ({ onChange, placeholder, error, value, ...rest }, ref) => {
     const [suggestions, setSuggestions] = useState<SuggestionItem[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
+
     useEffect(() => {
       let timeoutId = null;
-
       if (value) {
         timeoutId = setTimeout(async () => {
           try {
             const suggestions = await suggestionsService.getSuggestions(value);
-            console.log(suggestions);
             setSuggestions(suggestions);
             setShowSuggestions(true);
           } catch (error) {
@@ -53,7 +92,6 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
       const newValue = e.target.value;
-      
       onChange(newValue);
     };
 
@@ -67,23 +105,10 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
     return (
       <>
         <div className={styles.field}>
-          {showSuggestions && (
-            <ul className={styles.suggestions}>
-              {suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion.value}
-                </li>
-              ))}
-            </ul>
-          )}
           <label>
             <input
               type="text"
               placeholder=" "
-              
               ref={inputRef}
               autoComplete="address-line1"
               onInput={handleInputChange}
@@ -109,9 +134,30 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
               </div>
             )}
           </label>
+          {showSuggestions && suggestions.length > 0 && (
+            <>
+              <div
+                className={styles.suggestions__overflow}
+                onClick={() => setShowSuggestions(false)}
+              ></div>
+              <div className={styles.suggestions}>
+                <ul className={styles.suggestions__list}>
+                  {suggestions.map((suggestion, index) => (
+                    <li
+                      className={styles.suggestions__item}
+                      key={index}
+                      onClick={() => handleSuggestionClick(suggestion)}
+                    >
+                      {suggestion.value}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
         </div>
       </>
     );
   }
 );
-export default AddressInput;
+export default AddressInputController;

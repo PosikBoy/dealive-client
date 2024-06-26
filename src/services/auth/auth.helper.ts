@@ -1,11 +1,10 @@
-// import Cookies from "@/utils/cookie";
-import { IAuthResponse } from "../types/auth.interface";
-import { IProfileResponse } from "../types/profile.interface";
+import { IAuthResponse, IUser } from "@/types/auth.interface";
+
 export const saveAccessTokenStorage = (accessToken: string) => {
   localStorage.setItem("accessToken", accessToken);
 };
 
-export const saveProfileStorage = (data: IProfileResponse) => {
+export const saveProfileStorage = (data: IUser) => {
   localStorage.setItem("user", JSON.stringify(data));
 };
 
@@ -27,7 +26,7 @@ export const getAccessTokenStorage = () => {
 
 export const getUserStorage = () => {
   if (typeof window === "undefined") {
-    return null; // на сервере localStorage не доступен
+    return null;
   }
   let user = localStorage
     ? JSON.parse(localStorage.getItem("user") || "{}")

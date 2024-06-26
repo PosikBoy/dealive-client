@@ -4,7 +4,7 @@ import {
   IAuthResponse,
   IEmailPassword,
   ILogOutResponse,
-} from "./auth.interface";
+} from "@/types/auth.interface";
 import { errorCatch } from "@/api/api.helper";
 
 export const register = createAsyncThunk<

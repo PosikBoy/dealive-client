@@ -6,7 +6,6 @@
   align-items: center;
   gap: 10px;
   &__heading {
-    font-size: 18px;
     margin-bottom: 10px;
     color: var(--black);
   }
@@ -36,8 +35,7 @@
   }
 
   &__type.active {
-    color: white;
-    font-weight: 600;
+    color: var(--white);
     background-color: #3586ff;
     transition: all 0.3s;
   }
@@ -64,9 +62,8 @@
     visibility: hidden;
     max-height: 0;
     overflow: hidden;
-
     transition: all 0.3s ease-in-out;
-    &.show {
+    &_show {
       visibility: visible;
       max-height: 100px;
       transition: all 0.3s ease-in-out;

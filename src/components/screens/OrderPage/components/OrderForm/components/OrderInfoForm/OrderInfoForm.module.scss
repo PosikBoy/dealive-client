@@ -1,0 +1,51 @@
+.info {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--main-block-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.151);
+  &__parcel {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &__parcelSuggestions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: #5c5c5c;
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none; /* Для IE и Edge */
+  }
+  &__parcelSuggestions {
+    cursor: pointer;
+  }
+  &__parcelSuggestions::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__weightTitle {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__radio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  &__radios {
+    display: flex;
+    gap: 12px;
+  }
+  &__weightError {
+    color: red;
+    font-size: 12px;
+    transition: all 0.3s;
+    margin-left: 8px;
+  }
+}

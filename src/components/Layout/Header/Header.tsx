@@ -13,36 +13,18 @@ const Header = () => {
 
   const user = useTypedSelector((state) => state.auth.user);
   const isOpenedClassName = isOpen ? " " + styles.open : " " + styles.closed;
+
   const onLinkHandler = () => {
     document.body.classList.toggle("modal-open");
     setIsOpen(!isOpen);
   };
+
   useEffect(() => {
     setIsAuthModalOpen(false);
   }, [user]);
+
   return (
     <header className={styles.header}>
-      {isOpen && (
-        <Brightness
-          onClick={() => {
-            document.body.classList.toggle("modal-open");
-            setIsOpen(!isOpen);
-          }}
-        />
-      )}
-      {isAuthModalOpen && (
-        <Brightness
-          onClick={() => {
-            document.body.classList.remove("modal-open");
-            setIsAuthModalOpen(!isAuthModalOpen);
-          }}
-        />
-      )}
-      {isAuthModalOpen && (
-        <div className={styles.authForm}>
-          <AuthForm />
-        </div>
-      )}
       <div className="container">
         <div className={styles.header__body}>
           <div className={styles.header__logo}>
@@ -116,6 +98,27 @@ const Header = () => {
           </nav>
         </div>
       </div>
+      {isOpen && (
+        <Brightness
+          onClick={() => {
+            document.body.classList.toggle("modal-open");
+            setIsOpen(!isOpen);
+          }}
+        />
+      )}
+      {isAuthModalOpen && (
+        <Brightness
+          onClick={() => {
+            document.body.classList.remove("modal-open");
+            setIsAuthModalOpen(!isAuthModalOpen);
+          }}
+        />
+      )}
+      {isAuthModalOpen && (
+        <div className={styles.authForm}>
+          <AuthForm />
+        </div>
+      )}
     </header>
   );
 };

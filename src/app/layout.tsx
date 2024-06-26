@@ -1,6 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import "./globals.css";
+import "./globals.scss";
+
 import { Montserrat } from "next/font/google";
 
 // If loading a variable font, you don't need to specify the font weight
@@ -17,7 +18,6 @@ const Header = dynamic(() => import("@/components/Layout/Header/Header"), {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dealive.ru/"),
-
   openGraph: {
     images: [
       {

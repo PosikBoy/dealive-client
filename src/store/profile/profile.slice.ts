@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { updateProfile, getProfile } from "./profile.actions";
-import { IUser } from "./profile.interface";
 import { isError } from "../utils/isError";
+import { IUser } from "@/types/auth.interface";
 
 interface IInitialState {
   user: IUser;

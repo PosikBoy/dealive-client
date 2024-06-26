@@ -7,8 +7,8 @@ import { register as authRegister, login } from "@/store/auth/auth.actions";
 import InputField from "@/components/Ui/InputField/InputField";
 import { FC, useState } from "react";
 import Button from "../Button/Button";
-import { IProfileResponse } from "@/services/types/profile.interface";
 import { useRouter } from "next/navigation";
+import { IUser } from "@/types/auth.interface";
 
 interface IFormData {
   email: string;
@@ -19,7 +19,7 @@ interface IFormData {
 interface ResponseType {
   payload: {
     accessToken: string;
-    user: IProfileResponse;
+    user: IUser;
   };
 }
 
@@ -66,6 +66,9 @@ const AuthForm: FC = () => {
     }
     return "Пароли не совпадают";
   };
+
+  let IsRepeatPasswordShow =
+    type === "register" ? " " + styles.authForm__repeatPassword_show : "";
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.authForm}>
@@ -137,19 +140,18 @@ const AuthForm: FC = () => {
           })}
           error={errors?.password}
         />
-        {type === "register" && (
-          <InputField
-            type="password"
-            placeholder="Пароль повторно"
-            required
-            {...register("repeatPassword", {
-              required: "Заполните это поле",
-              validate: validateRepeatPasword,
-            })}
-            autoComplete="new-password"
-            error={errors?.repeatPassword}
-          />
-        )}
+        <InputField
+          type="password"
+          placeholder="Пароль повторно"
+          required
+          {...register("repeatPassword", {
+            required: "Заполните это поле",
+            validate: validateRepeatPasword,
+          })}
+          autoComplete="new-password"
+          error={errors?.repeatPassword}
+          className={styles.authForm__repeatPassword + IsRepeatPasswordShow}
+        />
       </div>
       <Button type="submit">
         <span className={styles.authForm__buttonText}>Войти</span>

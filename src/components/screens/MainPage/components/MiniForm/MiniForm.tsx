@@ -39,31 +39,21 @@ const MiniForm = () => {
           Оставьте заявку
         </Heading3>
         <div className={styles.miniForm__inputs}>
-          <Controller
+          <AddressInput
             name="pickupAddress"
             control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <AddressInput
-                onChange={(value: any) => field.onChange(value)}
-                value={field.value}
-                error={errors?.pickupAddress?.message}
-                placeholder="Где забрать?"
-              />
-            )}
+            error={errors?.pickupAddress?.message}
+            placeholder="Где забрать?"
+            required={false}
+            rules={{}}
           />
-          <Controller
+          <AddressInput
             name="destinationAddress"
             control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <AddressInput
-                onChange={(value: any) => field.onChange(value)}
-                value={field.value}
-                error={errors?.destinationAddress?.message}
-                placeholder="Куда доставить?"
-              />
-            )}
+            error={errors?.destinationAddress?.message}
+            placeholder="Куда доставить?"
+            required={false}
+            rules={{}}
           />
         </div>
         <Button type="submit">Оформить доставку</Button>

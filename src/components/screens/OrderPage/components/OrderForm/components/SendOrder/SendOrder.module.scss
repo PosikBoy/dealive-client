@@ -1,0 +1,25 @@
+.sendOrder {
+  max-width: 800px;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--main-block-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__price {
+    display: flex;
+    gap: 12px;
+  }
+  &__priceField {
+    max-width: 170px;
+  }
+  &__priceInfo {
+    margin-top: 6px;
+  }
+  &__infoHeading p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

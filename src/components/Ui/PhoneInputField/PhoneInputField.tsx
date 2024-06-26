@@ -1,5 +1,6 @@
+import { Control, Controller } from "react-hook-form";
 import styles from "./PhoneInputField.module.scss";
-import { forwardRef, InputHTMLAttributes, useState } from "react";
+import { forwardRef, InputHTMLAttributes, useState, FC } from "react";
 
 interface IPhoneField extends InputHTMLAttributes<HTMLInputElement> {
   onChange: any;
@@ -10,6 +11,43 @@ interface IPhoneField extends InputHTMLAttributes<HTMLInputElement> {
   // name: string;
   // setValue: (name: any, value: any) => void;
 }
+
+interface IPhoneInputController {
+  name: string;
+  control: Control<any>;
+  error: any;
+}
+
+const PhoneInputController: FC<IPhoneInputController> = ({
+  name,
+  control,
+  error,
+}) => {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      defaultValue=""
+      rules={{
+        required: "Введите номер телефона",
+        pattern: {
+          value: /^(?:\+7|\b8)\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/,
+          message: "Введите номер телефона",
+        },
+      }}
+      render={({ field }) => (
+        <PhoneInputField
+          onBlur={field.onBlur}
+          onChange={(value: any) => field.onChange(value)}
+          value={field.value}
+          error={error}
+          placeholder="Номер телефона"
+          required
+        />
+      )}
+    />
+  );
+};
 
 const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
   ({ onChange, error, placeholder, required, ...rest }, ref) => {
@@ -135,4 +173,4 @@ const PhoneInputField = forwardRef<HTMLInputElement, IPhoneField>(
     );
   }
 );
-export default PhoneInputField;
+export default PhoneInputController;

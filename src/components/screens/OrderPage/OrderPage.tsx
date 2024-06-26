@@ -2,7 +2,7 @@ import Heading from "@/components/Ui/Heading/Heading";
 import styles from "./OrderPage.module.scss";
 import { NextPage } from "next";
 import React from "react";
-import OrderForm from "./OrderForm/OrderForm";
+import OrderForm from "./components/OrderForm/OrderForm";
 import Link from "next/link";
 
 const OrderPage: NextPage = () => {

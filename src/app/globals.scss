@@ -1,0 +1,38 @@
+@import "@/styles/main.scss";
+
+body {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 15px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--main-background-color);
+}
+
+.main {
+  margin: 100px 0;
+  flex: 1 1 auto;
+}
+
+.highlighted {
+  color: rgba(255, 255, 255, 0.43);
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.modal-open {
+  overflow: hidden;
+}

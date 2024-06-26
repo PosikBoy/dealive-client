@@ -19,7 +19,6 @@
   }
   &__headingColumn span {
     color: white;
-    font-weight: bold;
     font-size: 14px;
   }
   &__headingColumn2 {
@@ -29,7 +28,7 @@
     gap: 10px;
   }
   &__logo {
-    color: white;
+    color: var(--white);
     font-weight: bold;
     font-size: 18px;
     margin-right: 40px;
@@ -38,8 +37,8 @@
     margin-bottom: 20px;
   }
   &__headingTitle {
-    color: white;
-    font-weight: bold;
+    color: var(--white);
+    font-weight: 700;
     text-align: right;
   }
   &__body {
@@ -52,27 +51,20 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
   }
-  // &__bodyColumn::after {
-  //   content: "";
-  //   width: 1px;
-  //   height: 90%;
-  //   top: 17px;
-  //   background-color: white;
-  //   position: absolute;
-  //   right: -10px;
-  // }
+  &__bodyColumn a {
+    display: block;
+    padding: 8px 0;
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+  }
   &__bodyColumnTitle {
     color: white;
     font-weight: bold;
     font-size: 18px;
   }
-  &__bodyLink {
-    color: white;
-    font-weight: regular;
-    font-size: 14px;
-  }
+
   &__bodySocials {
     display: flex;
     gap: 10px;
@@ -98,5 +90,8 @@
       align-items: center;
       flex-direction: column;
     }
+  }
+  &__bodyLink {
+    color: var(--white);
   }
 }

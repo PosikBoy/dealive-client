@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: "#3586ff",
 };
+
 const Order: NextPage = () => {
   return <ProfilePage />;
 };

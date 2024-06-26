@@ -2,13 +2,14 @@ import Link from "next/link";
 import "./AboutPage.scss";
 import Heading from "@/components/Ui/Heading/Heading";
 import Image from "next/image";
+import Button from "@/components/Ui/Button/Button";
 
-import starImage from "@/assets/star.png";
+import starImage from "@/assets/icons/star.png";
 import deliveryGuy2 from "@/assets/images/deliveryGuy2.png";
 
 import Card from "@/components/Ui/Card/Card";
 import cardImage7 from "@/assets/images/cardImage7.png";
-import Button from "@/components/Ui/Button/Button";
+
 const AboutPage = () => {
   return (
     <>

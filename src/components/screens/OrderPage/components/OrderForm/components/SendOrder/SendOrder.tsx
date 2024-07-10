@@ -48,7 +48,7 @@ const SendOrder: FC<ISendOrderProps> = ({ register, error }) => {
       </div>
       <div className={styles.sendOrder__agreement}>
         Отправляя заказ нам, вы соглашаетесь с
-        <a href="/policy.docx" className={styles.agreementLink}>
+        <a href="/privacy.docx" className={styles.agreementLink}>
           политикой обработки персональных данных
         </a>
       </div>

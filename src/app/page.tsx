@@ -35,13 +35,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "google",
-    yandex: "yandex",
+    yandex: "b94cb0cb518ebeb9",
     yahoo: "yahoo",
-    other: {
-      me: ["my-email", "my-link"],
-    },
   },
-  other: {   yandex-verification: "b94cb0cb518ebeb9" }
 };
 
 export default function Home() {

@@ -46,6 +46,7 @@ export const profileSlice = createSlice({
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.error = action.payload;
+        console.log("aksdfn");
         state.isLoading = false;
       });
   },

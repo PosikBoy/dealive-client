@@ -41,6 +41,7 @@ const OrderInfoForm: FC<IOrderInfoForm> = memo(
             {...register("info.parcelType", {
               required:
                 "Это коробка, документы, а может цветы? Нам важно знать",
+              maxLength: 44,
             })}
             error={errors.parcelType}
           />

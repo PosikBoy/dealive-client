@@ -19,7 +19,6 @@ const TextArea = forwardRef<HTMLTextAreaElement, ITextArea>(
             ref={ref}
             {...rest}
           />
-          {/* <div className={styles.field__outline}></div> */}
           <span className={styles.field__placeholder}>{placeholder}</span>
         </div>
       </>

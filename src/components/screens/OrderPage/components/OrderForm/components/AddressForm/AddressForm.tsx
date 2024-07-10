@@ -66,7 +66,12 @@ const AddressForm: FC<IAddressForm> = ({
             type="text"
             autoComplete="name"
             placeholder="Контактное лицо"
-            {...register(`addresses.${index}.phoneName`)}
+            {...register(`addresses.${index}.phoneName`, {
+              maxLength: {
+                value: 44,
+                message: "Максимальная длина - 44 символов",
+              },
+            })}
           />
         </div>
         <div className={styles.additional__addressInfo}>
@@ -75,7 +80,9 @@ const AddressForm: FC<IAddressForm> = ({
               type="text"
               autoComplete="address-line2"
               placeholder="Этаж"
-              {...register(`addresses.${index}.floor`)}
+              {...register(`addresses.${index}.floor`, {
+                maxLength: 9,
+              })}
             />
           </div>
           <div className={styles.additional__apartment}>
@@ -83,7 +90,9 @@ const AddressForm: FC<IAddressForm> = ({
               autoComplete="address-line2"
               type="text"
               placeholder="Квартира"
-              {...register(`addresses.${index}.apartment`)}
+              {...register(`addresses.${index}.apartment`, {
+                maxLength: 9,
+              })}
             />
           </div>
         </div>
@@ -92,8 +101,10 @@ const AddressForm: FC<IAddressForm> = ({
           <TextArea
             autoComplete="note"
             placeholder="Комментарий"
-            {...register(`addresses.${index}.info`)}
-          ></TextArea>
+            {...register(`addresses.${index}.info`, {
+              maxLength: 511,
+            })}
+          />
         </div>
       </div>
 

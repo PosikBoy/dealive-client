@@ -4,9 +4,6 @@ import "./ClientOrderPage.scss";
 import Link from "next/link";
 import Heading2 from "@/components/Ui/Heading2/Heading2";
 import Image from "next/image";
-interface ClientOrderProps {
-  orderId: number;
-}
 
 import ClockIcon from "@/assets/icons/clock.png";
 import CourierFoundIcon from "@/assets/icons/found.png";
@@ -14,13 +11,18 @@ import CourierIcon from "@/assets/icons/courier.png";
 import CheckIcon from "@/assets/icons/check.png";
 import orderService from "@/services/order/order.service";
 import { IOrderResponse } from "@/types/order.interface";
+import Loader from "@/components/Ui/Loader/Loader";
+import Address from "./Address/Address";
+
+interface ClientOrderProps {
+  orderId: number;
+}
 
 const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
   const [order, setOrder] = useState<IOrderResponse>();
 
   const fetchOrder = async () => {
-    const order = await orderService.getOrder(orderId);
-    console.log(order);
+    const order = await orderService.getById(orderId);
     setOrder(order);
   };
 
@@ -29,7 +31,13 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
   }, []);
 
   if (!order) {
-    return <div>Loading...</div>;
+    return (
+      <div className="container">
+        <div className="loader-wrapper">
+          <Loader />
+        </div>
+      </div>
+    );
   }
 
   const orderStatuses = ["В обработке", "Курьер найден", "В пути", "Доставлен"];
@@ -46,7 +54,7 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
         <div className="container">
           <ul className="breadcrumb__list">
             <li className="breadcrumb__link">
-              <Link href="profile">Мой профиль</Link>
+              <Link href="/profile">Мой профиль</Link>
             </li>
             <li className="breadcrumb__link">Заказ {orderId}</li>
           </ul>
@@ -66,7 +74,10 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
                         ? "active"
                         : "";
                     return (
-                      <li className={`status__item status-item ${isActive}`}>
+                      <li
+                        className={`status__item status-item ${isActive}`}
+                        key={index}
+                      >
                         <div className="status-item__icon">
                           <Image src={icon} alt="Часы" width={24} height={24} />
                         </div>
@@ -79,6 +90,9 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
             <div className="orderPage__support-button support-button">
               <a href="https://t.me/dealivesupport">Связаться с нами</a>
             </div>
+            {order.addresses.map((address, index) => (
+              <Address address={address} index={index} key={index} />
+            ))}
           </div>
         </div>
       </div>

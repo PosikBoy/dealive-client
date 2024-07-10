@@ -38,7 +38,14 @@ const AddressInputController: FC<IAddressInputController> = ({
   placeholder = "Введите адрес",
   required,
   rules = {
-    required: "Введите адрес",
+    pattern: {
+      value: /^.{0,127}$/,
+      message: "Максимум 128 символов",
+    },
+    required: {
+      value: required,
+      message: "Это поле обязательно",
+    },
   },
 }) => {
   return (

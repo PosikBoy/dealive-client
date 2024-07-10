@@ -16,7 +16,6 @@ class AuthService {
       >(SERVER_URL + "/" + type, data, {
         withCredentials: true,
       });
-      console.log(response);
       if (response?.data.accessToken) {
         saveDataToStorage(response.data);
       }

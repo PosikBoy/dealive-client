@@ -10,7 +10,7 @@ import AuthForm from "@/components/Ui/AuthForm/AuthForm";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-
+  
   const user = useTypedSelector((state) => state.auth.user);
   const isOpenedClassName = isOpen ? " " + styles.open : " " + styles.closed;
 

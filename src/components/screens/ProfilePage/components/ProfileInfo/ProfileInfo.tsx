@@ -1,6 +1,6 @@
 "use client";
-import { Controller, useForm } from "react-hook-form";
 
+import { useForm } from "react-hook-form";
 import styles from "./ProfileInfo.module.scss";
 import InputField from "@/components/Ui/InputField/InputField";
 import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
@@ -26,9 +26,13 @@ interface ResponseType {
     email: string;
   };
 }
+
 const ProfileInfo = () => {
   const [success, setSuccess] = useState("");
-  const user = useTypedSelector((state) => state.auth.user);
+  const user = useTypedSelector((state) => state.auth);
+
+  console.log("user", user);
+
   const router = useRouter();
   const {
     register,
@@ -38,13 +42,12 @@ const ProfileInfo = () => {
   } = useForm<IFormState>({
     mode: "onChange",
     defaultValues: {
-      phoneNumber: user?.phoneNumber || "",
-      name: user?.name || "",
-      email: user?.email || "",
+      phoneNumber: user?.user?.phoneNumber || "",
+      name: user?.user?.name || "",
+      email: user?.user?.email || "",
     },
   });
 
-  const profile = useTypedSelector((state) => state.profile);
   const dispatch = useTypedDispatch();
   const onSubmit = async (data: IFormState) => {
     setSuccess("");
@@ -69,8 +72,8 @@ const ProfileInfo = () => {
         <Heading3 color="black" className={styles.profileInfo__title}>
           Ваши данные
         </Heading3>
-        {profile.error ? (
-          <div className={styles.profileInfo__error}>{profile.error}</div>
+        {user?.error ? (
+          <div className={styles.profileInfo__error}>{user?.error}</div>
         ) : null}
         {success ? (
           <div className={styles.profileInfo__success}>{success}</div>

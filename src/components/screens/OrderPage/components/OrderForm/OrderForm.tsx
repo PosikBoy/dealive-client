@@ -54,10 +54,9 @@ const OrderForm = () => {
   }, [user]);
 
   const onSubmit = async (data: IOrder) => {
-    const response = await orderService.sendOrder(data);
+    const order = await orderService.send(data);
 
-    console.log(response);
-    if (response?.order?.info?.id) {
+    if (order?.info?.id) {
       setIsSuccessModalOpen(true);
       reset();
       setUserData();

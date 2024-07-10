@@ -23,7 +23,7 @@ export interface IOrder {
 export interface IOrderInfoResponse extends IOrderInfo {
   id: number;
   status: string;
-  date: Date;
+  date: string;
 }
 
 export interface IOrderResponse {

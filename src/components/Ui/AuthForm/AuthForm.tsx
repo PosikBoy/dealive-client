@@ -46,10 +46,8 @@ const AuthForm: FC = () => {
       password: data.password,
     };
     let response;
-
     if (type === "register") {
       response = (await dispatch(authRegister(authData))) as ResponseType;
-      console.log(response);
     } else {
       response = (await dispatch(login(authData))) as ResponseType;
     }
@@ -59,7 +57,7 @@ const AuthForm: FC = () => {
     setShownError(true);
   };
 
-  const validateRepeatPasword = () => {
+  const validateRepeatPassword = () => {
     const data = getValues();
     if (data.password === data.repeatPassword) {
       return true;
@@ -140,18 +138,20 @@ const AuthForm: FC = () => {
           })}
           error={errors?.password}
         />
-        <InputField
-          type="password"
-          placeholder="Пароль повторно"
-          required
-          {...register("repeatPassword", {
-            required: "Заполните это поле",
-            validate: validateRepeatPasword,
-          })}
-          autoComplete="new-password"
-          error={errors?.repeatPassword}
-          className={styles.authForm__repeatPassword + IsRepeatPasswordShow}
-        />
+        {type === "register" && (
+          <InputField
+            type="password"
+            placeholder="Пароль повторно"
+            required
+            {...register("repeatPassword", {
+              required: "Заполните это поле",
+              validate: validateRepeatPassword,
+            })}
+            autoComplete="new-password"
+            error={errors?.repeatPassword}
+            className={styles.authForm__repeatPassword + IsRepeatPasswordShow}
+          />
+        )}
       </div>
       <Button type="submit">
         <span className={styles.authForm__buttonText}>Войти</span>

@@ -32,18 +32,19 @@ export const authSlice = createSlice({
         state.error = null;
       })
       .addCase(login.pending, (state) => {
+        console.log("pending");
         state.error = null;
-
         state.isLoading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
+        console.log("fullfiled");
+
         state.user = action.payload.user;
         state.error = null;
       })
       .addCase(logOut.pending, (state) => {
         state.error = null;
-
         state.isLoading = true;
       })
       .addCase(logOut.fulfilled, (state) => {

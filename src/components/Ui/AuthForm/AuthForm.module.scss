@@ -61,7 +61,6 @@
   &__repeatPassword {
     visibility: hidden;
     max-height: 0;
-    overflow: hidden;
     transition: all 0.3s ease-in-out;
     &_show {
       visibility: visible;

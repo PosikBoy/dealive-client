@@ -43,6 +43,15 @@ const SendOrder: FC<ISendOrderProps> = ({ register, error }) => {
           </button>
         </div>
       </div>
+      <div className={styles.sendOrder__payment}>
+        Оплата производится наличными курьеру на одном из адресов
+      </div>
+      <div className={styles.sendOrder__agreement}>
+        Отправляя заказ нам, вы соглашаетесь с
+        <a href="/policy.docx" className={styles.agreementLink}>
+          политикой обработки персональных данных
+        </a>
+      </div>
       <div className={styles.sendOrder__button}>
         <Button type="submit">Отправить заказ</Button>
       </div>

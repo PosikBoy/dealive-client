@@ -1,0 +1,31 @@
+.cookieAgreement {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: 350px;
+  height: 120px;
+  padding: 20px;
+  border-radius: 20px;
+
+  position: fixed;
+  bottom: 30px;
+  right: 50%;
+  transform: translateX(50%);
+
+  background-color: var(--white);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--light-blue);
+}
+
+.button {
+  color: var(--white);
+  background-color: var(--light-blue);
+  border-radius: 20px;
+  padding: 5px;
+}

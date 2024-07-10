@@ -24,6 +24,9 @@ const MyOrders: FC = () => {
   if (!orders) {
     return <Loader />;
   }
+  if (orders.length === 0) {
+    return <></>;
+  }
 
   return (
     <>

@@ -22,4 +22,22 @@
     font-size: 18px;
     font-weight: 600;
   }
+  &__agreement {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  &__payment {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+.agreementLink {
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--light-blue);
+  margin-left: 5px;
+  &:hover {
+    color: var(--blue);
+  }
 }

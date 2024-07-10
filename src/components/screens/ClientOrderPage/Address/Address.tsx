@@ -16,8 +16,9 @@ const Address: FC<IAddressProps> = ({ index, address }) => {
   let isAdditionalShownClassName = isAdditionalShown ? "active" : "";
   const addressString =
     address.address +
-    (address.floor && "Этаж " + address.floor) +
-    (address.apartment && "Квартира " + address.apartment);
+    (address.floor ? ", эт. " + address.floor : "") +
+    (address.apartment ? ", кв. " + address.apartment : "");
+
   return (
     <div className="address">
       <div className="address__index">{index + 1}</div>
@@ -42,7 +43,7 @@ const Address: FC<IAddressProps> = ({ index, address }) => {
                 />
               </div>
             </div>
-            <div className="address__additional-column">
+            <div className="address__additional-column address__additional-column_2">
               <TextArea
                 placeholder="Комментарий"
                 value={address.info}

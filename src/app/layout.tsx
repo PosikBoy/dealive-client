@@ -42,6 +42,7 @@ export const viewport: Viewport = {
 import { StoreProvider } from "@/components/StoreProvider";
 import Footer from "@/components/Layout/Footer/Footer";
 import { Metadata, Viewport } from "next";
+import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
 
 export default function RootLayout({
   children,
@@ -57,6 +58,7 @@ export default function RootLayout({
             <div className="main">{children}</div>
             <Footer />
           </div>
+          <CookieAgreement />
         </body>
       </StoreProvider>
     </html>

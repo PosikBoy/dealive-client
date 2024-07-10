@@ -36,8 +36,7 @@ const MainPage: FC = () => {
                 </strong>
                 <strong>
                   <Heading2 className="welcome__subtitle">
-                    найдем<span className="highlighted"> вам</span> курьера за
-                    15 минут!
+                    найдем вам курьера!
                   </Heading2>
                 </strong>
               </div>

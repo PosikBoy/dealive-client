@@ -46,13 +46,18 @@ const Footer = () => {
                 <Heading2 className={styles.footer__headingTitle}>
                   Срочная доставка в Москве и области
                 </Heading2>
-                <div className={styles.footer__headingTitle}>Техподдержка</div>
                 <a
-                  href="tel:+79897281597"
+                  href="https://t.me/dealivesupport "
+                  className={styles.footer__headingTitle}
+                >
+                  Техподдержка
+                </a>
+                <a
+                  href="tel:+79937017264"
                   className={styles.footer__headingTitle}
                   title="Номер компании"
                 >
-                  +7 (989) 728-15-97
+                  +7 (993) 701-72-64
                 </a>
               </div>
             </div>
@@ -63,18 +68,15 @@ const Footer = () => {
               <Link href="/about" className={styles.footer__bodyLink}>
                 - О компании
               </Link>
-              <Link href="/terms" className={styles.footer__bodyLink}>
+              <Link href="/privacy.docx" className={styles.footer__bodyLink}>
                 - Политика конфиденциальности
               </Link>
-              <Link href="/terms2" className={styles.footer__bodyLink}>
-                - Условия использования
-              </Link>
-              <Link href="/help" className={styles.footer__bodyLink}>
+              {/* <Link href="/help" className={styles.footer__bodyLink}>
                 - Руководство пользователя
-              </Link>
-              <Link href="/faq" className={styles.footer__bodyLink}>
+              </Link> */}
+              {/* <Link href="/faq" className={styles.footer__bodyLink}>
                 - FAQ
-              </Link>
+              </Link> */}
             </div>
             <div className={styles.footer__bodyColumn}>
               <span className={styles.footer__bodyColumnTitle}>
@@ -100,7 +102,7 @@ const Footer = () => {
               <Link href="/login" className={styles.footer__bodyLink}>
                 - Вход / регистрация
               </Link>
-              <Link href="/my-orders" className={styles.footer__bodyLink}>
+              <Link href="/profile" className={styles.footer__bodyLink}>
                 - Мои заказы
               </Link>
               <Link href="/profile" className={styles.footer__bodyLink}>
@@ -115,12 +117,12 @@ const Footer = () => {
                   +7 (993) 701-72-64
                 </a>
               </div>
-              <div className={styles.footer__bodyContactPhone}>
+              {/* <div className={styles.footer__bodyContactPhone}>
                 <Image src={phone} alt="Телефон" width={20} height={20} />
                 <a href="tel:+79939281597" className={styles.footer__bodyLink}>
                   +7 (993) 928-15-97
                 </a>
-              </div>
+              </div> */}
               <div className={styles.footer__bodyContactEmail}>
                 <Image src={mail} alt="Почта" width={20} height={20} />
                 <a
@@ -136,9 +138,12 @@ const Footer = () => {
               <span className={styles.footer__bodyLink}>
                 Курьеры видят заказы 24/7
               </span>
-              <Link href="/deliveryguy" className={styles.footer__bodyLink}>
+              <a
+                href="https://t.me/dealivesupport "
+                className={styles.footer__bodyLink}
+              >
                 Стать курьером (кликабельно)
-              </Link>
+              </a>
             </div>{" "}
             <div className={styles.footer__bodyColumn}>
               <form

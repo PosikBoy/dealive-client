@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   keywords: [
     "срочная доставка, Москва быстрая доставка, экспресс доставка по Москве, курьер в Москве, Москва доставить посылку",
   ],
-  yandex-verification: "b94cb0cb518ebeb9",
   openGraph: {
     locale: "ru",
     url: "/",
@@ -42,6 +41,7 @@ export const metadata: Metadata = {
       me: ["my-email", "my-link"],
     },
   },
+  other: {   yandex-verification: "b94cb0cb518ebeb9" }
 };
 
 export default function Home() {

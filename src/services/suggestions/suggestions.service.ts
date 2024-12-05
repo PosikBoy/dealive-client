@@ -5,17 +5,13 @@ interface ISuggestion {
   value: string;
 }
 
-interface ISuggestionsResponse {
-  suggestions: ISuggestion[];
-}
-
 class SuggestionsService {
   async getSuggestions(query: string) {
     try {
-      const response = await axios.post<ISuggestionsResponse>(SUGGESTIONS_URL, {
+      const response = await axios.post<ISuggestion[]>(SUGGESTIONS_URL, {
         query: query,
       });
-      return response.data.suggestions;
+      return response.data;
     } catch (error: any) {
       throw Error(error.response.data.message);
     }

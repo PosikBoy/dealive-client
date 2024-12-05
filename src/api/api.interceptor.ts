@@ -5,10 +5,12 @@ import {
 import axios from "axios";
 import { errorCatch } from "./api.helper";
 import authService from "@/services/auth/auth.service";
+import { ServerMessages } from "@/constants/ServerMessages";
+import { SERVER_URL } from "@/constants/URLS";
 
 const instance = axios.create({
   withCredentials: true,
-  baseURL: process.env.SERVER_URL,
+  baseURL: SERVER_URL,
   headers: { "Content-Type": "application/json" },
 });
 
@@ -27,8 +29,8 @@ instance.interceptors.response.use(
 
     if (
       (error.response.status === 401 ||
-        errorCatch(error) === "jwt expired" ||
-        errorCatch(error) === "Auth required") &&
+        errorCatch(error) === ServerMessages.INVALID_TOKEN ||
+        errorCatch(error) === ServerMessages.AUTH_REQUIRED) &&
       error.config &&
       !error.config._isRetry
     ) {
@@ -38,8 +40,8 @@ instance.interceptors.response.use(
         return instance.request(originalRequest);
       } catch (error) {
         if (
-          errorCatch(error) === "jwt expired" ||
-          errorCatch(error) === "Auth required"
+          errorCatch(error) === ServerMessages.INVALID_TOKEN ||
+          errorCatch(error) === ServerMessages.AUTH_REQUIRED
         ) {
           removeInfoStorage();
         }

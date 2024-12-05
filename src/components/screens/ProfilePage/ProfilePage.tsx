@@ -8,14 +8,13 @@ import { useRouter } from "next/navigation";
 import MyOrders from "./components/MyOrders/MyOrders";
 
 const ProfilePage = () => {
-  const user = useTypedSelector((state) => state.auth.user);
-  console.log("user", user);
+  const client = useTypedSelector((state) => state.auth.client);
   const router = useRouter();
   useEffect(() => {
-    if (!user?.id) {
+    if (!client?.id) {
       router.replace("/login");
     }
-  }, [user]);
+  }, [client]);
 
   return (
     <div className="container">

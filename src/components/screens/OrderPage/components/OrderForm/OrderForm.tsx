@@ -11,13 +11,13 @@ import AddressForm from "./components/AddressForm/AddressForm";
 import SuccessOrderModal from "./components/ModalWindows/SuccessOrderModal";
 import OrderInfoForm from "./components/OrderInfoForm/OrderInfoForm";
 import SendOrder from "./components/SendOrder/SendOrder";
-import { IAddress, IOrder } from "@/types/order.interface";
+import { IAddress, IOrderCreateDto } from "@/types/order.interface";
 
 const OrderForm = () => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const state = useTypedSelector((state) => state.orderForm);
-  const user = useTypedSelector((state) => state.auth.user);
+  const client = useTypedSelector((state) => state.auth.client);
 
   const {
     register,
@@ -27,7 +27,7 @@ const OrderForm = () => {
     setValue,
     reset,
     clearErrors,
-  } = useForm<IOrder>({
+  } = useForm<IOrderCreateDto>({
     defaultValues: {
       addresses: [{ address: "" }, { address: "" }],
     },
@@ -39,27 +39,18 @@ const OrderForm = () => {
     name: "addresses",
   });
 
-  const setUserData = () => {
-    if (user) {
-      setValue("info.phone", user.phoneNumber || "");
-      setValue("info.phoneName", user.name || "");
-      setValue("info.userId", user.id);
-    }
-  };
-
   useEffect(() => {
     setValue(`addresses.${0}.address`, state.pickupAddress);
     setValue(`addresses.${1}.address`, state.destinationAddress);
-    setUserData();
-  }, [user]);
+  }, []);
 
-  const onSubmit = async (data: IOrder) => {
+  const onSubmit = async (data: IOrderCreateDto) => {
+    console.log(data);
     const order = await orderService.send(data);
 
-    if (order?.info?.id) {
+    if (order?.id) {
       setIsSuccessModalOpen(true);
       reset();
-      setUserData();
     }
   };
 
@@ -104,7 +95,7 @@ const OrderForm = () => {
               </Button>
             </div>
           )}
-          <SendOrder register={register} error={errors?.info?.price} />
+          <SendOrder register={register} error={errors?.price} />
         </div>
       </form>
     </>

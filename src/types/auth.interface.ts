@@ -1,8 +1,4 @@
-import { IProfileInfo } from "./profile.interface";
-
-export interface IUser extends IProfileInfo {
-  id: number;
-}
+import { IClient } from "./client.interface";
 
 export interface IEmailPassword {
   email: string;
@@ -10,10 +6,13 @@ export interface IEmailPassword {
 }
 
 export interface IAuthResponse {
-  user: IUser;
+  client: IClient;
   accessToken: string;
 }
 
+export interface IRefreshTokenResponse {
+  accessToken: string;
+}
 export interface ILogOutResponse {
   message: string;
 }

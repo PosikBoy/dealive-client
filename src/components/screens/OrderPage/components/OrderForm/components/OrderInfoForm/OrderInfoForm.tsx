@@ -9,14 +9,14 @@ import {
 } from "react-hook-form";
 import styles from "./OrderInfoForm.module.scss";
 import RadioButton from "@/components/Ui/RadioButton/RadioButton";
-import { IOrder } from "@/types/order.interface";
+import { IOrderCreateDto } from "@/types/order.interface";
 
 interface IOrderInfoForm {
-  control: Control<IOrder>;
+  control: Control<IOrderCreateDto>;
   errors: any;
-  register: UseFormRegister<IOrder>;
+  register: UseFormRegister<IOrderCreateDto>;
   setValue: SetFieldValue<any>;
-  clearErrors: UseFormClearErrors<IOrder>;
+  clearErrors: UseFormClearErrors<IOrderCreateDto>;
 }
 
 const OrderInfoForm: FC<IOrderInfoForm> = memo(
@@ -28,7 +28,6 @@ const OrderInfoForm: FC<IOrderInfoForm> = memo(
       "Вещи",
       "Хрупкое",
     ];
-
     return (
       <div className={styles.info}>
         <p className={styles.info__parcel}>О посылке</p>
@@ -38,7 +37,7 @@ const OrderInfoForm: FC<IOrderInfoForm> = memo(
             placeholder="Что везем"
             autoComplete="off"
             required
-            {...register("info.parcelType", {
+            {...register("parcelType", {
               required:
                 "Это коробка, документы, а может цветы? Нам важно знать",
               maxLength: 44,
@@ -52,8 +51,8 @@ const OrderInfoForm: FC<IOrderInfoForm> = memo(
                   key={index}
                   className={styles.info__parcelSuggestion}
                   onClick={() => {
-                    setValue("info.parcelType", value);
-                    clearErrors("info.parcelType");
+                    setValue("parcelType", value);
+                    clearErrors("parcelType");
                   }}
                 >
                   {value}
@@ -65,7 +64,7 @@ const OrderInfoForm: FC<IOrderInfoForm> = memo(
         <div className={styles.info__radio}>
           <p className={styles.info__weightTitle}>Вес посылки</p>
           <Controller
-            name="info.weight"
+            name="weight"
             control={control}
             defaultValue="До 5 кг"
             rules={{ required: "Пожалуйста, выберите вес" }}

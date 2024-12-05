@@ -1,27 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { updateProfile, getProfile } from "./profile.actions";
+import { updateProfile, getProfile } from "./clients.actions";
 import { isError } from "../utils/isError";
-import { IUser } from "@/types/auth.interface";
+import { IClient } from "@/types/client.interface";
+import { getUserStorage } from "@/services/auth/auth.helper";
 
 interface IInitialState {
-  user: IUser;
+  client: IClient;
   isLoading: boolean;
   error: string | null | undefined;
 }
 
 const initialState: IInitialState = {
-  user: {
-    id: 0,
-    name: "",
-    email: "",
-    phoneNumber: "",
-  },
+  client: getUserStorage() || null,
   isLoading: false,
   error: null,
 };
 
-export const profileSlice = createSlice({
-  name: "user",
+export const clientSlice = createSlice({
+  name: "client",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -33,7 +29,7 @@ export const profileSlice = createSlice({
       .addCase(getProfile.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        state.user = action.payload;
+        state.client = action.payload;
       })
       .addCase(updateProfile.pending, (state) => {
         state.error = null;
@@ -42,11 +38,10 @@ export const profileSlice = createSlice({
       .addCase(updateProfile.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        state.user = action.payload;
+        state.client = action.payload;
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.error = action.payload;
-        console.log("aksdfn");
         state.isLoading = false;
       });
   },

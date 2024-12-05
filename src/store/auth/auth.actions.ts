@@ -6,16 +6,18 @@ import {
   ILogOutResponse,
 } from "@/types/auth.interface";
 import { errorCatch } from "@/api/api.helper";
+import { ServerMessages } from "@/constants/ServerMessages";
 
-export const register = createAsyncThunk<
+export const registration = createAsyncThunk<
   IAuthResponse,
   IEmailPassword,
   { rejectValue: string }
->("auth/register", async (data, thunkApi) => {
+>("auth/registration", async (data, thunkApi) => {
   try {
-    const response = await authService.auth("register", data);
+    const response = await authService.auth("registration", data);
     return response;
   } catch (error: any) {
+    console.log(error);
     return thunkApi.rejectWithValue(error.message);
   }
 });
@@ -29,7 +31,7 @@ export const login = createAsyncThunk<
     const response = await authService.auth("login", data);
     return response;
   } catch (error: any) {
-    console.log(error.message);
+    console.log(error);
     return thunkApi.rejectWithValue(error.message);
   }
 });
@@ -54,7 +56,7 @@ export const checkAuth = createAsyncThunk(
       const response = await authService.getNewTokens();
       return response;
     } catch (error: any) {
-      if (errorCatch(error) === "jwt expired") {
+      if (errorCatch(error) === ServerMessages.INVALID_TOKEN) {
         thunkApi.dispatch(logOut());
       }
       return thunkApi.rejectWithValue(error.message);

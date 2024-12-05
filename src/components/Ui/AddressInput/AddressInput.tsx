@@ -108,7 +108,6 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
       setSuggestions([]);
       setShowSuggestions(false);
     };
-
     return (
       <>
         <div className={styles.field}>
@@ -141,7 +140,7 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
               </div>
             )}
           </label>
-          {showSuggestions && suggestions.length > 0 && (
+          {showSuggestions && suggestions?.length > 0 && (
             <>
               <div
                 className={styles.suggestions__overflow}

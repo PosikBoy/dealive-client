@@ -10,8 +10,8 @@ import AuthForm from "@/components/Ui/AuthForm/AuthForm";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  
-  const user = useTypedSelector((state) => state.auth.user);
+
+  const client = useTypedSelector((state) => state.auth.client);
   const isOpenedClassName = isOpen ? " " + styles.open : " " + styles.closed;
 
   const onLinkHandler = () => {
@@ -21,7 +21,7 @@ const Header = () => {
 
   useEffect(() => {
     setIsAuthModalOpen(false);
-  }, [user]);
+  }, [client]);
 
   return (
     <header className={styles.header}>
@@ -76,7 +76,7 @@ const Header = () => {
             >
               О нас
             </Link>
-            {user?.id ? (
+            {client?.id ? (
               <Link
                 href="/profile"
                 onClick={onLinkHandler}

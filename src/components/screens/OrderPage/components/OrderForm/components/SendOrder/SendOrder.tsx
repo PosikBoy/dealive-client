@@ -6,10 +6,10 @@ import styles from "./SendOrder.module.scss";
 import Button from "@/components/Ui/Button/Button";
 import Image from "next/image";
 import PriceInfoModal from "../ModalWindows/PriceInfoModal";
-import { IOrder } from "@/types/order.interface";
+import { IOrderCreateDto } from "@/types/order.interface";
 
 interface ISendOrderProps {
-  register: UseFormRegister<IOrder>;
+  register: UseFormRegister<IOrderCreateDto>;
   error: any;
 }
 
@@ -24,7 +24,7 @@ const SendOrder: FC<ISendOrderProps> = ({ register, error }) => {
             type="text"
             placeholder="Предлагаемая цена"
             required
-            {...register("info.price", {
+            {...register("price", {
               required: "Укажите цену",
               pattern: {
                 value: /^\d+$/,

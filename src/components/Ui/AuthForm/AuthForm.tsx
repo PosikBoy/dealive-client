@@ -3,12 +3,12 @@
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import styles from "./AuthForm.module.scss";
 import { useForm } from "react-hook-form";
-import { register as authRegister, login } from "@/store/auth/auth.actions";
+import { registration as authRegister, login } from "@/store/auth/auth.actions";
 import InputField from "@/components/Ui/InputField/InputField";
 import { FC, useState } from "react";
 import Button from "../Button/Button";
 import { useRouter } from "next/navigation";
-import { IUser } from "@/types/auth.interface";
+import { IClient } from "@/types/client.interface";
 
 interface IFormData {
   email: string;
@@ -19,7 +19,7 @@ interface IFormData {
 interface ResponseType {
   payload: {
     accessToken: string;
-    user: IUser;
+    client: IClient;
   };
 }
 
@@ -34,7 +34,7 @@ const AuthForm: FC = () => {
   });
 
   const router = useRouter();
-  const [type, setType] = useState("register");
+  const [type, setType] = useState<"registration" | "login">("registration");
   const [shownError, setShownError] = useState(false);
 
   const { error, isLoading } = useTypedSelector((state) => state.auth);
@@ -46,12 +46,13 @@ const AuthForm: FC = () => {
       password: data.password,
     };
     let response;
-    if (type === "register") {
+    if (type === "registration") {
       response = (await dispatch(authRegister(authData))) as ResponseType;
     } else {
       response = (await dispatch(login(authData))) as ResponseType;
     }
-    if (response.payload.user) {
+
+    if (response.payload.client) {
       router.replace("/profile");
     }
     setShownError(true);
@@ -66,7 +67,7 @@ const AuthForm: FC = () => {
   };
 
   let IsRepeatPasswordShow =
-    type === "register" ? " " + styles.authForm__repeatPassword_show : "";
+    type === "registration" ? " " + styles.authForm__repeatPassword_show : "";
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.authForm}>
@@ -90,12 +91,12 @@ const AuthForm: FC = () => {
           onClick={(e) => {
             setShownError(false);
             e.preventDefault();
-            setType("register");
+            setType("registration");
           }}
           type="button"
           className={
             styles.authForm__type +
-            (type === "register" ? " " + styles.active : "")
+            (type === "registration" ? " " + styles.active : "")
           }
         >
           <span>Регистрация</span>
@@ -138,7 +139,7 @@ const AuthForm: FC = () => {
           })}
           error={errors?.password}
         />
-        {type === "register" && (
+        {type === "registration" && (
           <InputField
             type="password"
             placeholder="Пароль повторно"

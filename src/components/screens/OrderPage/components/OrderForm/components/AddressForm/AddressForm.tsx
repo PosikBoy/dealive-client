@@ -6,15 +6,15 @@ import AddressInput from "@/components/Ui/AddressInput/AddressInput";
 import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
 import InputField from "@/components/Ui/InputField/InputField";
 import TextArea from "@/components/Ui/TextArea/TextArea";
-import { IOrder } from "@/types/order.interface";
+import { IOrderCreateDto } from "@/types/order.interface";
 
 interface IAddressForm {
   remove: UseFieldArrayRemove;
   index: number;
   isRemoveButtonShown: boolean;
-  control: Control<IOrder>;
+  control: Control<IOrderCreateDto>;
   errors: any;
-  register: UseFormRegister<IOrder>;
+  register: UseFormRegister<IOrderCreateDto>;
 }
 
 const AddressForm: FC<IAddressForm> = ({
@@ -50,7 +50,7 @@ const AddressForm: FC<IAddressForm> = ({
       <div className={styles.addressForm__row}>
         <div className={styles.addressForm__phone}>
           <PhoneInputField
-            name={`addresses.${index}.phone`}
+            name={`addresses.${index}.phoneNumber`}
             control={control}
             error={errors?.addresses?.[index]?.phone}
           />

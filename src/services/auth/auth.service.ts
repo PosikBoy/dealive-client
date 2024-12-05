@@ -1,19 +1,26 @@
-import { IEmailPassword, IAuthResponse } from "@/types/auth.interface";
+import {
+  IEmailPassword,
+  IAuthResponse,
+  IRefreshTokenResponse,
+} from "@/types/auth.interface";
 import {
   removeInfoStorage,
+  saveAccessTokenStorage,
   saveDataToStorage,
 } from "@/services/auth/auth.helper";
 import { SERVER_URL, LOGOUT_URL, REFRESH_TOKEN_URL } from "@/constants/URLS";
 import axios from "axios";
 import instance from "@/api/api.interceptor";
+import { ServerMessages } from "@/constants/ServerMessages";
 
 class AuthService {
-  async auth(type: "login" | "register", data: IEmailPassword) {
+  async auth(type: "login" | "registration", data: IEmailPassword) {
     try {
+      console.log(SERVER_URL + "/client/" + type);
       const response = await axios.post<
         IEmailPassword,
         { data: IAuthResponse }
-      >(SERVER_URL + "/" + type, data, {
+      >(SERVER_URL + "/client/" + type, data, {
         withCredentials: true,
       });
       if (response?.data.accessToken) {
@@ -26,13 +33,13 @@ class AuthService {
   }
   async getNewTokens() {
     try {
-      const response = await axios.get<string, { data: IAuthResponse }>(
+      const response = await axios.get<string, { data: IRefreshTokenResponse }>(
         REFRESH_TOKEN_URL,
         { withCredentials: true }
       );
 
       if (response.data.accessToken) {
-        saveDataToStorage(response.data);
+        saveAccessTokenStorage(response.data.accessToken);
       }
 
       return response.data;
@@ -42,11 +49,11 @@ class AuthService {
   }
   async logOut() {
     try {
-      const response = await instance.post<
+      const response = await instance.get<
         string,
         { data: { message: string } }
       >(LOGOUT_URL);
-      if (response.data.message === "logout was successful")
+      if (response.data.message === ServerMessages.LOGOUT_SUCCESSFUL)
         removeInfoStorage();
       return response.data;
     } catch (error: any) {

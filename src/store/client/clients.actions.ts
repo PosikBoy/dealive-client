@@ -1,10 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IProfileInfo } from "@/types/profile.interface";
+import { IClient, IProfileInfo } from "@/types/client.interface";
 import profileService from "@/services/profile/profile.service";
-import { IUser } from "@/types/auth.interface";
 
-export const getProfile = createAsyncThunk<IUser>(
-  "profile/getProfile",
+export const getProfile = createAsyncThunk<IClient>(
+  "client/getProfile",
   async (_, thunkApi) => {
     try {
       const response = await profileService.getProfile();
@@ -15,8 +14,8 @@ export const getProfile = createAsyncThunk<IUser>(
   }
 );
 
-export const updateProfile = createAsyncThunk<IUser, IProfileInfo>(
-  "profile/updateProfile",
+export const updateProfile = createAsyncThunk<IClient, IProfileInfo>(
+  "client/updateProfile",
   async (data, thunkApi) => {
     try {
       const response = await profileService.updateProfile(data);

@@ -6,7 +6,7 @@ import InputField from "@/components/Ui/InputField/InputField";
 import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import Button from "@/components/Ui/Button/Button";
-import { updateProfile } from "@/store/profile/profile.actions";
+import { updateProfile } from "@/store/client/clients.actions";
 import { logOut as logOutAction } from "@/store/auth/auth.actions";
 import { useRouter } from "next/navigation";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
@@ -29,10 +29,8 @@ interface ResponseType {
 
 const ProfileInfo = () => {
   const [success, setSuccess] = useState("");
-  const user = useTypedSelector((state) => state.auth);
-
-  console.log("user", user);
-
+  const profileState = useTypedSelector((state) => state.client);
+  console.log("profileState", profileState);
   const router = useRouter();
   const {
     register,
@@ -42,9 +40,9 @@ const ProfileInfo = () => {
   } = useForm<IFormState>({
     mode: "onChange",
     defaultValues: {
-      phoneNumber: user?.user?.phoneNumber || "",
-      name: user?.user?.name || "",
-      email: user?.user?.email || "",
+      phoneNumber: profileState?.client?.phoneNumber || "",
+      name: profileState?.client?.name || "",
+      email: profileState?.client?.email || "",
     },
   });
 
@@ -72,8 +70,8 @@ const ProfileInfo = () => {
         <Heading3 color="black" className={styles.profileInfo__title}>
           Ваши данные
         </Heading3>
-        {user?.error ? (
-          <div className={styles.profileInfo__error}>{user?.error}</div>
+        {profileState?.error ? (
+          <div className={styles.profileInfo__error}>{profileState?.error}</div>
         ) : null}
         {success ? (
           <div className={styles.profileInfo__success}>{success}</div>

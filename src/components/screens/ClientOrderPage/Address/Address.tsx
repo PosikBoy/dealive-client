@@ -31,7 +31,7 @@ const Address: FC<IAddressProps> = ({ index, address }) => {
               <div className="address__phone">
                 <InputField
                   placeholder="Номер телефона"
-                  value={address.phone}
+                  value={address.phoneNumber}
                   disabled
                 />
               </div>

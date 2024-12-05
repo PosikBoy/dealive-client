@@ -10,7 +10,7 @@ import CourierFoundIcon from "@/assets/icons/found.png";
 import CourierIcon from "@/assets/icons/courier.png";
 import CheckIcon from "@/assets/icons/check.png";
 import orderService from "@/services/order/order.service";
-import { IOrderResponse } from "@/types/order.interface";
+import { IOrder } from "@/types/order.interface";
 import Loader from "@/components/Ui/Loader/Loader";
 import Address from "./Address/Address";
 
@@ -19,7 +19,7 @@ interface ClientOrderProps {
 }
 
 const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
-  const [order, setOrder] = useState<IOrderResponse>();
+  const [order, setOrder] = useState<IOrder>();
 
   const fetchOrder = async () => {
     const order = await orderService.getById(orderId);
@@ -40,13 +40,21 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
     );
   }
 
-  const orderStatuses = ["В обработке", "Курьер найден", "В пути", "Доставлен"];
-
+  const orderStatuses = [
+    "Новый заказ",
+    "В обработке",
+    "В поиске курьера",
+    "В пути",
+    "Доставлен",
+    "Отменен",
+  ];
   const orderStatusIcons = [
+    ClockIcon,
     ClockIcon,
     CourierFoundIcon,
     CourierIcon,
     CheckIcon,
+    ClockIcon,
   ];
   return (
     <>
@@ -66,13 +74,12 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
             <div className="orderPage__status status">
               <Heading2 className="status__title">Статус заказа</Heading2>
               <div className="status__body">
-                <div className="status__status">{order?.info?.status}</div>
+                <div className="status__status">
+                  {orderStatuses[order.statusId]}
+                </div>
                 <ul className="status__list">
                   {orderStatusIcons.map((icon, index) => {
-                    const isActive =
-                      order?.info?.status == orderStatuses[index]
-                        ? "active"
-                        : "";
+                    const isActive = order?.statusId == index ? "active" : "";
                     return (
                       <li
                         className={`status__item status-item ${isActive}`}

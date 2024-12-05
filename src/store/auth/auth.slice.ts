@@ -1,46 +1,43 @@
 import { getUserStorage } from "@/services/auth/auth.helper";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { checkAuth, login, logOut, register } from "./auth.actions";
+import { checkAuth, login, logOut, registration } from "./auth.actions";
 import { isError } from "../utils/isError";
-import { IUser } from "@/types/auth.interface";
+import { IClient } from "@/types/client.interface";
 
 interface IInitialState {
-  user: IUser | null;
+  client: IClient | null;
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: IInitialState = {
-  user: getUserStorage() || null,
+  client: getUserStorage() || null,
   isLoading: false,
   error: null,
 };
 
 export const authSlice = createSlice({
-  name: "user",
+  name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(register.pending, (state) => {
+      .addCase(registration.pending, (state) => {
         state.error = null;
         state.isLoading = true;
       })
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(registration.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload.user;
+        state.client = action.payload.client;
         state.error = null;
       })
       .addCase(login.pending, (state) => {
-        console.log("pending");
         state.error = null;
         state.isLoading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log("fullfiled");
-
-        state.user = action.payload.user;
+        state.client = action.payload.client;
         state.error = null;
       })
       .addCase(logOut.pending, (state) => {
@@ -48,7 +45,7 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(logOut.fulfilled, (state) => {
-        state.user = null;
+        state.client = null;
         state.isLoading = false;
         state.error = null;
       })
@@ -56,9 +53,8 @@ export const authSlice = createSlice({
         state.error = null;
         state.isLoading = true;
       })
-      .addCase(checkAuth.fulfilled, (state, action) => {
+      .addCase(checkAuth.fulfilled, (state) => {
         state.isLoading = false;
-        state.user = action.payload.user;
         state.error = null;
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {

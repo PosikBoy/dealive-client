@@ -1,7 +1,7 @@
 import instance from "@/api/api.interceptor";
 import { saveProfileStorage } from "@/services/auth/auth.helper";
 import { PROFILE_URL } from "@/constants/URLS";
-import { IUser } from "@/types/auth.interface";
+import { IClient } from "@/types/client.interface";
 
 interface IProfileInfo {
   name: string;
@@ -12,7 +12,7 @@ interface IProfileInfo {
 class ProfileService {
   async getProfile() {
     try {
-      const response = await instance.get<IUser>(PROFILE_URL);
+      const response = await instance.get<IClient>(PROFILE_URL);
       if (response.data) {
         saveProfileStorage(response.data);
       }
@@ -23,7 +23,7 @@ class ProfileService {
   }
   async updateProfile(data: IProfileInfo) {
     try {
-      const response = await instance.put<IUser>(PROFILE_URL, data);
+      const response = await instance.put<IClient>(PROFILE_URL, data);
       if (response.data) {
         saveProfileStorage(response.data);
       }

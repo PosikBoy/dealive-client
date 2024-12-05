@@ -7,9 +7,6 @@ interface IPhoneField extends InputHTMLAttributes<HTMLInputElement> {
   error: any;
   placeholder: string;
   required?: boolean;
-  // error?: any;
-  // name: string;
-  // setValue: (name: any, value: any) => void;
 }
 
 interface IPhoneInputController {

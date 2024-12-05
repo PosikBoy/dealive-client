@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { authSlice } from "./auth/auth.slice";
-import { profileSlice } from "./profile/profile.slice";
+import { clientSlice } from "./client/client.slice";
 import { orderFormSlice } from "./orderForm/orderForm.slice";
 
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
-  profile: profileSlice.reducer,
+  client: clientSlice.reducer,
   orderForm: orderFormSlice.reducer,
 });
 

@@ -1,26 +1,26 @@
-import { IAuthResponse, IUser } from "@/types/auth.interface";
+import { IAuthResponse } from "@/types/auth.interface";
+import { IClient } from "@/types/client.interface";
 
 export const saveAccessTokenStorage = (accessToken: string) => {
   localStorage.setItem("accessToken", accessToken);
 };
 
-export const saveProfileStorage = (data: IUser) => {
-  localStorage.setItem("user", JSON.stringify(data));
+export const saveProfileStorage = (data: IClient) => {
+  localStorage.setItem("client", JSON.stringify(data));
 };
 
 export const saveDataToStorage = (data: IAuthResponse) => {
   saveAccessTokenStorage(data.accessToken);
-  localStorage.setItem("user", JSON.stringify(data.user));
+  localStorage.setItem("client", JSON.stringify(data.client));
 };
 
 export const removeInfoStorage = () => {
   localStorage.removeItem("accessToken");
-  localStorage.removeItem("user");
+  localStorage.removeItem("client");
 };
 
 export const getAccessTokenStorage = () => {
   const accessToken = localStorage.getItem("accessToken");
-
   return accessToken || null;
 };
 
@@ -28,8 +28,10 @@ export const getUserStorage = () => {
   if (typeof window === "undefined") {
     return null;
   }
+
+  // localStorage.setItem("client", JSON.stringify({}));
   let user = localStorage
-    ? JSON.parse(localStorage.getItem("user") || "{}")
+    ? JSON.parse(localStorage?.getItem("client") || "{}")
     : null;
   return user || null;
 };

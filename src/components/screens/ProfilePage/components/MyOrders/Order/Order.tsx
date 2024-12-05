@@ -1,4 +1,3 @@
-import { IOrderResponse } from "@/types/order.interface";
 import Link from "next/link";
 import React, { FC } from "react";
 import ClockIcon from "@/assets/icons/clock.png";
@@ -9,9 +8,10 @@ import Image from "next/image";
 
 import "./Order.scss";
 import formatDate from "@/utils/date";
+import { IOrder } from "@/types/order.interface";
 
 interface IOrderProps {
-  order: IOrderResponse;
+  order: IOrder;
 }
 
 const Order: FC<IOrderProps> = ({ order }) => {
@@ -23,11 +23,10 @@ const Order: FC<IOrderProps> = ({ order }) => {
     CheckIcon,
   ];
   return (
-    <Link href={`/order/${order.info.id}`} className="order">
+    <Link href={`/order/${order.id}`} className="order">
       <div className="order__status">
         {orderStatusIcons.map((icon, index) => {
-          const isActive =
-            order?.info?.status == orderStatuses[index] ? true : false;
+          const isActive = order?.statusId == index ? true : false;
           if (isActive) {
             return (
               <>
@@ -48,12 +47,12 @@ const Order: FC<IOrderProps> = ({ order }) => {
       </div>
       <div className="order__info">
         <div className="order__heading">
-          <div className="order__id">Заказ {order.info.id}</div>
-          <div className="order__date">{formatDate(order.info.date)}</div>
+          <div className="order__id">Заказ {order.id}</div>
+          <div className="order__date">{formatDate(order.createdAt)}</div>
         </div>
         <div className="order__footer">
           <div className="order__additional">Дополнительно</div>
-          <div className="order__price">{order.info.price + " ₽"}</div>
+          <div className="order__price">{order.price + " ₽"}</div>
         </div>
       </div>
     </Link>

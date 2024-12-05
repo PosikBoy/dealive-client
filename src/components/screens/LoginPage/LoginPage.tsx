@@ -7,10 +7,10 @@ import { useTypedSelector } from "@/hooks/redux.hooks";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
-  const user = useTypedSelector((state) => state.auth.user);
+  const client = useTypedSelector((state) => state.auth.client);
   const router = useRouter();
   useEffect(() => {
-    if (user?.id) {
+    if (client?.id) {
       router.replace("/profile");
     }
   }, []);

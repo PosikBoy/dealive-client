@@ -36,7 +36,7 @@ const MainPage: FC = () => {
                 </strong>
                 <strong>
                   <Heading2 className="welcome__subtitle">
-                    найдем вам курьера!
+                    поможем отыскать вам курьера!
                   </Heading2>
                 </strong>
               </div>

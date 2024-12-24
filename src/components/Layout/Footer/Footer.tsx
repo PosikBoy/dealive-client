@@ -52,13 +52,7 @@ const Footer = () => {
                 >
                   Техподдержка
                 </a>
-                <a
-                  href="tel:+79937017264"
-                  className={styles.footer__headingTitle}
-                  title="Номер компании"
-                >
-                  +7 (993) 701-72-64
-                </a>
+            
               </div>
             </div>
           </div>

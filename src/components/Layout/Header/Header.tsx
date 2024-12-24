@@ -40,11 +40,6 @@ const Header = () => {
               DEALIVE
             </Link>
           </div>
-          <div className={styles.header__phone}>
-            <a href="tel:+79937017264" title="Номер компании">
-              +7 (993) 701-72-64
-            </a>
-          </div>
           <div
             className={styles.header__burger + isOpenedClassName}
             onClick={onLinkHandler}

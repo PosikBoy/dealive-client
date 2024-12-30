@@ -1,5 +1,5 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./CookieAgreement.module.scss";
 
 const CookieAgreement = () => {
@@ -15,30 +15,31 @@ const CookieAgreement = () => {
   }, []);
 
   const handleSaveSettings = () => {
-    // Сохранить настройки в localStorage
     localStorage.setItem("allowCookie", JSON.stringify(true));
-    // Скрыть модальное окно
     setShowModal(false);
   };
+
   return (
     <>
       {showModal && (
-        <div className={styles.cookieAgreement}>
-          <div className={styles.text}>
-            Сайт использует файлы cookies, продолжая использовать dealive.ru, вы
-            соглашаетесь с
-            <a href="/policy.docx" className={styles.link}>
-              {" "}
-              политикой обработки персональных данных
-            </a>
+        <div className={styles.cookieAgreementContainer}>
+          <div className={styles.cookieAgreement}>
+            <div className={styles.text}>
+              Сайт использует файлы cookies, продолжая использовать dealive.ru,
+              вы соглашаетесь с
+              <a href="/policy.docx" className={styles.link}>
+                {" "}
+                политикой обработки персональных данных
+              </a>
+            </div>
+            <button
+              type="button"
+              onClick={handleSaveSettings}
+              className={styles.button}
+            >
+              Согласен!
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={handleSaveSettings}
-            className={styles.button}
-          >
-            Согласен!
-          </button>
         </div>
       )}
     </>

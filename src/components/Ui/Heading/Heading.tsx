@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import styles from "./Heading.module.scss";
+import clsx from "clsx";
 
 type HeadingProps = {
   children: ReactNode;
@@ -14,8 +15,8 @@ const Heading: React.FC<HeadingProps> = ({
 }) => {
   return (
     <h1
-      className={styles.heading + (className ? " " + className : " ")}
-      style={{ color: color === "black" ? "var(--black)" : "white" }}
+      className={clsx(styles.heading, className)}
+      style={{ color: color === "black" ? "var(--black)" : "var(--white)" }}
     >
       {children}
     </h1>

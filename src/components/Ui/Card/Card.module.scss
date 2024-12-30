@@ -6,6 +6,8 @@
   overflow: hidden;
   align-items: stretch;
   min-height: fit-content;
+  padding: 20px;
+
   &.reversed {
     flex-direction: row-reverse;
   }
@@ -24,7 +26,7 @@
   }
 
   &__text {
-    padding: 30px 30px 30px 30px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -57,7 +59,7 @@
       flex-direction: column-reverse;
     }
     &__text {
-      padding: 20px 20px 20px 20px;
+      padding: 0px;
     }
     &__title {
       font-size: 28px;

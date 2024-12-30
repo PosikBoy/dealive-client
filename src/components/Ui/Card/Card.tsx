@@ -22,7 +22,7 @@ const Card: FC<ICardProps> = ({
   return (
     <div className={`${styles.card} ${reversed ? styles.reversed : ""}`}>
       <div className={styles.card__image}>
-        <Image src={img} alt={alt} fill={true} quality={100} loading="lazy" />
+        <Image src={img} alt={alt} fill={true} quality={60} loading="lazy" />
       </div>
       <div className={styles.card__text}>
         <Heading3>{title}</Heading3>

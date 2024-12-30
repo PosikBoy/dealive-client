@@ -5,7 +5,7 @@ import Image from "next/image";
 import Button from "@/components/Ui/Button/Button";
 
 import starImage from "@/assets/icons/star.png";
-import deliveryGuy2 from "@/assets/images/deliveryGuy2.png";
+import deliveryGuy2 from "@/assets/images/courier.jpg";
 
 import Card from "@/components/Ui/Card/Card";
 import cardImage7 from "@/assets/images/cardImage7.png";

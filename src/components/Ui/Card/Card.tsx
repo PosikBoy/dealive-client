@@ -10,7 +10,7 @@ interface ICardProps {
   subtitle: string;
   imageDescription: string;
   reversed?: boolean;
-  transparent: boolean;
+  transparent?: boolean;
 }
 
 const Card: FC<ICardProps> = ({

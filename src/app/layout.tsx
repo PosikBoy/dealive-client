@@ -4,7 +4,6 @@ import "./globals.scss";
 
 import { Montserrat } from "next/font/google";
 
-// If loading a variable font, you don't need to specify the font weight
 const montserrat = Montserrat({
   weight: ["400", "600", "700"],
   subsets: ["latin", "cyrillic"],
@@ -61,7 +60,15 @@ export default function RootLayout({
             <Footer />
           </div>
           <CookieAgreement />
-          <Script id="yandex-metrika" strategy="beforeInteractive">
+
+          <div>
+            <img
+              src="https://mc.yandex.ru/watch/99278339"
+              style={{ position: "absolute", left: "-9999px" }}
+              alt=""
+            />
+          </div>
+          <Script id="yandex-metrika" strategy="lazyOnload">
             {`
               (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();
@@ -76,13 +83,6 @@ export default function RootLayout({
         webvisor:true
    });`}
           </Script>
-          <div>
-            <img
-              src="https://mc.yandex.ru/watch/99278339"
-              style={{ position: "absolute", left: "-9999px" }}
-              alt=""
-            />
-          </div>
         </body>
       </StoreProvider>
     </html>

@@ -11,6 +11,11 @@
   &.reversed {
     flex-direction: row-reverse;
   }
+  &.transparent {
+    background-color: transparent;
+    padding: 0;
+    overflow: visible;
+  }
   &__image {
     width: 350px;
     flex-shrink: 0;
@@ -48,6 +53,7 @@
     font-weight: 600;
     font-size: 18px;
     color: #81b3ff;
+    margin-bottom: 14px;
   }
   @media (max-width: 768px) {
     & {

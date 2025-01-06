@@ -13,11 +13,11 @@
     font-size: 14px;
     position: relative;
     transition: all 0.3s;
-    border: 1px solid #999999;
+    border: 1px solid var(--grey);
     border-radius: 9px;
   }
   &__input:focus {
-    border-color: #3586ff !important;
+    border-color: var(--blue) !important;
     transition: all 0.3s;
   }
   &__placeholder {
@@ -25,7 +25,7 @@
     font-size: 12px;
     font-weight: 400;
     color: var(--placeholder-color);
-    background-color: white;
+    background-color: var(--white);
 
     position: absolute;
     top: 20px;
@@ -51,10 +51,18 @@
   }
 
   &__error {
-    color: red;
+    color: var(--red);
     font-size: 12px;
     margin-top: 5px;
     transition: all 0.3s;
     margin-left: 8px;
+  }
+  @media (hover: hover) {
+    &__input:hover {
+      border: 1px solid var(--blue);
+    }
+    &__input:hover + &__placeholder {
+      color: var(--blue) !important;
+    }
   }
 }

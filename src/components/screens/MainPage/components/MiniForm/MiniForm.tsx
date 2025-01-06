@@ -16,11 +16,9 @@ interface IMiniForm {
 
 const MiniForm = () => {
   const {
-    register,
     formState: { errors },
     handleSubmit,
     control,
-    getValues,
   } = useForm<IMiniForm>({
     mode: "onBlur",
   });

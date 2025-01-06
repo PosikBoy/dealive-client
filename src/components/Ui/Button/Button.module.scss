@@ -1,13 +1,9 @@
 .button {
-  border-radius: 19px;
+  border-radius: 20px;
   padding: 10px 15px;
   width: 100%;
   font-weight: 600;
-  font-size: 18px;
   padding: 10px 15px;
-  color: #ffffff;
-  background: var(--blue);
-  transition: background-color 0.3s;
 
   @media (max-width: 768px) {
     & {
@@ -19,14 +15,41 @@
       font-size: 12px;
     }
   }
+}
+
+.whiteButton {
+  background-color: var(--white);
+  color: var(--blue);
+  transition: all 0.3s;
+
   @media (hover: hover) {
     &:hover {
-      background-color: #3c4ef0;
+      background-color: var(--light-grey);
+      transform: scale(1.01);
     }
   }
   @media (hover: none) {
     &:active {
-      background-color: #3c4ef0;
+      background-color: var(--light-grey);
+      transform: scale(1.01);
+    }
+  }
+}
+
+.blueButton {
+  background-color: var(--blue);
+  color: var(--white);
+  transition: all 0.3s;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--light-blue);
+      transform: scale(1.01);
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      background-color: var(--light-blue);
     }
   }
 }

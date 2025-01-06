@@ -2,67 +2,79 @@
   position: relative;
   width: 100%;
   &__input {
-    border: 1px solid #999999;
+    border: 1px solid var(--grey);
     border-radius: 9px;
     padding: 10px 15px;
     width: 100%;
+    color: var(--black);
     font-size: 14px;
     position: relative;
     transition: all 0.3s;
   }
+  &__input.white {
+    border: 1px solid var(--white);
+  }
   &__input:focus {
-    border-color: #3586ff;
+    border-color: var(--blue);
     transition: all 0.3s;
   }
   &__input.error {
-    border: 1px solid #ff0000;
+    border: 1px solid var(--red);
     transition: all 0.3s;
   }
   &__input.error + &__placeholder {
-    color: red !important;
+    color: var(--red) !important;
     transition: all 0.3s;
   }
   &__placeholder {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--placeholder-color);
-
-    background-color: white;
-
     position: absolute;
-    top: 20px;
     left: 15px;
+    top: 20px;
     transform: translateY(-50%);
+
+    font-size: 12px;
+    color: var(--black);
+    font-weight: 400;
 
     pointer-events: none;
     transition: all 0.3s;
+    background-color: var(--white);
   }
 
-  &__input:focus + &__placeholder {
+  &__placeholder.error {
+    transition: all 0.3s;
+  }
+  &__input:focus + &__placeholder,
+  &__placeholder.top {
     top: -8.5px;
     left: 2px;
     transform: scale(85%);
     transition: all 0.3s;
     color: var(--blue) !important;
   }
-
-  &__input:focus + &__placeholder.error {
-    transition: all 0.3s;
-    color: #ff0000 !important;
-  }
   &__input:not(:placeholder-shown) + &__placeholder {
     top: -8.5px;
     left: 2px;
     transform: scale(85%);
     transition: all 0.3s;
-    color: var(--placeholder-color);
   }
-
+  &__input:focus + &__placeholder.error {
+    transition: all 0.3s;
+    color: var(--red) !important;
+  }
   &__error {
-    color: red;
+    color: var(--red);
     font-size: 12px;
     margin-top: 5px;
     transition: all 0.3s;
     margin-left: 8px;
+  }
+  @media (hover: hover) {
+    &__input:hover {
+      border: 1px solid var(--blue);
+    }
+    &__input:hover + &__placeholder {
+      color: var(--blue) !important;
+    }
   }
 }

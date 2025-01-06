@@ -28,7 +28,17 @@
   &__parcelSuggestions::-webkit-scrollbar {
     display: none;
   }
-
+  &__parcelSuggestion {
+    transition: all 0.5s;
+  }
+  @media (hover: hover) {
+    &__parcelSuggestion:hover {
+      transition: all 0.5s;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--black);
+    }
+  }
   &__weightTitle {
     font-size: 16px;
     font-weight: 600;

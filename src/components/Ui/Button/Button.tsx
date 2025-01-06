@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import styles from "./Button.module.scss";
+import clsx from "clsx";
 
 interface IButtonProps {
   type?: "button" | "submit" | "reset" | undefined;
@@ -13,18 +14,16 @@ const Button: FC<IButtonProps> = ({
   type = "button",
   color = "blue",
   children,
-  className,
   onClick,
+  className,
 }) => {
+  const buttonStyles =
+    color === "white" ? styles.whiteButton : styles.blueButton;
   return (
     <button
       type={type}
-      className={styles.button + " " + className}
+      className={clsx(styles.button, buttonStyles, className)}
       onClick={onClick}
-      style={{
-        backgroundColor: color === "white" ? "#FFFFFF" : "var(--blue)",
-        color: color === "white" ? "var(--blue)" : "white",
-      }}
     >
       {children}
     </button>

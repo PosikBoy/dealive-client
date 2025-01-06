@@ -44,7 +44,7 @@ const Footer = () => {
               </div>
               <div className={styles.footer__headingColumn2}>
                 <Heading2 className={styles.footer__headingTitle}>
-                  Срочная доставка в Москве и области
+                  Срочная доставка в Москве и Подмосковье
                 </Heading2>
                 <a
                   href="https://t.me/dealivesupport "
@@ -52,7 +52,6 @@ const Footer = () => {
                 >
                   Техподдержка
                 </a>
-            
               </div>
             </div>
           </div>

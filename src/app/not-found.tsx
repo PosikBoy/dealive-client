@@ -5,7 +5,6 @@ import notFoundCar from "@/assets/icons/notFoundCat.png";
 import Image from "next/image";
 import { Metadata } from "next";
 import { useRouter } from "next/navigation";
-type Props = {};
 
 export const metadata: Metadata = {
   title: "Страница не найдена",
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
   },
 };
 
-const notFound = (props: Props) => {
+const notFound = () => {
   const router = useRouter();
 
   useEffect(() => {

@@ -1,3 +1,7 @@
-User-agent: *  
-Disallow: /profile  
-Disallow: /login  
+# *
+User-agent: *
+Allow: /
+Disallow: /profile
+Disallow: /login
+# Sitemaps
+Sitemap: https://dealive.ru/sitemap.xml

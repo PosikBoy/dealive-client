@@ -1,6 +1,6 @@
 import MainPage from "@/components/screens/MainPage/MainPage";
 import "./page.css";
-import { Metadata, Viewport } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Срочная доставка в Москве. Экспресс курьер по городу.",
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     locale: "ru",
     url: "/",
-    title: "Срочная доставка в Москве. Экспресс курьер по городу.",
+    title: "Срочная доставка курьером по Москве | Курьерская служба DEALIVE",
     description:
-      "Срочная, надежная и безопасная доставка для бизнеса в Москве. Мы поможем вам найти курьера для доставки. Максимально гибкий подход - наши курьеры готовы выполнять дополнительные задания за дополнительную плату.",
+      "Ищете курьера в Москве или области? ➜ Надежная доставка 24/7 ✔ Курьеры готовы работать по всей Москве и России. Максимально гибкий подход - наши курьеры готовы выполнять дополнительные задания за дополнительную плату.",
     siteName: "Срочная доставка в Москве. Экспресс курьер по городу.",
   },
   robots: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     nocache: true,
     googleBot: {
       index: true,
-      follow: false,
+      follow: true,
     },
   },
 
@@ -34,9 +34,7 @@ export const metadata: Metadata = {
     images: ["https://dealive.ru/icon.png"], // Must be an absolute URL
   },
   verification: {
-    google: "google",
     yandex: "b94cb0cb518ebeb9",
-    yahoo: "yahoo",
   },
 };
 

@@ -2,6 +2,11 @@ import React from "react";
 import dynamic from "next/dynamic";
 import "./globals.scss";
 
+import { StoreProvider } from "@/components/StoreProvider";
+import Footer from "@/components/Layout/Footer/Footer";
+import { Metadata, Viewport } from "next";
+import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
+import Script from "next/script";
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
@@ -25,25 +30,21 @@ export const metadata: Metadata = {
         height: 128,
       },
     ],
-
     type: "website",
   },
   icons: {
-    icon: "https://dealive.ru/favicon.ico",
+    icon: [
+      { url: "https://dealive.ru/favicon.svg", type: "image/svg+xml" }, // SVG favicon
+      { url: "https://dealive.ru/favicon.ico", type: "image/x-icon" }, // Fallback for older browsers
+    ],
     shortcut: "https://dealive.ru/favicon.ico",
   },
   manifest: "https://dealive.ru/manifest.json",
 };
+
 export const viewport: Viewport = {
   themeColor: "#3586ff",
 };
-
-import { StoreProvider } from "@/components/StoreProvider";
-import Footer from "@/components/Layout/Footer/Footer";
-import { Metadata, Viewport } from "next";
-import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
-import Head from "next/head";
-import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -51,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={montserrat.className}>
+    <html lang="ru" className={montserrat.variable}>
       <StoreProvider>
         <body>
           <div className="wrapper">

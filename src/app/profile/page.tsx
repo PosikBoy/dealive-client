@@ -2,12 +2,7 @@ import ProfilePage from "@/components/screens/ProfilePage/ProfilePage";
 import { Metadata, NextPage, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "Рассчитать стоимость и оформить заявку",
-  description:
-    "Срочная, надежная и безопасная доставка для бизнеса в Москве. Мы поможем вам найти курьера для доставки. Максимально гибкий подход - наши курьеры готовы выполнять дополнительные задания за дополнительную плату.",
-  keywords: [
-    "срочная доставка, Москва быстрая доставка, экспресс доставка по Москве, курьер в Москве, Москва доставить посылку",
-  ],
+  title: "Мой профиль | Курьерская служба DEALIVE",
   openGraph: {
     locale: "ru",
     url: "/",

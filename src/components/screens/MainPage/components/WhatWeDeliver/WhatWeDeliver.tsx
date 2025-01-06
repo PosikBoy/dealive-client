@@ -24,7 +24,6 @@ const WhatWeDeliver = () => {
               alt="Пункт выдачи заказов"
               quality={80}
               loading="lazy"
-              // style={{ width: "100%", height: "100%" }}
             />
           </div>
           <div className="wwd__item wwd__item_2">
@@ -33,7 +32,6 @@ const WhatWeDeliver = () => {
               alt="Пункт выдачи заказов"
               quality={80}
               loading="lazy"
-              // style={{ width: "100%", height: "100%" }}
             />
           </div>
           <div className="wwd__item wwd__item_text wwd__item_3">

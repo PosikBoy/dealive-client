@@ -22,8 +22,8 @@ const MainPage: FC = () => {
               <div className="welcome__offer">
                 <strong>
                   <Heading className="welcome__title">
-                    Срочная доставка
-                    <span className="highlighted"> в Москве</span>
+                    Экспресс-доставка
+                    <span className="highlighted"> в Москве и Подмосковье</span>
                   </Heading>
                 </strong>
                 <strong>

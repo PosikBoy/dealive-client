@@ -23,12 +23,14 @@ const MainPage: FC = () => {
                 <strong>
                   <Heading className="welcome__title">
                     Экспресс-доставка
-                    <span className="highlighted"> в Москве и Подмосковье</span>
+                    <span className="highlighted">
+                      в Москве и Подмосковье пешим курьером
+                    </span>
                   </Heading>
                 </strong>
                 <strong>
                   <Heading2 className="welcome__subtitle">
-                    поможем отыскать вам курьера!
+                    поможем отыскать вам исполнителя!
                   </Heading2>
                 </strong>
               </div>

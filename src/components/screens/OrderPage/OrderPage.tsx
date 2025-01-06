@@ -19,7 +19,7 @@ const OrderPage: NextPage = () => {
             </ul>
           </div>
         </nav>
-        <Heading>Оформление заявки</Heading>
+        <Heading>Оформление экспресс-доставки курьером в Москвеы</Heading>
         <OrderForm />
       </div>
     </div>

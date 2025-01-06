@@ -9,6 +9,7 @@ import cardImage6 from "@/assets/images/cardImage6.png";
 import cardImage7 from "@/assets/images/cardImage7.png";
 
 import "./AdditionalService.scss";
+import Heading2 from "@/components/Ui/Heading2/Heading2";
 
 const AdditionalService = () => {
   return (
@@ -19,9 +20,7 @@ const AdditionalService = () => {
             <span className="additional-info__legend">
               Дополнительные услуги
             </span>
-            <div className="additional-info__title">
-              А что еще мы можем сделать?
-            </div>
+            <Heading2 color="black">А что еще мы можем сделать?</Heading2>
           </div>
           <div className="additional-info__cards-block">
             <div className="additional-info__cards-column">

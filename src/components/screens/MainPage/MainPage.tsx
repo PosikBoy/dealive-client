@@ -22,14 +22,14 @@ const MainPage: FC = () => {
               <div className="welcome__offer">
                 <strong>
                   <Heading className="welcome__title">
-                    Экспресс-доставка{" "}
+                    Срочная доставка{" "}
                     <span className="highlighted">в Москве и Подмосковье</span>{" "}
-                    пешим курьером
+                    на ваших условиях!
                   </Heading>
                 </strong>
                 <strong>
                   <Heading2 className="welcome__subtitle">
-                    поможем отыскать вам исполнителя!
+                    поможем отыскать курьера по удобной цене
                   </Heading2>
                 </strong>
               </div>
@@ -46,7 +46,7 @@ const MainPage: FC = () => {
 
             <div className="welcome__tiles">
               <Tile title="Заберем посылку" />
-              <Tile title="Выкупим и отправим" />
+              <Tile title="Вы сами указываете цену!" />
               <Tile title="Соберем товар с пвз" />
               <Tile title="Быстро и безопасно" />
             </div>

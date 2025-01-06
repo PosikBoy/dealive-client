@@ -138,7 +138,7 @@ const Footer = () => {
                 Стать курьером (кликабельно)
               </a>
             </div>{" "}
-            <div className={styles.footer__bodyColumn}>
+            {/* <div className={styles.footer__bodyColumn}>
               <form
                 className={styles.footer__bodyForm}
                 onSubmit={handleSubmit(handleSubmitForm)}
@@ -168,7 +168,7 @@ const Footer = () => {
                   Отправить заявку
                 </Button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>

@@ -54,7 +54,6 @@ const AuthForm: FC = () => {
     }
 
     if (response.payload.client) {
-      console.log("getprofile");
       await dispatch(getProfile());
       router.replace("/profile");
     }

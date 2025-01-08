@@ -21,7 +21,6 @@ class OrderService {
   }
   async getById(id: number) {
     try {
-      console.log(id);
       const response = await instance.get<IOrder>(`${ORDER_URL}/${id}`);
       return response.data;
     } catch (error: any) {

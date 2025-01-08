@@ -30,10 +30,7 @@ interface ResponseType {
 const ProfileInfo = () => {
   const [success, setSuccess] = useState("");
   const profileState = useTypedSelector((state) => state.client);
-  console.log(
-    "СОстояние профиля из редакса внутри ProfileInfo.tsx",
-    profileState
-  );
+
   const router = useRouter();
   const {
     register,

@@ -16,7 +16,6 @@ import { ServerMessages } from "@/constants/ServerMessages";
 class AuthService {
   async auth(type: "login" | "registration", data: IEmailPassword) {
     try {
-      console.log(SERVER_URL + "/client/" + type);
       const response = await axios.post<
         IEmailPassword,
         { data: IAuthResponse }

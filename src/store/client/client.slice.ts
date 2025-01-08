@@ -29,7 +29,6 @@ export const clientSlice = createSlice({
       .addCase(getProfile.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
-        console.log("asdc", state, action);
         state.client = action.payload;
       })
       .addCase(updateProfile.pending, (state) => {

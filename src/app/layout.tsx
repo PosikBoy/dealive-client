@@ -8,6 +8,7 @@ import { Metadata, Viewport } from "next";
 import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
 import Script from "next/script";
 import { Montserrat } from "next/font/google";
+import Header from "@/components/Layout/Header/Header";
 
 const montserrat = Montserrat({
   weight: ["400", "600", "700"],
@@ -16,9 +17,9 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const Header = dynamic(() => import("@/components/Layout/Header/Header"), {
-  ssr: false,
-});
+// const Header = dynamic(() => import("@/components/Layout/Header/Header"), {
+//   ssr: false,
+// });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dealive.ru/"),
@@ -62,7 +63,7 @@ export default function RootLayout({
           </div>
           <CookieAgreement />
 
-          <div>
+          {/* <div>
             <img
               src="https://mc.yandex.ru/watch/99278339"
               style={{ position: "absolute", left: "-9999px" }}
@@ -83,7 +84,7 @@ export default function RootLayout({
         accurateTrackBounce:true,
         webvisor:true
    });`}
-          </Script>
+          </Script> */}
         </body>
       </StoreProvider>
     </html>

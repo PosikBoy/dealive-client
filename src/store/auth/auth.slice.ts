@@ -57,9 +57,12 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addMatcher(isError, (state, action: PayloadAction<string>) => {
-        state.error = action.payload;
-        state.isLoading = false;
-      });
+      .addMatcher(
+        (action) => isError(action, "auth"),
+        (state, action: PayloadAction<string>) => {
+          state.error = action.payload;
+          state.isLoading = false;
+        }
+      );
   },
 });

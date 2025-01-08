@@ -9,6 +9,7 @@ import { FC, useState } from "react";
 import Button from "../Button/Button";
 import { useRouter } from "next/navigation";
 import { IClient } from "@/types/client.interface";
+import { getProfile } from "@/store/client/client.actions";
 
 interface IFormData {
   email: string;
@@ -53,6 +54,8 @@ const AuthForm: FC = () => {
     }
 
     if (response.payload.client) {
+      console.log("getprofile");
+      await dispatch(getProfile());
       router.replace("/profile");
     }
     setShownError(true);

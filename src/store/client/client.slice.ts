@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { updateProfile, getProfile } from "./clients.actions";
+import { updateProfile, getProfile } from "./client.actions";
 import { isError } from "../utils/isError";
 import { IClient } from "@/types/client.interface";
 import { getUserStorage } from "@/services/auth/auth.helper";
@@ -29,6 +29,7 @@ export const clientSlice = createSlice({
       .addCase(getProfile.fulfilled, (state, action) => {
         state.error = null;
         state.isLoading = false;
+        console.log("asdc", state, action);
         state.client = action.payload;
       })
       .addCase(updateProfile.pending, (state) => {
@@ -40,9 +41,12 @@ export const clientSlice = createSlice({
         state.isLoading = false;
         state.client = action.payload;
       })
-      .addMatcher(isError, (state, action: PayloadAction<string>) => {
-        state.error = action.payload;
-        state.isLoading = false;
-      });
+      .addMatcher(
+        (action) => isError(action, "client"),
+        (state, action: PayloadAction<string>) => {
+          state.error = action.payload;
+          state.isLoading = false;
+        }
+      );
   },
 });

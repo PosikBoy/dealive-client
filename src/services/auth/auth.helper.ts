@@ -29,7 +29,6 @@ export const getUserStorage = () => {
     return null;
   }
 
-  // localStorage.setItem("client", JSON.stringify({}));
   let user = localStorage
     ? JSON.parse(localStorage?.getItem("client") || "{}")
     : null;

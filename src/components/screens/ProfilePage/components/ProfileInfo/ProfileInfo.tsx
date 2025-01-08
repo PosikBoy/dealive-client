@@ -6,7 +6,7 @@ import InputField from "@/components/Ui/InputField/InputField";
 import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import Button from "@/components/Ui/Button/Button";
-import { updateProfile } from "@/store/client/clients.actions";
+import { updateProfile } from "@/store/client/client.actions";
 import { logOut as logOutAction } from "@/store/auth/auth.actions";
 import { useRouter } from "next/navigation";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
@@ -30,7 +30,10 @@ interface ResponseType {
 const ProfileInfo = () => {
   const [success, setSuccess] = useState("");
   const profileState = useTypedSelector((state) => state.client);
-  console.log("profileState", profileState);
+  console.log(
+    "СОстояние профиля из редакса внутри ProfileInfo.tsx",
+    profileState
+  );
   const router = useRouter();
   const {
     register,

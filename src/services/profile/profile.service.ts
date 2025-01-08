@@ -16,6 +16,7 @@ class ProfileService {
       if (response.data) {
         saveProfileStorage(response.data);
       }
+      console.log("response data", response.data);
       return response.data;
     } catch (error: any) {
       throw Error(error.response.data.message);

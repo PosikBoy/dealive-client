@@ -24,6 +24,7 @@ class ProfileService {
   async updateProfile(data: IProfileInfo) {
     try {
       const response = await instance.put<IClient>(PROFILE_URL, data);
+      console.log(response.data);
       if (response.data) {
         saveProfileStorage(response.data);
       }

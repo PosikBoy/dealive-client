@@ -41,20 +41,16 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
   }
 
   const orderStatuses = [
-    "Новый заказ",
     "В обработке",
     "В поиске курьера",
     "В пути",
     "Доставлен",
-    "Отменен",
   ];
   const orderStatusIcons = [
-    ClockIcon,
     ClockIcon,
     CourierFoundIcon,
     CourierIcon,
     CheckIcon,
-    ClockIcon,
   ];
   return (
     <>
@@ -75,18 +71,24 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
               <Heading2 className="status__title">Статус заказа</Heading2>
               <div className="status__body">
                 <div className="status__status">
-                  {orderStatuses[order.statusId]}
+                  {orderStatuses[order.statusId - 2]}
                 </div>
                 <ul className="status__list">
-                  {orderStatusIcons.map((icon, index) => {
-                    const isActive = order?.statusId == index ? "active" : "";
+                  {orderStatuses.map((status, index) => {
+                    const isActive =
+                      order?.statusId - 2 == index ? "active" : "";
                     return (
                       <li
                         className={`status__item status-item ${isActive}`}
                         key={index}
                       >
                         <div className="status-item__icon">
-                          <Image src={icon} alt="Часы" width={24} height={24} />
+                          <Image
+                            src={orderStatusIcons[index]}
+                            alt="Часы"
+                            width={24}
+                            height={24}
+                          />
                         </div>
                       </li>
                     );

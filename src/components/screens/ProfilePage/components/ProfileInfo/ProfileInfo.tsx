@@ -52,6 +52,7 @@ const ProfileInfo = () => {
   const dispatch = useTypedDispatch();
   const onSubmit = async (data: IFormState) => {
     setSuccess("");
+    console.log("data in profile info", data);
     const response = (await dispatch(updateProfile(data))) as ResponseType;
     if (response.payload.id) {
       setSuccess("Ваши данные были успешно изменены");

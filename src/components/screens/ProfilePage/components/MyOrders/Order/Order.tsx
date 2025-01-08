@@ -15,8 +15,16 @@ interface IOrderProps {
 }
 
 const Order: FC<IOrderProps> = ({ order }) => {
-  const orderStatuses = ["В обработке", "Курьер найден", "В пути", "Доставлен"];
+  const orderStatuses = [
+    "Новый заказ",
+    "В обработке",
+    "Ищем курьера",
+    "Курьер в пути",
+    "Доставлен",
+  ];
+  console.log(order);
   const orderStatusIcons = [
+    ClockIcon,
     ClockIcon,
     CourierFoundIcon,
     CourierIcon,
@@ -24,27 +32,19 @@ const Order: FC<IOrderProps> = ({ order }) => {
   ];
   return (
     <Link href={`/order/${order.id}`} className="order">
-      <div className="order__status">
-        {orderStatusIcons.map((icon, index) => {
-          const isActive = order?.statusId == index ? true : false;
-          if (isActive) {
-            return (
-              <>
-                <div className="order__status-icon">
-                  <Image
-                    src={icon}
-                    alt="icon"
-                    width={20}
-                    height={20}
-                    key={index}
-                  />
-                </div>
-                <div className="order__status-text">{orderStatuses[index]}</div>
-              </>
-            );
-          }
-        })}
-      </div>
+      {orderStatusIcons.map((icon, index) => {
+        const isActive = order?.statusId - 1 == index ? true : false;
+        if (isActive) {
+          return (
+            <div className="order__status">
+              <div className="order__status-icon">
+                <Image src={icon} alt="icon" width={20} height={20} />
+              </div>
+              <div className="order__status-text">{orderStatuses[index]}</div>
+            </div>
+          );
+        }
+      })}
       <div className="order__info">
         <div className="order__heading">
           <div className="order__id">Заказ {order.id}</div>

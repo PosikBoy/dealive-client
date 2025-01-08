@@ -63,7 +63,7 @@ export default function RootLayout({
           </div>
           <CookieAgreement />
 
-          {/* <div>
+          <div>
             <img
               src="https://mc.yandex.ru/watch/99278339"
               style={{ position: "absolute", left: "-9999px" }}
@@ -84,7 +84,7 @@ export default function RootLayout({
         accurateTrackBounce:true,
         webvisor:true
    });`}
-          </Script> */}
+          </Script>
         </body>
       </StoreProvider>
     </html>

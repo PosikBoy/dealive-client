@@ -73,7 +73,7 @@ const Header = () => {
             >
               О нас
             </Link>
-            {client?.id ? (
+            {client?.userId ? (
               <Link
                 href="/profile"
                 onClick={onLinkHandler}

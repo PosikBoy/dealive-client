@@ -10,7 +10,8 @@ const LoginPage = () => {
   const client = useTypedSelector((state) => state.auth.client);
   const router = useRouter();
   useEffect(() => {
-    if (client?.id) {
+    console.log("client in loginpage", client);
+    if (client?.userId) {
       router.replace("/profile");
     }
   }, []);

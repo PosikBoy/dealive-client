@@ -1,0 +1,115 @@
+.wwd {
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  &__hint {
+    visibility: hidden;
+    position: absolute;
+    left: 30px;
+    opacity: 0;
+
+    max-width: 80%;
+
+    color: white;
+    text-align: left;
+    font-weight: bold;
+
+    transition: opacity 0.3s;
+  }
+  &__item {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    flex: 0 0 16.6666%;
+    overflow: hidden;
+    transition: transform 0.3s;
+    padding: 10px;
+    position: relative;
+    & img {
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    &_text {
+      flex-direction: column;
+      gap: 20px;
+      flex: 0 0 33.333333333%;
+    }
+    &_text p {
+      text-align: left;
+      line-height: 150%;
+    }
+
+    @media (hover: hover) {
+      &:hover img {
+        transition: all 0.3s;
+        filter: brightness(0.6);
+      }
+      &:hover .wwd__hint {
+        visibility: visible;
+        bottom: 30px;
+        transition: opacity 0.3s;
+        opacity: 1;
+      }
+
+      &_text:hover {
+        filter: none;
+      }
+    }
+    @media (hover: none) {
+      &:active img {
+        transition: all 0.3s;
+        filter: brightness(0.6);
+      }
+      &:active .wwd__hint {
+        visibility: visible;
+        bottom: 20px;
+        left: 20px;
+        transition: opacity 0.3s;
+        opacity: 1;
+      }
+
+      &_text:active {
+        filter: none;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    &__item {
+      flex: 0 0 25%;
+      &_text {
+        flex: 0 0 50%;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    &__item {
+      flex: 0 0 33.3333%;
+      &_text {
+        flex: 0 0 66.66666%;
+      }
+    }
+  }
+  @media (max-width: 430px) {
+    &__item {
+      flex: 0 0 50%;
+      padding: 5px;
+      &_text {
+        flex: 0 0 100%;
+      }
+      &_3 {
+        order: 0;
+      }
+      &_2 {
+        order: 1;
+      }
+      &_1 {
+        order: 1;
+      }
+    }
+  }
+}

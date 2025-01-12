@@ -17,7 +17,6 @@ const OrderForm = () => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const state = useTypedSelector((state) => state.orderForm);
-  const client = useTypedSelector((state) => state.auth.client);
 
   const {
     register,
@@ -84,7 +83,7 @@ const OrderForm = () => {
               />
             );
           })}
-          {fields.length < 20 && (
+          {fields.length < 40 && (
             <div className={styles.orderForm__button}>
               <Button
                 type="button"

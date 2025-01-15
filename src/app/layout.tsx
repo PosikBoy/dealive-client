@@ -8,6 +8,7 @@ import { Metadata, Viewport } from "next";
 import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
 import Script from "next/script";
 import { Montserrat } from "next/font/google";
+import TrackOrder from "@/components/Ui/TrackOrder/TrackOrder";
 
 const montserrat = Montserrat({
   weight: ["400", "600", "700"],
@@ -61,7 +62,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <CookieAgreement />
-
+          <TrackOrder />
           <div>
             <img
               src="https://mc.yandex.ru/watch/99278339"

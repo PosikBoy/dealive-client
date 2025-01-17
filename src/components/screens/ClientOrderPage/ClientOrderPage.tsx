@@ -12,7 +12,7 @@ import CheckIcon from "@/assets/icons/check.png";
 import orderService from "@/services/order/order.service";
 import { IOrder } from "@/types/order.interface";
 import Loader from "@/components/Ui/Loader/Loader";
-import Address from "./Address/Address";
+import Address from "./components/Address/Address";
 
 interface ClientOrderProps {
   orderId: number;
@@ -41,20 +41,16 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
   }
 
   const orderStatuses = [
-    "Новый заказ",
     "В обработке",
     "В поиске курьера",
     "В пути",
     "Доставлен",
-    "Отменен",
   ];
   const orderStatusIcons = [
-    ClockIcon,
     ClockIcon,
     CourierFoundIcon,
     CourierIcon,
     CheckIcon,
-    ClockIcon,
   ];
   return (
     <>
@@ -69,24 +65,30 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
         </div>
       </nav>
       <div className="orderPage">
-        <div className="container">
+        <div className="orderPage__container">
           <div className="orderPage__body">
             <div className="orderPage__status status">
               <Heading2 className="status__title">Статус заказа</Heading2>
               <div className="status__body">
                 <div className="status__status">
-                  {orderStatuses[order.statusId]}
+                  {orderStatuses[order.statusId - 2]}
                 </div>
                 <ul className="status__list">
-                  {orderStatusIcons.map((icon, index) => {
-                    const isActive = order?.statusId == index ? "active" : "";
+                  {orderStatuses.map((status, index) => {
+                    const isActive =
+                      order?.statusId - 2 == index ? "active" : "";
                     return (
                       <li
                         className={`status__item status-item ${isActive}`}
                         key={index}
                       >
                         <div className="status-item__icon">
-                          <Image src={icon} alt="Часы" width={24} height={24} />
+                          <Image
+                            src={orderStatusIcons[index]}
+                            alt="Часы"
+                            width={24}
+                            height={24}
+                          />
                         </div>
                       </li>
                     );

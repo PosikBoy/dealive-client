@@ -8,6 +8,7 @@ import { Metadata, Viewport } from "next";
 import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
 import Script from "next/script";
 import { Montserrat } from "next/font/google";
+import Header from "@/components/Layout/Header/Header";
 import TrackOrder from "@/components/Ui/TrackOrder/TrackOrder";
 
 const montserrat = Montserrat({
@@ -15,10 +16,6 @@ const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
   variable: "--font-montserrat",
   display: "swap",
-});
-
-const Header = dynamic(() => import("@/components/Layout/Header/Header"), {
-  ssr: false,
 });
 
 export const metadata: Metadata = {
@@ -62,7 +59,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <CookieAgreement />
-          <TrackOrder />
+          {/* <TrackOrder /> */}
           <div>
             <img
               src="https://mc.yandex.ru/watch/99278339"

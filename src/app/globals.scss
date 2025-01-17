@@ -16,20 +16,17 @@ html {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 100%;
   background-color: var(--main-background-color);
 }
 
 .main {
   margin: 100px 0;
-  flex: 1 1 auto;
+  flex-grow: 1;
 }
 
 .highlighted {
   color: rgba(255, 255, 255, 0.43);
-}
-
-.footer {
-  flex: 0 0 auto;
 }
 
 .modal-open {

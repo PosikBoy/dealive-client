@@ -21,7 +21,7 @@
     position: relative;
     width: 30px;
     height: 20px;
-
+    cursor: pointer;
     &::before,
     &::after {
       content: "";
@@ -60,16 +60,15 @@
   flex-direction: column;
   gap: 12px;
   visibility: hidden;
-  height: 0;
   max-height: 0;
+  padding-top: 5px;
   overflow: hidden;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0, 1, 0, 1);
   &.active {
     visibility: visible;
-    height: 220px;
-    max-height: 100%;
-    overflow: visible;
-    transition: all 0.3s;
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.3s cubic-bezier(1, 0, 1, 0);
   }
   &__floor {
     width: 100%;

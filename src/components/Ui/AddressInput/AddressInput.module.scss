@@ -11,21 +11,6 @@
     position: relative;
     transition: all 0.3s;
   }
-  &__input.white {
-    border: 1px solid var(--white);
-  }
-  &__input:focus {
-    border-color: var(--blue);
-    transition: all 0.3s;
-  }
-  &__input.error {
-    border: 1px solid var(--red);
-    transition: all 0.3s;
-  }
-  &__input.error + &__placeholder {
-    color: var(--red) !important;
-    transition: all 0.3s;
-  }
   &__placeholder {
     position: absolute;
     left: 15px;
@@ -41,7 +26,11 @@
     background-color: var(--white);
   }
 
-  &__placeholder.error {
+  &__input.white {
+    border: 1px solid var(--white);
+  }
+  &__input:focus {
+    border-color: var(--blue) !important;
     transition: all 0.3s;
   }
   &__input:focus + &__placeholder,
@@ -52,6 +41,19 @@
     transition: all 0.3s;
     color: var(--blue) !important;
   }
+  &__input.error {
+    border: 1px solid var(--red);
+    transition: all 0.3s;
+  }
+  &__input.error + &__placeholder {
+    color: var(--red);
+    transition: all 0.3s;
+  }
+
+  &__placeholder.error {
+    transition: all 0.3s;
+  }
+
   &__input:not(:placeholder-shown) + &__placeholder {
     top: -8.5px;
     left: 2px;
@@ -60,7 +62,7 @@
   }
   &__input:focus + &__placeholder.error {
     transition: all 0.3s;
-    color: var(--red) !important;
+    color: var(--red);
   }
   &__error {
     color: var(--red);

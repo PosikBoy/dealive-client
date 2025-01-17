@@ -7,6 +7,7 @@ import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
 import InputField from "@/components/Ui/InputField/InputField";
 import TextArea from "@/components/Ui/TextArea/TextArea";
 import { IOrderCreateDto } from "@/types/order.interface";
+import { error } from "console";
 
 interface IAddressForm {
   remove: UseFieldArrayRemove;
@@ -30,13 +31,11 @@ const AddressForm: FC<IAddressForm> = ({
     <div className={styles.addressForm}>
       <div className={styles.addressForm__heading}>
         <p className={styles.addressForm__title}>Адрес {index + 1}</p>
-        {isRemoveButtonShown ? (
+        {isRemoveButtonShown && (
           <div
             className={styles.addressForm__delete}
             onClick={() => remove(index)}
           ></div>
-        ) : (
-          <div></div>
         )}
       </div>
 
@@ -45,6 +44,7 @@ const AddressForm: FC<IAddressForm> = ({
           name={`addresses.${index}.address`}
           control={control}
           error={errors?.addresses?.[index]?.address}
+          required={true}
         />
       </div>
       <div className={styles.addressForm__row}>
@@ -52,7 +52,7 @@ const AddressForm: FC<IAddressForm> = ({
           <PhoneInputField
             name={`addresses.${index}.phoneNumber`}
             control={control}
-            error={errors?.addresses?.[index]?.phone}
+            error={errors?.addresses?.[index]?.phoneNumber}
           />
         </div>
       </div>
@@ -66,6 +66,7 @@ const AddressForm: FC<IAddressForm> = ({
             type="text"
             autoComplete="name"
             placeholder="Контактное лицо"
+            error={errors?.addresses?.[index]?.phoneName}
             {...register(`addresses.${index}.phoneName`, {
               maxLength: {
                 value: 44,
@@ -80,18 +81,26 @@ const AddressForm: FC<IAddressForm> = ({
               type="text"
               autoComplete="address-line2"
               placeholder="Этаж"
+              error={errors?.addresses?.[index]?.floor}
               {...register(`addresses.${index}.floor`, {
-                maxLength: 9,
+                maxLength: {
+                  value: 9,
+                  message: "Максимальная длина - 9 символов",
+                },
               })}
             />
           </div>
           <div className={styles.additional__apartment}>
             <InputField
+              error={errors?.addresses?.[index]?.apartment}
               autoComplete="address-line2"
               type="text"
               placeholder="Квартира"
               {...register(`addresses.${index}.apartment`, {
-                maxLength: 9,
+                maxLength: {
+                  value: 9,
+                  message: "Максимальная длина - 9 символов",
+                },
               })}
             />
           </div>
@@ -101,8 +110,12 @@ const AddressForm: FC<IAddressForm> = ({
           <TextArea
             autoComplete="note"
             placeholder="Комментарий"
+            error={errors?.addresses?.[index]?.info}
             {...register(`addresses.${index}.info`, {
-              maxLength: 511,
+              maxLength: {
+                value: 511,
+                message: "Максимальная длина - 512 символов",
+              },
             })}
           />
         </div>

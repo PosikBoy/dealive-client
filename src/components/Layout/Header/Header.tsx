@@ -6,12 +6,13 @@ import { useState } from "react";
 import { useTypedSelector } from "@/hooks/redux.hooks";
 import Brightness from "@/components/Ui/Brightness/Brightness";
 import AuthForm from "@/components/Ui/AuthForm/AuthForm";
+import { IClient } from "@/types/client.interface";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-
-  const client = useTypedSelector((state) => state.auth.client);
+  const [client, setClient] = useState<null | IClient>(null);
+  const storageClient = useTypedSelector((state) => state.auth.client);
   const isOpenedClassName = isOpen ? " " + styles.open : " " + styles.closed;
 
   const onLinkHandler = () => {
@@ -21,7 +22,8 @@ const Header = () => {
 
   useEffect(() => {
     setIsAuthModalOpen(false);
-  }, [client]);
+    setClient(storageClient);
+  }, [storageClient]);
 
   return (
     <header className={styles.header}>
@@ -71,7 +73,7 @@ const Header = () => {
             >
               О нас
             </Link>
-            {client?.id ? (
+            {client?.userId ? (
               <Link
                 href="/profile"
                 onClick={onLinkHandler}

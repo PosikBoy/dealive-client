@@ -3,7 +3,11 @@
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import styles from "./AuthForm.module.scss";
 import { useForm } from "react-hook-form";
-import { registration as authRegister, login } from "@/store/auth/auth.actions";
+import {
+  registration as authRegister,
+  getProfile,
+  login,
+} from "@/store/auth/auth.actions";
 import InputField from "@/components/Ui/InputField/InputField";
 import { FC, useState } from "react";
 import Button from "../Button/Button";
@@ -53,6 +57,7 @@ const AuthForm: FC = () => {
     }
 
     if (response.payload.client) {
+      await dispatch(getProfile());
       router.replace("/profile");
     }
     setShownError(true);

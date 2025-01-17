@@ -1,6 +1,13 @@
 import { getUserStorage } from "@/services/auth/auth.helper";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { checkAuth, login, logOut, registration } from "./auth.actions";
+import {
+  checkAuth,
+  getProfile,
+  login,
+  logOut,
+  registration,
+  updateProfile,
+} from "./auth.actions";
 import { isError } from "../utils/isError";
 import { IClient } from "@/types/client.interface";
 
@@ -57,9 +64,30 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addMatcher(isError, (state, action: PayloadAction<string>) => {
-        state.error = action.payload;
+      .addCase(getProfile.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      .addCase(getProfile.fulfilled, (state, action) => {
+        state.error = null;
         state.isLoading = false;
-      });
+        state.client = action.payload;
+      })
+      .addCase(updateProfile.pending, (state) => {
+        state.error = null;
+        state.isLoading = true;
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.error = null;
+        state.isLoading = false;
+        state.client = action.payload;
+      })
+      .addMatcher(
+        (action) => isError(action, "auth"),
+        (state, action: PayloadAction<string>) => {
+          state.error = action.payload;
+          state.isLoading = false;
+        }
+      );
   },
 });

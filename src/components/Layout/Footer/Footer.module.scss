@@ -1,6 +1,7 @@
 .footerTop {
   height: 150px;
   background-image: url("/footer-top.svg");
+  flex: 0 0 auto;
 }
 
 .footer {
@@ -75,12 +76,7 @@
     gap: 10px;
     align-items: center;
   }
-  &__bodyForm {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
+
   @media (max-width: 768px) {
     &__body {
       align-items: center;

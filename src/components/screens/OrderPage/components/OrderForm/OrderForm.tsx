@@ -17,7 +17,6 @@ const OrderForm = () => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const state = useTypedSelector((state) => state.orderForm);
-  const client = useTypedSelector((state) => state.auth.client);
 
   const {
     register,
@@ -31,7 +30,7 @@ const OrderForm = () => {
     defaultValues: {
       addresses: [{ address: "" }, { address: "" }],
     },
-    mode: "onBlur",
+    mode: "onChange",
   });
 
   const { fields, append, remove } = useFieldArray({
@@ -45,7 +44,6 @@ const OrderForm = () => {
   }, []);
 
   const onSubmit = async (data: IOrderCreateDto) => {
-    console.log(data);
     const order = await orderService.send(data);
 
     if (order?.id) {
@@ -84,7 +82,7 @@ const OrderForm = () => {
               />
             );
           })}
-          {fields.length < 20 && (
+          {fields.length < 40 && (
             <div className={styles.orderForm__button}>
               <Button
                 type="button"

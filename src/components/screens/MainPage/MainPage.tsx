@@ -1,16 +1,16 @@
 import "./MainPage.scss";
 import Tile from "@/components/Ui/Tile/Tile";
 import { FC } from "react";
-import MiniForm from "./components/MiniForm/MiniForm";
 import Heading from "@/components/Ui/Heading/Heading";
 import Heading2 from "@/components/Ui/Heading2/Heading2";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
 import Card from "@/components/Ui/Card/Card";
 import courierImage from "@/assets/images/courier.jpg";
 
-import WhatWeDeliver from "./components/WhatWeDeliver/WhatWeDeliver";
-import HowToUse from "./components/HowToUse/HowToUse";
-import AdditionalService from "./components/AdditionalService/AdditionalService";
+import MiniForm from "@/components/Ui/MiniForm/MiniForm";
+import WhatWeDeliver from "@/components/seo/WhatWeDeliver/WhatWeDeliver";
+import HowToUse from "@/components/seo/HowToUse/HowToUse";
+import AdditionalService from "@/components/seo/AdditionalService/AdditionalService";
 
 const MainPage: FC = () => {
   return (
@@ -54,8 +54,18 @@ const MainPage: FC = () => {
         </div>
       </section>
 
-      <WhatWeDeliver />
-      <HowToUse />
+      <WhatWeDeliver
+        title="Что мы перевозим?"
+        description="Мы предоставляем услуги по перевозке грузов различного размера: от небольших посылок, таких как документы, до коробок и пакетов."
+      />
+      <HowToUse
+        title="Как воспользоваться нашими услугами?"
+        description="Наша цель — сделать доставку максимально простой и удобной для вас. Следите за всеми этапами процесса, от оформления заказа до его завершения, и будьте уверены: всё под контролем. Мы ценим ваше время и всегда готовы помочь!"
+        step1="После этого ваш заказ попадет в нашу систему и станет доступен курьерам."
+        step2="Мы уже ищем для вас курьера! Обычно это занимает не более 20 минут, но если хотите ускорить процесс, предложите немного больше за заказ — и ваш курьер найдется быстрее! 🚀"
+        step3="Ваш заказ в процессе выполнения! Курьер уже забирает посылку и доставляет её по указанному адресу. Вы всегда можете отслеживать его маршрут в режиме реального времени, общаться через чат и быть уверены, что всё под контролем"
+        step4="Ваш заказ успешно завершён! Мы сделали всё, чтобы доставка прошла быстро и удобно: курьер вовремя забрал посылку и доставил её по назначению. Когда вам снова понадобится доставка — мы всегда готовы помочь."
+      />
       <section className="info">
         <div className="container">
           <div className="info__content">

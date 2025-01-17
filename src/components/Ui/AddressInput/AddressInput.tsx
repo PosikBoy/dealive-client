@@ -6,7 +6,6 @@ import {
   forwardRef,
   InputHTMLAttributes,
   useEffect,
-  useRef,
   useState,
 } from "react";
 import { Control, Controller } from "react-hook-form";
@@ -61,6 +60,7 @@ const AddressInputController: FC<IAddressInputController> = ({
           error={error}
           placeholder={placeholder}
           required={required}
+          ref={field.ref}
         />
       )}
     />
@@ -68,14 +68,13 @@ const AddressInputController: FC<IAddressInputController> = ({
 };
 
 const AddressInput = forwardRef<HTMLInputElement, IField>(
-  ({ onChange, placeholder, error, value, ...rest }, ref) => {
+  ({ onChange, placeholder, error, value, required, ...rest }, ref) => {
     const [suggestions, setSuggestions] = useState<SuggestionItem[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const inputRef = useRef<HTMLInputElement>(null);
-
+    const [isSuggestionChosen, setIsSuggestionChosen] = useState(false);
     useEffect(() => {
       let timeoutId = null;
-      if (value) {
+      if (value && !isSuggestionChosen) {
         timeoutId = setTimeout(async () => {
           try {
             const suggestions = await suggestionsService.getSuggestions(value);
@@ -84,10 +83,11 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
           } catch (error) {
             console.error(error);
           }
-        }, 1000);
+        }, 300);
       } else {
         setSuggestions([]);
         setShowSuggestions(false);
+        setIsSuggestionChosen(false);
       }
 
       return () => {
@@ -103,10 +103,10 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
     };
 
     const handleSuggestionClick = (suggestion: SuggestionItem) => {
-      inputRef.current?.focus();
       onChange(suggestion.value);
       setSuggestions([]);
       setShowSuggestions(false);
+      setIsSuggestionChosen(true);
     };
     return (
       <>
@@ -115,7 +115,7 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
             <input
               type="text"
               placeholder=" "
-              ref={inputRef}
+              ref={ref}
               autoComplete="address-line1"
               onInput={handleInputChange}
               value={value}

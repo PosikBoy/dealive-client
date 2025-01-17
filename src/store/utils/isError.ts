@@ -1,5 +1,5 @@
-import { Action } from "@reduxjs/toolkit";
+import { isRejectedWithValue } from "@reduxjs/toolkit";
 
-export const isError = (action: Action) => {
-  return action.type.endsWith("rejected");
+export const isError = (action: any, sliceName: string) => {
+  return isRejectedWithValue(action) && action.type.startsWith(sliceName);
 };

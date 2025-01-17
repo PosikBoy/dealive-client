@@ -1,5 +1,8 @@
 export interface IClient extends IProfileInfo {
   id: number;
+  userId: number;
+  isNumberConfirmed: boolean;
+  isEmailConfirmed: boolean;
 }
 
 export interface IProfileInfo {

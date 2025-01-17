@@ -9,8 +9,6 @@ import tgLogo from "@/assets/icons/tg-logo.png";
 import phone from "@/assets/icons/phone.png";
 import mail from "@/assets/icons/mail.png";
 import { useForm } from "react-hook-form";
-import InputField from "@/components/Ui/InputField/InputField";
-import Button from "@/components/Ui/Button/Button";
 
 interface HelpFormData {
   name: string;
@@ -19,14 +17,10 @@ interface HelpFormData {
 
 const Footer = () => {
   const {
-    register,
-    handleSubmit,
     formState: { errors },
   } = useForm<HelpFormData>({
     mode: "onChange",
   });
-
-  const handleSubmitForm = () => {};
 
   return (
     <>
@@ -137,38 +131,7 @@ const Footer = () => {
               >
                 Стать курьером (кликабельно)
               </a>
-            </div>{" "}
-            {/* <div className={styles.footer__bodyColumn}>
-              <form
-                className={styles.footer__bodyForm}
-                onSubmit={handleSubmit(handleSubmitForm)}
-              >
-                <span className={styles.footer__bodyColumnTitle}>
-                  Нужна помощь?
-                </span>
-                <InputField
-                  color="white"
-                  placeholder="Ваше имя"
-                  type="text"
-                  required
-                  disabled
-                  error={errors.name}
-                  {...register("name")}
-                />
-                <InputField
-                  color="white"
-                  placeholder="Почта или номер"
-                  type="text"
-                  required
-                  disabled
-                  error={errors.contact}
-                  {...register("contact")}
-                />
-                <Button type="submit" color="white">
-                  Отправить заявку
-                </Button>
-              </form>
-            </div> */}
+            </div>
           </div>
         </div>
       </footer>

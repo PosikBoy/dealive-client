@@ -7,6 +7,8 @@ import {
 } from "@/types/auth.interface";
 import { errorCatch } from "@/api/api.helper";
 import { ServerMessages } from "@/constants/ServerMessages";
+import { IClient, IProfileInfo } from "@/types/client.interface";
+import profileService from "@/services/profile/profile.service";
 
 export const registration = createAsyncThunk<
   IAuthResponse,
@@ -17,7 +19,6 @@ export const registration = createAsyncThunk<
     const response = await authService.auth("registration", data);
     return response;
   } catch (error: any) {
-    console.log(error);
     return thunkApi.rejectWithValue(error.message);
   }
 });
@@ -31,7 +32,6 @@ export const login = createAsyncThunk<
     const response = await authService.auth("login", data);
     return response;
   } catch (error: any) {
-    console.log(error);
     return thunkApi.rejectWithValue(error.message);
   }
 });
@@ -59,6 +59,30 @@ export const checkAuth = createAsyncThunk(
       if (errorCatch(error) === ServerMessages.INVALID_TOKEN) {
         thunkApi.dispatch(logOut());
       }
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getProfile = createAsyncThunk<IClient>(
+  "auth/getProfile",
+  async (_, thunkApi) => {
+    try {
+      const response = await profileService.getProfile();
+      return response;
+    } catch (error: any) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateProfile = createAsyncThunk<IClient, IProfileInfo>(
+  "auth/updateProfile",
+  async (data, thunkApi) => {
+    try {
+      const response = await profileService.updateProfile(data);
+      return response;
+    } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }
   }

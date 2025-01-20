@@ -42,6 +42,28 @@ export interface IAddress {
   createdAt: string;
   updatedAt: string;
 }
+
+export enum OrderActionType {
+  GO_TO = "GO_TO",
+  ARRIVED_AT = "ARRIVED_AT",
+  PICKUP = "PICKUP",
+  DELIVER = "DELIVER",
+  COLLECT_PAYMENT = "COLLECT_PAYMENT",
+  PAY_COMMISION = "PAY_COMMISION",
+  COMPLETE_ORDER = "COMPLETE_ORDER",
+}
+
+export interface IAction {
+  id: number;
+  orderId: number;
+  sequence: number;
+  actionType: OrderActionType;
+  description: string;
+  addressId: number;
+  isCompleted: boolean;
+  completedAt: string;
+}
+
 export interface IOrder {
   id: number;
   clientId?: number;
@@ -52,8 +74,17 @@ export interface IOrder {
   weight: string;
   statusId: number;
   price: number;
+  trackNumber: string;
+  code: string;
   courierId?: number;
   createdAt: string;
   updatedAt?: string;
   addresses: IAddress[];
+  actions: IAction[];
+}
+
+export interface ITrackingInfo {
+  id: number;
+  trackNumber: string;
+  code: string;
 }

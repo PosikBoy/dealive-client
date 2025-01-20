@@ -1,6 +1,7 @@
 import MainPage from "@/components/screens/MainPage/MainPage";
 import "./page.css";
 import { Metadata } from "next";
+import TrackOrder from "@/components/Ui/TrackOrder/TrackOrder";
 
 export const metadata: Metadata = {
   title: "Срочная доставка курьером в Москве | Курьерская служба DEALIVE",
@@ -39,5 +40,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <MainPage />;
+  return (
+    <>
+      <MainPage />
+      <TrackOrder />
+    </>
+  );
 }

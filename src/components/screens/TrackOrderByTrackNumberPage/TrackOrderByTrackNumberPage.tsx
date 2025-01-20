@@ -1,7 +1,6 @@
 "use client";
 import React, { FC, useEffect, useState } from "react";
-import "./ClientOrderPage.scss";
-import Link from "next/link";
+import "./TrackOrderByTrackNumberPage.scss";
 import Heading2 from "@/components/Ui/Heading2/Heading2";
 import Image, { StaticImageData } from "next/image";
 
@@ -13,9 +12,12 @@ import orderService from "@/services/order/order.service";
 import { IOrder } from "@/types/order.interface";
 import Loader from "@/components/Ui/Loader/Loader";
 import Address from "./components/Address/Address";
+import Price from "./components/Price/Price";
+import Actions from "./components/Actions/Actions";
 
-interface ClientOrderProps {
-  orderId: number;
+interface TrackOrderByTrackNumberPageProps {
+  trackNumber: string;
+  code: string | null;
 }
 
 interface StatusInfo {
@@ -23,13 +25,19 @@ interface StatusInfo {
   icon: StaticImageData;
 }
 
-const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
+const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
+  trackNumber,
+  code,
+}) => {
   const [order, setOrder] = useState<IOrder>();
   const [error, setError] = useState<string>("");
 
   const fetchOrder = async () => {
     try {
-      const order = await orderService.getById(orderId);
+      const order = await orderService.getByTrackNumberAndCode(
+        trackNumber,
+        code || ""
+      );
       setOrder(order);
     } catch (error) {
       if (error instanceof Error) {
@@ -63,8 +71,9 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
       </div>
     );
   }
+
   const orderStatusMap: Record<number, StatusInfo> = {
-    2: { status: "", icon: ClockIcon },
+    2: { status: "Новый заказ", icon: ClockIcon },
     3: { status: "В поиске курьера", icon: CourierFoundIcon },
     4: { status: "В пути", icon: CourierIcon },
     5: { status: "Доставлен", icon: CheckIcon },
@@ -75,23 +84,12 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
 
   return (
     <>
-      <nav className="breadcrumb">
-        <div className="container">
-          <ul className="breadcrumb__list">
-            <li className="breadcrumb__link">
-              <Link href="/profile">Мой профиль</Link>
-            </li>
-            <li className="breadcrumb__link">Заказ {orderId}</li>
-          </ul>
-        </div>
-      </nav>
-      <div className="orderPage">
-        <div className="orderPage__container">
-          <div className="orderPage__body">
-            <div className="orderPage__status status">
+      <div className="order-page">
+        <div className="order-page__container">
+          <div className="order-page__body">
+            <div className="order-page__status status">
               <Heading2 className="status__title">Статус заказа</Heading2>
               <div className="status__body">
-                <div className="status__status">{currentStatus.status}</div>
                 <ul className="status__list">
                   {statusEntries.map(([statusId, statusInfo]) => {
                     const isActive =
@@ -109,18 +107,23 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
                             height={24}
                           />
                         </div>
+                        <div className="status-item__text ${isActive}">
+                          {statusInfo.status}
+                        </div>
                       </li>
                     );
                   })}
                 </ul>
               </div>
             </div>
-            <div className="orderPage__support-button support-button">
+            <Actions actions={order.actions} />
+            <div className="order-page__support-button support-button">
               <a href="https://t.me/dealivesupport">Связаться с нами</a>
             </div>
             {order.addresses.map((address, index) => (
               <Address address={address} index={index} key={index} />
             ))}
+            <Price price={order.price} />
           </div>
         </div>
       </div>
@@ -128,4 +131,4 @@ const ClientOrderPage: FC<ClientOrderProps> = ({ orderId }) => {
   );
 };
 
-export default ClientOrderPage;
+export default TrackOrderByTrackNumberPage;

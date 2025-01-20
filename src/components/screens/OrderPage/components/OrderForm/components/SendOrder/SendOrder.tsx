@@ -30,6 +30,14 @@ const SendOrder: FC<ISendOrderProps> = ({ register, error }) => {
                 value: /^\d+$/,
                 message: "Только числа",
               },
+              min: {
+                value: 1,
+                message: "Цена не может быть меньше 1",
+              },
+              max: {
+                value: 100000,
+                message: "Цена не может превышать 100000",
+              },
             })}
             error={error}
           />

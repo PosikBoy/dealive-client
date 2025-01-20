@@ -48,9 +48,12 @@
     flex-direction: column;
     gap: 12px;
   }
+
   &__radios {
+    width: 100%;
     display: flex;
-    gap: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
   }
   &__weightError {
     color: red;

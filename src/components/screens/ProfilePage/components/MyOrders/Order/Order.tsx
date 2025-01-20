@@ -22,7 +22,6 @@ const Order: FC<IOrderProps> = ({ order }) => {
     "Курьер в пути",
     "Доставлен",
   ];
-  console.log(order);
   const orderStatusIcons = [
     ClockIcon,
     ClockIcon,

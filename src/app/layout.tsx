@@ -59,7 +59,6 @@ export default function RootLayout({
             <Footer />
           </div>
           <CookieAgreement />
-          {/* <TrackOrder /> */}
           <div>
             <img
               src="https://mc.yandex.ru/watch/99278339"

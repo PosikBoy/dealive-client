@@ -6,7 +6,7 @@ import CourierIcon from "@/assets/icons/courier.png";
 import CheckIcon from "@/assets/icons/check.png";
 import Image from "next/image";
 
-import "./Order.scss";
+import styles from "./Order.module.scss";
 import formatDate from "@/utils/date";
 import { IOrder } from "@/types/order.interface";
 
@@ -30,28 +30,32 @@ const Order: FC<IOrderProps> = ({ order }) => {
     CheckIcon,
   ];
   return (
-    <Link href={`/order/${order.id}`} className="order">
+    <Link href={`/order/${order.id}`} className={styles.order}>
       {orderStatusIcons.map((icon, index) => {
         const isActive = order?.statusId - 1 == index ? true : false;
         if (isActive) {
           return (
-            <div className="order__status">
-              <div className="order__status-icon">
+            <div className={styles.order__status}>
+              <div className={styles.order__statusIcon}>
                 <Image src={icon} alt="icon" width={20} height={20} />
               </div>
-              <div className="order__status-text">{orderStatuses[index]}</div>
+              <div className={styles.order__statusText}>
+                {orderStatuses[index]}
+              </div>
             </div>
           );
         }
       })}
-      <div className="order__info">
-        <div className="order__heading">
-          <div className="order__id">Заказ {order.id}</div>
-          <div className="order__date">{formatDate(order.createdAt)}</div>
+      <div className={styles.order__info}>
+        <div className={styles.order__heading}>
+          <div className={styles.order__id}>Заказ {order.id}</div>
+          <div className={styles.order__date}>
+            {formatDate(order.createdAt)}
+          </div>
         </div>
-        <div className="order__footer">
-          <div className="order__additional">Дополнительно</div>
-          <div className="order__price">{order.price + " ₽"}</div>
+        <div className={styles.order__footer}>
+          <div className={styles.order__additional}>Дополнительно</div>
+          <div className={styles.order__price}>{order.price + " ₽"}</div>
         </div>
       </div>
     </Link>

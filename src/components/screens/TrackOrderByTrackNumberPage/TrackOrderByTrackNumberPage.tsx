@@ -1,7 +1,6 @@
 "use client";
 import React, { FC, useEffect, useState } from "react";
 import "./TrackOrderByTrackNumberPage.scss";
-import Heading2 from "@/components/Ui/Heading2/Heading2";
 
 import orderService from "@/services/order/order.service";
 import { IOrder } from "@/types/order.interface";
@@ -17,16 +16,17 @@ import TrackLink from "./components/TrackLink/TrackLink";
 
 import notFoundCar from "@/assets/icons/notFoundCat.png";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 interface TrackOrderByTrackNumberPageProps {
   trackNumber: string;
-  code: string | null;
 }
 
 const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
   trackNumber,
-  code,
 }) => {
+  const searchParams = useSearchParams();
+  const code = searchParams.get("code");
   const [order, setOrder] = useState<IOrder>();
   const [error, setError] = useState<string>("");
   const [isOrderInTrackList, setIsOrderInTrackList] = useState<boolean>(false);

@@ -26,7 +26,6 @@ const Status = (props: Props) => {
     5: { status: "Заказ выполнен", icon: CheckIcon },
   };
 
-  const currentStatus = orderStatusMap[statusId];
   const statusEntries = Object.entries(orderStatusMap);
 
   return (

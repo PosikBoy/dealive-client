@@ -2,7 +2,7 @@ import { IAction } from "@/types/order.interface";
 import "./Actions.scss";
 import CourierIcon from "@/assets/icons/courier.png";
 import Image from "next/image";
-import formatDate, { extractTimeFromDate } from "@/utils/date";
+import { extractTimeFromDate } from "@/utils/date";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
 
 type Props = {

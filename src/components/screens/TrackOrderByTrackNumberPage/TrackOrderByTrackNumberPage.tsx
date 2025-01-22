@@ -2,27 +2,25 @@
 import React, { FC, useEffect, useState } from "react";
 import "./TrackOrderByTrackNumberPage.scss";
 import Heading2 from "@/components/Ui/Heading2/Heading2";
-import Image, { StaticImageData } from "next/image";
 
-import ClockIcon from "@/assets/icons/clock.png";
-import CourierFoundIcon from "@/assets/icons/found.png";
-import CourierIcon from "@/assets/icons/courier.png";
-import CheckIcon from "@/assets/icons/check.png";
 import orderService from "@/services/order/order.service";
 import { IOrder } from "@/types/order.interface";
 import Loader from "@/components/Ui/Loader/Loader";
 import Address from "./components/Address/Address";
 import Price from "./components/Price/Price";
 import Actions from "./components/Actions/Actions";
+import Status from "./components/Status/Status";
+import Heading from "@/components/Ui/Heading/Heading";
+import Courier from "./components/Courier/Courier";
+import Button from "@/components/Ui/Button/Button";
+import TrackLink from "./components/TrackLink/TrackLink";
+
+import notFoundCar from "@/assets/icons/notFoundCat.png";
+import Image from "next/image";
 
 interface TrackOrderByTrackNumberPageProps {
   trackNumber: string;
   code: string | null;
-}
-
-interface StatusInfo {
-  status: string;
-  icon: StaticImageData;
 }
 
 const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
@@ -31,14 +29,19 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
 }) => {
   const [order, setOrder] = useState<IOrder>();
   const [error, setError] = useState<string>("");
-
+  const [isOrderInTrackList, setIsOrderInTrackList] = useState<boolean>(false);
+  console.log(order);
   const fetchOrder = async () => {
     try {
       const order = await orderService.getByTrackNumberAndCode(
         trackNumber,
         code || ""
       );
+
       setOrder(order);
+
+      const isOrderInTrackList = orderService.isInTrackList(order.id);
+      setIsOrderInTrackList(isOrderInTrackList);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
@@ -55,8 +58,9 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
   if (error) {
     return (
       <div className="container">
-        <div className="loader-wrapper">
-          <p>{error}</p>
+        <div className="not-found">
+          <Image src={notFoundCar} alt="" />
+          {error}
         </div>
       </div>
     );
@@ -72,50 +76,28 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
     );
   }
 
-  const orderStatusMap: Record<number, StatusInfo> = {
-    2: { status: "Новый заказ", icon: ClockIcon },
-    3: { status: "В поиске курьера", icon: CourierFoundIcon },
-    4: { status: "В пути", icon: CourierIcon },
-    5: { status: "Доставлен", icon: CheckIcon },
-  };
+  const handleTrackList = () => {
+    const isInTrackList = orderService.isInTrackList(order.id);
 
-  const currentStatus = orderStatusMap[order?.statusId];
-  const statusEntries = Object.entries(orderStatusMap);
+    if (isInTrackList) {
+      orderService.removeFromTrackList(order.id);
+      setIsOrderInTrackList(false);
+    } else {
+      orderService.saveTrackingInfo(order);
+      setIsOrderInTrackList(true);
+    }
+  };
 
   return (
     <>
       <div className="order-page">
         <div className="order-page__container">
           <div className="order-page__body">
-            <div className="order-page__status status">
-              <Heading2 className="status__title">Статус заказа</Heading2>
-              <div className="status__body">
-                <ul className="status__list">
-                  {statusEntries.map(([statusId, statusInfo]) => {
-                    const isActive =
-                      order?.statusId === Number(statusId) ? "active" : "";
-                    return (
-                      <li
-                        className={`status__item status-item ${isActive}`}
-                        key={statusId} // Используем statusId как ключ
-                      >
-                        <div className="status-item__icon">
-                          <Image
-                            src={statusInfo.icon} // Используем иконку из orderStatusMap
-                            alt={statusInfo.status}
-                            width={24}
-                            height={24}
-                          />
-                        </div>
-                        <div className="status-item__text ${isActive}">
-                          {statusInfo.status}
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
+            <Heading className="order-page__heading">Заказ {order.id}</Heading>
+            <Status statusId={order.statusId} />
+            {order.courierId && order.courier && (
+              <Courier courier={order.courier} />
+            )}
             <Actions actions={order.actions} />
             <div className="order-page__support-button support-button">
               <a href="https://t.me/dealivesupport">Связаться с нами</a>
@@ -123,6 +105,16 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
             {order.addresses.map((address, index) => (
               <Address address={address} index={index} key={index} />
             ))}
+            <TrackLink trackNumber={order.trackNumber} code={order.code} />
+            <Button
+              className="order-page__button"
+              color="white"
+              onClick={() => handleTrackList()}
+            >
+              {isOrderInTrackList
+                ? "Удалить из отслеживаемых"
+                : "Добавить в отслеживаемые"}
+            </Button>
             <Price price={order.price} />
           </div>
         </div>

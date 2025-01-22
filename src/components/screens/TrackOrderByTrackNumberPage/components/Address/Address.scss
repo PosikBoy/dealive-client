@@ -3,13 +3,15 @@
   width: 100%;
   flex-grow: 1;
 
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+
   &__index {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding-top: 20px;
+    padding-top: 25px;
     flex: 1 0 15%;
-    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    border-radius: var(--border-radius);
     background-color: var(--light-blue);
     color: white;
     font-weight: bold;
@@ -18,8 +20,6 @@
 
   &__info {
     flex-grow: 1;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    background-color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;

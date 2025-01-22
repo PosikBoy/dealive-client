@@ -81,6 +81,12 @@ export interface IOrder {
   updatedAt?: string;
   addresses: IAddress[];
   actions: IAction[];
+  courier?: {
+    name: string;
+    secondName: string;
+    lastName: string;
+    phoneNumber: string;
+  };
 }
 
 export interface ITrackingInfo {

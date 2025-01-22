@@ -24,7 +24,6 @@ const Address: FC<IAddressProps> = ({ index, address }) => {
       <div className="address__index">{index + 1}</div>
       <div className="address__info">
         <div className="address__address">{addressString}</div>
-
         <div className={`address__additional ${isAdditionalShownClassName}`}>
           <div className="address__additional-row">
             <div className="address__additional-column">

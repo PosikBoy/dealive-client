@@ -103,6 +103,26 @@ class OrderService {
       | ITrackingInfo[]
       | null;
   }
+  removeFromTrackList(id: number) {
+    const previousTrackNumbers = JSON.parse(
+      localStorage.getItem("trackingInfo") || "[]"
+    ) as ITrackingInfo[] | null;
+    if (previousTrackNumbers) {
+      localStorage.setItem(
+        "trackingInfo",
+        JSON.stringify(previousTrackNumbers.filter((item) => item.id !== id))
+      );
+    }
+  }
+  isInTrackList(id: number) {
+    const previousTrackNumbers = JSON.parse(
+      localStorage.getItem("trackingInfo") || "[]"
+    ) as ITrackingInfo[] | null;
+    if (previousTrackNumbers) {
+      return previousTrackNumbers.some((item) => item.id === id);
+    }
+    return false;
+  }
 }
 
 const orderService = new OrderService();

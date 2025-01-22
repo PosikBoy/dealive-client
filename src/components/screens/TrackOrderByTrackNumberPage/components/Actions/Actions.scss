@@ -13,16 +13,11 @@
     gap: 10px;
     align-items: center;
 
-    &-title {
-      font-weight: 600;
-      color: var(--black);
-      font-size: 20px;
-    }
-
     &-subtitle {
       font-weight: 400;
       color: var(--black);
-      font-size: 16px;
+      font-size: 14px;
+      line-height: 100%;
       text-align: center;
     }
   }
@@ -36,6 +31,7 @@
 .action {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
 
   padding: 10px;
@@ -45,6 +41,12 @@
   &--active {
     background-color: var(--blue);
   }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
   &__icon {
     width: 24px;
     height: 24px;
@@ -53,7 +55,8 @@
   }
   &__description {
     color: var(--white);
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 14px;
   }
   &__completed-at {
     color: var(--white);

@@ -1,6 +1,6 @@
 "use client";
 import React, { FC, useEffect, useState } from "react";
-import "./TrackOrderByTrackNumberPage.scss";
+import styles from "./TrackOrderByTrackNumberPage.module.scss";
 
 import orderService from "@/services/order/order.service";
 import { IOrder } from "@/types/order.interface";

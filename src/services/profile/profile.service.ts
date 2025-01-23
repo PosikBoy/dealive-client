@@ -1,5 +1,6 @@
-import instance from "@/api/api.interceptor";
 import { saveProfileStorage } from "@/services/auth/auth.helper";
+
+import instance from "@/api/api.interceptor";
 import { PROFILE_URL } from "@/constants/URLS";
 import { IClient } from "@/types/client.interface";
 

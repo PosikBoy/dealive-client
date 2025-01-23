@@ -1,5 +1,6 @@
-import DocumentsDeliveryPage from "@/components/screens/DocumentsDeliveryPage/DocumentsDelivery";
 import { Metadata } from "next";
+
+import DocumentsDeliveryPage from "@/components/screens/DocumentsDeliveryPage/DocumentsDelivery";
 
 export const metadata: Metadata = {
   title: "Доставка документов и посылок ➤ | Курьерская служба DEALIVE",

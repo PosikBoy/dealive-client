@@ -1,5 +1,6 @@
-import ProfilePage from "@/components/screens/ProfilePage/ProfilePage";
 import { Metadata, NextPage, Viewport } from "next";
+
+import ProfilePage from "@/components/screens/ProfilePage/ProfilePage";
 
 export const metadata: Metadata = {
   title: "Мой профиль | Курьерская служба DEALIVE",

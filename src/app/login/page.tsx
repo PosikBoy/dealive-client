@@ -1,5 +1,6 @@
-import LoginPage from "@/components/screens/LoginPage/LoginPage";
 import { Metadata, NextPage, Viewport } from "next";
+
+import LoginPage from "@/components/screens/LoginPage/LoginPage";
 
 export const metadata: Metadata = {
   title: "Вход в аккаунт | Курьрская служба DEALIVE",

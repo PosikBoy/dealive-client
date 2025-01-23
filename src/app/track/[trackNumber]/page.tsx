@@ -1,12 +1,11 @@
-import TrackOrderByTrackNumberPage from "@/components/screens/TrackOrderByTrackNumberPage/TrackOrderByTrackNumberPage";
 import { Metadata, NextPage } from "next";
-import { useSearchParams } from "next/navigation";
 
-type props = {
-  params: {
-    trackNumber: string;
-  };
-};
+import TrackOrderByTrackNumberPage from "@/components/screens/TrackOrder/TrackOrderByTrackNumberPage";
+import { use } from "react";
+
+type Params = Promise<{
+  trackNumber: string;
+}>;
 
 export const metadata: Metadata = {
   title: "Отслеживание заказа | Курьерская служба DEALIVE",
@@ -37,8 +36,9 @@ export const metadata: Metadata = {
     },
   },
 };
-const page: NextPage<props> = ({ params }) => {
-  const { trackNumber } = params;
+const page = (props: { params: Params }) => {
+  const params = use(props.params);
+  const trackNumber = params.trackNumber;
 
   return <TrackOrderByTrackNumberPage trackNumber={trackNumber} />;
 };

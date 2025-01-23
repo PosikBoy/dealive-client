@@ -1,5 +1,6 @@
-import styles from "./RadioButton.module.scss";
 import { forwardRef, InputHTMLAttributes } from "react";
+
+import styles from "./RadioButton.module.scss";
 
 interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
   text: string;
@@ -24,6 +25,6 @@ const RadioButton = forwardRef<HTMLInputElement, IRadioButton>(
         </div>
       </>
     );
-  }
+  },
 );
 export default RadioButton;

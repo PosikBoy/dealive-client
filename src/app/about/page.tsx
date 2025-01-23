@@ -1,5 +1,6 @@
-import AboutPage from "@/components/screens/AboutPage/AboutPage";
 import { Metadata, NextPage, Viewport } from "next";
+
+import AboutPage from "@/components/screens/AboutPage/AboutPage";
 
 export const metadata: Metadata = {
   title: "О нас | Курьерская служба DEALIVE",

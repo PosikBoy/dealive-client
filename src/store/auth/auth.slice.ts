@@ -1,5 +1,11 @@
-import { getUserStorage } from "@/services/auth/auth.helper";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { getUserStorage } from "@/services/auth/auth.helper";
+
+import { IClient } from "@/types/client.interface";
+
+import { isError } from "../utils/isError";
+
 import {
   checkAuth,
   getProfile,
@@ -8,8 +14,6 @@ import {
   registration,
   updateProfile,
 } from "./auth.actions";
-import { isError } from "../utils/isError";
-import { IClient } from "@/types/client.interface";
 
 interface IInitialState {
   client: IClient | null;
@@ -87,7 +91,7 @@ export const authSlice = createSlice({
         (state, action: PayloadAction<string>) => {
           state.error = action.payload;
           state.isLoading = false;
-        }
+        },
       );
   },
 });

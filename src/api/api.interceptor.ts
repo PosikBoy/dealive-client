@@ -1,12 +1,15 @@
+import axios from "axios";
+
 import {
   getAccessTokenStorage,
   removeInfoStorage,
 } from "@/services/auth/auth.helper";
-import axios from "axios";
-import { errorCatch } from "./api.helper";
 import authService from "@/services/auth/auth.service";
+
 import { ServerMessages } from "@/constants/ServerMessages";
 import { SERVER_URL } from "@/constants/URLS";
+
+import { errorCatch } from "./api.helper";
 
 const instance = axios.create({
   withCredentials: true,
@@ -48,7 +51,7 @@ instance.interceptors.response.use(
       }
     }
     throw error;
-  }
+  },
 );
 
 export default instance;

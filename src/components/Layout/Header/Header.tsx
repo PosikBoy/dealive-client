@@ -1,12 +1,14 @@
 "use client";
-import React, { useEffect } from "react";
-import styles from "./header.module.scss";
 import Link from "next/link";
-import { useState } from "react";
-import { useTypedSelector } from "@/hooks/redux.hooks";
-import Brightness from "@/components/Ui/Brightness/Brightness";
+import React, { useEffect, useState } from "react";
+
 import AuthForm from "@/components/Ui/AuthForm/AuthForm";
+import Brightness from "@/components/Ui/Brightness/Brightness";
+
+import { useTypedSelector } from "@/hooks/redux.hooks";
 import { IClient } from "@/types/client.interface";
+
+import styles from "./header.module.scss";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

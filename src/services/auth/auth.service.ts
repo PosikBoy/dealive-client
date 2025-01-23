@@ -1,17 +1,19 @@
-import {
-  IEmailPassword,
-  IAuthResponse,
-  IRefreshTokenResponse,
-} from "@/types/auth.interface";
+import axios from "axios";
+
 import {
   removeInfoStorage,
   saveAccessTokenStorage,
   saveDataToStorage,
 } from "@/services/auth/auth.helper";
-import { SERVER_URL, LOGOUT_URL, REFRESH_TOKEN_URL } from "@/constants/URLS";
-import axios from "axios";
+
 import instance from "@/api/api.interceptor";
 import { ServerMessages } from "@/constants/ServerMessages";
+import { SERVER_URL, LOGOUT_URL, REFRESH_TOKEN_URL } from "@/constants/URLS";
+import {
+  IEmailPassword,
+  IAuthResponse,
+  IRefreshTokenResponse,
+} from "@/types/auth.interface";
 
 class AuthService {
   async auth(type: "login" | "registration", data: IEmailPassword) {
@@ -34,7 +36,7 @@ class AuthService {
     try {
       const response = await axios.get<string, { data: IRefreshTokenResponse }>(
         REFRESH_TOKEN_URL,
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       if (response.data.accessToken) {

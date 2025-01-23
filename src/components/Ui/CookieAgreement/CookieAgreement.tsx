@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+
 import styles from "./CookieAgreement.module.scss";
 
 const CookieAgreement = () => {

@@ -1,6 +1,7 @@
+import { forwardRef, InputHTMLAttributes, FC } from "react";
 import { Control, Controller } from "react-hook-form";
+
 import styles from "./PhoneInputField.module.scss";
-import { forwardRef, InputHTMLAttributes, useState, FC, useRef } from "react";
 
 interface IPhoneField extends InputHTMLAttributes<HTMLInputElement> {
   onChange: any;

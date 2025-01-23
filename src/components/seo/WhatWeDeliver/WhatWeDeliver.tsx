@@ -1,6 +1,10 @@
 import Image from "next/image";
 
+import Heading2 from "@/components/Ui/Heading2/Heading2";
+
 import wwd1 from "@/assets/images/wwd1.png";
+import wwd10 from "@/assets/images/wwd10.png";
+import wwd11 from "@/assets/images/wwd11.png";
 import wwd2 from "@/assets/images/wwd2.png";
 import wwd3 from "@/assets/images/wwd3.png";
 import wwd4 from "@/assets/images/wwd4.png";
@@ -9,10 +13,6 @@ import wwd6 from "@/assets/images/wwd6.png";
 import wwd7 from "@/assets/images/wwd7.png";
 import wwd8 from "@/assets/images/wwd8.png";
 import wwd9 from "@/assets/images/wwd9.png";
-import wwd10 from "@/assets/images/wwd10.png";
-import wwd11 from "@/assets/images/wwd11.png";
-
-import Heading2 from "@/components/Ui/Heading2/Heading2";
 import "./WhatWeDeliver.scss";
 
 interface IProps {

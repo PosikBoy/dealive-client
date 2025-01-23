@@ -1,6 +1,7 @@
-import React, { FC, ReactNode } from "react";
-import styles from "./Button.module.scss";
 import clsx from "clsx";
+import React, { FC, ReactNode } from "react";
+
+import styles from "./Button.module.scss";
 
 interface IButtonProps {
   type?: "button" | "submit" | "reset" | undefined;

@@ -1,26 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./Footer.module.scss";
 import Link from "next/link";
-import Heading2 from "@/components/Ui/Heading2/Heading2";
-import vkLogo from "@/assets/icons/vk-logo.png";
-import tgLogo from "@/assets/icons/tg-logo.png";
-import phone from "@/assets/icons/phone.png";
-import mail from "@/assets/icons/mail.png";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 
-interface HelpFormData {
-  name: string;
-  contact: string;
-}
+import Heading2 from "@/components/Ui/Heading2/Heading2";
+
+import styles from "./Footer.module.scss";
+
+import mail from "@/assets/icons/mail.png";
+import phone from "@/assets/icons/phone.png";
+import tgLogo from "@/assets/icons/tg-logo.png";
+import vkLogo from "@/assets/icons/vk-logo.png";
+
+// interface HelpFormData {
+//   name: string;
+//   contact: string;
+// }
 
 const Footer = () => {
-  const {
-    formState: { errors },
-  } = useForm<HelpFormData>({
-    mode: "onChange",
-  });
+  // const {
+  //   formState: { errors },
+  // } = useForm<HelpFormData>({
+  //   mode: "onChange",
+  // });
 
   return (
     <>

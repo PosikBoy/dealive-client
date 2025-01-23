@@ -1,6 +1,7 @@
-import MainPage from "@/components/screens/MainPage/MainPage";
-import "./page.css";
 import { Metadata } from "next";
+import "./page.css";
+
+import MainPage from "@/components/screens/MainPage/MainPage";
 import TrackOrder from "@/components/Ui/TrackOrder/TrackOrder";
 
 export const metadata: Metadata = {

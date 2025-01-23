@@ -1,22 +1,26 @@
 "use client";
+import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import React, { FC, useEffect, useState } from "react";
-import styles from "./TrackOrderByTrackNumberPage.module.scss";
+
+import Button from "@/components/Ui/Button/Button";
+import Heading from "@/components/Ui/Heading/Heading";
+import Loader from "@/components/Ui/Loader/Loader";
 
 import orderService from "@/services/order/order.service";
+
 import { IOrder } from "@/types/order.interface";
-import Loader from "@/components/Ui/Loader/Loader";
-import Address from "./components/Address/Address";
-import Price from "./components/Price/Price";
+
+import styles from "./TrackOrderByTrackNumberPage.module.scss";
+
 import Actions from "./components/Actions/Actions";
-import Status from "./components/Status/Status";
-import Heading from "@/components/Ui/Heading/Heading";
+import Address from "./components/Address/Address";
 import Courier from "./components/Courier/Courier";
-import Button from "@/components/Ui/Button/Button";
+import Price from "./components/Price/Price";
+import Status from "./components/Status/Status";
 import TrackLink from "./components/TrackLink/TrackLink";
 
 import notFoundCar from "@/assets/icons/notFoundCat.png";
-import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 
 interface TrackOrderByTrackNumberPageProps {
   trackNumber: string;
@@ -35,7 +39,7 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
     try {
       const order = await orderService.getByTrackNumberAndCode(
         trackNumber,
-        code || ""
+        code || "",
       );
 
       setOrder(order);

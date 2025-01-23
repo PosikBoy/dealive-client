@@ -1,4 +1,3 @@
-import InputField from "@/components/Ui/InputField/InputField";
 import { FC, memo } from "react";
 import {
   Control,
@@ -7,9 +6,13 @@ import {
   UseFormClearErrors,
   UseFormRegister,
 } from "react-hook-form";
-import styles from "./OrderInfoForm.module.scss";
+
+import InputField from "@/components/Ui/InputField/InputField";
 import RadioButton from "@/components/Ui/RadioButton/RadioButton";
+
 import { IOrderCreateDto } from "@/types/order.interface";
+
+import styles from "./OrderInfoForm.module.scss";
 
 interface IOrderInfoForm {
   control: Control<IOrderCreateDto>;

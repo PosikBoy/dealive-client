@@ -1,6 +1,7 @@
-import React, { ReactNode } from "react";
-import styles from "./Heading3.module.scss";
 import clsx from "clsx";
+import React, { ReactNode } from "react";
+
+import styles from "./Heading3.module.scss";
 
 type HeadingProps = {
   children: ReactNode;

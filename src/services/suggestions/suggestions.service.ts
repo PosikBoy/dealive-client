@@ -1,5 +1,6 @@
-import { SUGGESTIONS_URL } from "@/constants/URLS";
 import axios from "axios";
+
+import { SUGGESTIONS_URL } from "@/constants/URLS";
 
 interface ISuggestion {
   value: string;

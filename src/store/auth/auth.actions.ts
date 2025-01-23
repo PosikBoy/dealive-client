@@ -1,14 +1,16 @@
-import authService from "@/services/auth/auth.service";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
+import authService from "@/services/auth/auth.service";
+import profileService from "@/services/profile/profile.service";
+
+import { errorCatch } from "@/api/api.helper";
+import { ServerMessages } from "@/constants/ServerMessages";
 import {
   IAuthResponse,
   IEmailPassword,
   ILogOutResponse,
 } from "@/types/auth.interface";
-import { errorCatch } from "@/api/api.helper";
-import { ServerMessages } from "@/constants/ServerMessages";
 import { IClient, IProfileInfo } from "@/types/client.interface";
-import profileService from "@/services/profile/profile.service";
 
 export const registration = createAsyncThunk<
   IAuthResponse,
@@ -46,7 +48,7 @@ export const logOut = createAsyncThunk<ILogOutResponse, undefined>(
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const checkAuth = createAsyncThunk(
@@ -61,7 +63,7 @@ export const checkAuth = createAsyncThunk(
       }
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const getProfile = createAsyncThunk<IClient>(
@@ -73,7 +75,7 @@ export const getProfile = createAsyncThunk<IClient>(
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const updateProfile = createAsyncThunk<IClient, IProfileInfo>(
@@ -85,5 +87,5 @@ export const updateProfile = createAsyncThunk<IClient, IProfileInfo>(
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );

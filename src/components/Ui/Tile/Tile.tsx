@@ -1,5 +1,6 @@
-import styles from "./Tile.module.scss";
 import { FC } from "react";
+
+import styles from "./Tile.module.scss";
 interface ITileProps {
   title: string;
 }

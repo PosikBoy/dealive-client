@@ -1,11 +1,9 @@
-import ClientOrderPage from "@/components/screens/ClientOrderPage/ClientOrderPage";
 import { Metadata, NextPage } from "next";
 
-type props = {
-  params: {
-    id: number;
-  };
-};
+import ClientOrderPage from "@/components/screens/ClientOrderPage/ClientOrderPage";
+import { use } from "react";
+
+type Params = Promise<{ id: string }>;
 
 export const metadata: Metadata = {
   title: "Отслеживание заказа | Курьерская служба DEALIVE",
@@ -37,10 +35,11 @@ export const metadata: Metadata = {
   },
 };
 
-const page: NextPage<props> = ({ params }) => {
+const page = (props: { params: Params }) => {
+  const params = use(props.params);
   const { id } = params;
 
-  return <ClientOrderPage orderId={id} />;
+  return <ClientOrderPage orderId={Number(id)} />;
 };
 
 export default page;

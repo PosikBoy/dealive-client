@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+
 import styles from "./Subtitle.module.scss";
 
 type SubtitleProps = {

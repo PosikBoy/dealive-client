@@ -1,15 +1,13 @@
-import React from "react";
-import dynamic from "next/dynamic";
 import "./globals.scss";
 
-import { StoreProvider } from "@/components/StoreProvider";
-import Footer from "@/components/Layout/Footer/Footer";
 import { Metadata, Viewport } from "next";
-import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
-import Script from "next/script";
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
+
+import Footer from "@/components/Layout/Footer/Footer";
 import Header from "@/components/Layout/Header/Header";
-import TrackOrder from "@/components/Ui/TrackOrder/TrackOrder";
+import { StoreProvider } from "@/components/StoreProvider";
+import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
 
 const montserrat = Montserrat({
   weight: ["400", "600", "700"],

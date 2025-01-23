@@ -1,11 +1,15 @@
 "use client";
-import React, { useEffect } from "react";
-import styles from "./ProfilePage.module.scss";
-import Heading from "@/components/Ui/Heading/Heading";
-import ProfileInfo from "./components/ProfileInfo/ProfileInfo";
-import { useTypedSelector } from "@/hooks/redux.hooks";
 import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
+
+import Heading from "@/components/Ui/Heading/Heading";
+
+import { useTypedSelector } from "@/hooks/redux.hooks";
+
+import styles from "./ProfilePage.module.scss";
+
 import MyOrders from "./components/MyOrders/MyOrders";
+import ProfileInfo from "./components/ProfileInfo/ProfileInfo";
 
 const ProfilePage = () => {
   const client = useTypedSelector((state) => state.auth.client);

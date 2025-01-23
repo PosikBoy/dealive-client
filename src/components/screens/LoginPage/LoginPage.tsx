@@ -1,9 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
-import Heading from "@/components/Ui/Heading/Heading";
+
 import AuthForm from "@/components/Ui/AuthForm/AuthForm";
+import Heading from "@/components/Ui/Heading/Heading";
+
 import "./LoginPage.scss";
 import { useTypedSelector } from "@/hooks/redux.hooks";
+
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {

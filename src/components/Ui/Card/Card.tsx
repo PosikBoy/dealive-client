@@ -1,8 +1,10 @@
-import Image, { StaticImageData } from "next/image";
-import styles from "./Card.module.scss";
-import { FC } from "react";
-import Heading3 from "./../Heading3/Heading3";
 import clsx from "clsx";
+import Image, { StaticImageData } from "next/image";
+import { FC } from "react";
+
+import styles from "./Card.module.scss";
+
+import Heading3 from "./../Heading3/Heading3";
 interface ICardProps {
   img: StaticImageData;
   alt: string;
@@ -27,7 +29,7 @@ const Card: FC<ICardProps> = ({
       className={clsx(
         styles.card,
         transparent && styles.transparent,
-        reversed && styles.reversed
+        reversed && styles.reversed,
       )}
     >
       <div className={styles.card__image}>

@@ -1,18 +1,25 @@
 "use client";
-import React, { FC, useEffect, useState } from "react";
-import "./ClientOrderPage.scss";
 import Link from "next/link";
+import { FC, useEffect, useState } from "react";
+
+import "./ClientOrderPage.scss";
+
 import Heading2 from "@/components/Ui/Heading2/Heading2";
+
 import Image, { StaticImageData } from "next/image";
 
-import ClockIcon from "@/assets/icons/clock.png";
-import CourierFoundIcon from "@/assets/icons/found.png";
-import CourierIcon from "@/assets/icons/courier.png";
-import CheckIcon from "@/assets/icons/check.png";
-import orderService from "@/services/order/order.service";
-import { IOrder } from "@/types/order.interface";
 import Loader from "@/components/Ui/Loader/Loader";
+
+import orderService from "@/services/order/order.service";
+
+import { IOrder } from "@/types/order.interface";
+
 import Address from "./components/Address/Address";
+
+import CheckIcon from "@/assets/icons/check.png";
+import ClockIcon from "@/assets/icons/clock.png";
+import CourierIcon from "@/assets/icons/courier.png";
+import CourierFoundIcon from "@/assets/icons/found.png";
 
 interface ClientOrderProps {
   orderId: number;

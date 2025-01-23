@@ -1,5 +1,9 @@
+import "./AdditionalService.scss";
 import Image from "next/image";
 import Link from "next/link";
+
+import Heading2 from "@/components/Ui/Heading2/Heading2";
+
 import cardImage1 from "@/assets/images/cardImage1.png";
 import cardImage2 from "@/assets/images/cardImage2.png";
 import cardImage3 from "@/assets/images/cardImage3.png";
@@ -7,9 +11,6 @@ import cardImage4 from "@/assets/images/cardImage4.png";
 import cardImage5 from "@/assets/images/cardImage5.png";
 import cardImage6 from "@/assets/images/cardImage6.png";
 import cardImage7 from "@/assets/images/cardImage7.png";
-
-import "./AdditionalService.scss";
-import Heading2 from "@/components/Ui/Heading2/Heading2";
 
 const AdditionalService = () => {
   return (

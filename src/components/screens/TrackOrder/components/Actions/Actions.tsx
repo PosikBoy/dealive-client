@@ -1,9 +1,14 @@
-import { IAction } from "@/types/order.interface";
+import type { IAction } from "@/types/order.interface";
+
 import "./Actions.scss";
-import CourierIcon from "@/assets/icons/courier.png";
+
 import Image from "next/image";
-import { extractTimeFromDate } from "@/utils/date";
+
 import Heading3 from "@/components/Ui/Heading3/Heading3";
+
+import { extractTimeFromDate } from "@/utils/date";
+
+import CourierIcon from "@/assets/icons/courier.png";
 
 type Props = {
   actions: IAction[];

@@ -1,13 +1,16 @@
 "use client";
 
-import styles from "./miniForm.module.scss";
+import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
+
+import AddressInput from "@/components/Ui/AddressInput/AddressInput";
 import Button from "@/components/Ui/Button/Button";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
-import { useRouter } from "next/navigation";
+
 import { useTypedDispatch } from "@/hooks/redux.hooks";
 import { addData } from "@/store/orderForm/orderForm.slice";
-import AddressInput from "@/components/Ui/AddressInput/AddressInput";
+
+import styles from "./miniForm.module.scss";
 
 interface IMiniForm {
   pickupAddress: string;

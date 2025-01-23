@@ -1,7 +1,9 @@
 import { FC, ReactNode } from "react";
-import styles from "./ModalWindow.module.scss";
-import Heading3 from "../Heading3/Heading3";
+
 import Brightness from "../Brightness/Brightness";
+import Heading3 from "../Heading3/Heading3";
+
+import styles from "./ModalWindow.module.scss";
 
 interface IModalWindow {
   children: ReactNode;

@@ -1,14 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
-import ClockIcon from "@/assets/icons/clock.png";
-import CourierFoundIcon from "@/assets/icons/found.png";
-import CourierIcon from "@/assets/icons/courier.png";
-import CheckIcon from "@/assets/icons/check.png";
-import Image from "next/image";
+
+import formatDate from "@/utils/date";
+
+import { IOrder } from "@/types/order.interface";
 
 import styles from "./Order.module.scss";
-import formatDate from "@/utils/date";
-import { IOrder } from "@/types/order.interface";
+
+import CheckIcon from "@/assets/icons/check.png";
+import ClockIcon from "@/assets/icons/clock.png";
+import CourierIcon from "@/assets/icons/courier.png";
+import CourierFoundIcon from "@/assets/icons/found.png";
 
 interface IOrderProps {
   order: IOrder;

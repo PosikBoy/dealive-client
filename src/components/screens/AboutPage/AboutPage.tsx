@@ -1,14 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
 import "./AboutPage.scss";
+
+import Button from "@/components/Ui/Button/Button";
+import Card from "@/components/Ui/Card/Card";
 import Heading from "@/components/Ui/Heading/Heading";
-import Image from "next/image";
 import Heading2 from "@/components/Ui/Heading2/Heading2";
 
 import PresentImage from "@/assets/images/present.png";
-import RoutingImage from "@/assets/images/routing.png";
 import RosesImage from "@/assets/images/roses.png";
-import Card from "@/components/Ui/Card/Card";
-import Button from "@/components/Ui/Button/Button";
+import RoutingImage from "@/assets/images/routing.png";
 const AboutPage = () => {
   return (
     <>

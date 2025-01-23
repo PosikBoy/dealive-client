@@ -2,16 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
-import styles from "./OrderForm.module.scss";
+
 import Button from "@/components/Ui/Button/Button";
-import { useTypedSelector } from "@/hooks/redux.hooks";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
+
 import orderService from "@/services/order/order.service";
+
+import { useTypedSelector } from "@/hooks/redux.hooks";
+import { IAddress, IOrderCreateDto } from "@/types/order.interface";
+
+import styles from "./OrderForm.module.scss";
+
 import AddressForm from "./components/AddressForm/AddressForm";
 import SuccessOrderModal from "./components/ModalWindows/SuccessOrderModal";
 import OrderInfoForm from "./components/OrderInfoForm/OrderInfoForm";
 import SendOrder from "./components/SendOrder/SendOrder";
-import { IAddress, IOrderCreateDto } from "@/types/order.interface";
 
 const OrderForm = () => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
@@ -69,7 +74,7 @@ const OrderForm = () => {
           />
           <Heading3>Маршрут курьера</Heading3>
           {fields.map((address, index) => {
-            let isRemoveButtonShown = fields.length > 2;
+            const isRemoveButtonShown = fields.length > 2;
             return (
               <AddressForm
                 key={address.id}

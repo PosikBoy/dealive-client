@@ -1,9 +1,12 @@
-import Heading from "@/components/Ui/Heading/Heading";
-import styles from "./OrderPage.module.scss";
 import { NextPage } from "next";
-import React from "react";
-import OrderForm from "./components/OrderForm/OrderForm";
 import Link from "next/link";
+import React from "react";
+
+import Heading from "@/components/Ui/Heading/Heading";
+
+import styles from "./OrderPage.module.scss";
+
+import OrderForm from "./components/OrderForm/OrderForm";
 
 const OrderPage: NextPage = () => {
   return (

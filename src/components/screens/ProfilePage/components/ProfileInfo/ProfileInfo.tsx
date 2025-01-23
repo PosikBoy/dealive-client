@@ -1,18 +1,21 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import styles from "./ProfileInfo.module.scss";
+
+import Button from "@/components/Ui/Button/Button";
+import Heading3 from "@/components/Ui/Heading3/Heading3";
 import InputField from "@/components/Ui/InputField/InputField";
 import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
+
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
-import Button from "@/components/Ui/Button/Button";
 import {
   logOut as logOutAction,
   updateProfile,
 } from "@/store/auth/auth.actions";
-import { useRouter } from "next/navigation";
-import Heading3 from "@/components/Ui/Heading3/Heading3";
-import { useState } from "react";
+
+import styles from "./ProfileInfo.module.scss";
 
 interface IFormState {
   name: string;

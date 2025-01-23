@@ -1,6 +1,9 @@
-import ModalWindow from "@/components/Ui/ModalWindow/ModalWindow";
 import React, { FC } from "react";
+
+import ModalWindow from "@/components/Ui/ModalWindow/ModalWindow";
+
 import styles from "./ModalWindows.module.scss";
+
 type Props = {
   callback: Function;
 };

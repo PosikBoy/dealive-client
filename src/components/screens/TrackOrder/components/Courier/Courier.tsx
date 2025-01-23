@@ -1,6 +1,8 @@
 import React from "react";
-import styles from "./Courier.module.scss";
+
 import Heading3 from "@/components/Ui/Heading3/Heading3";
+
+import styles from "./Courier.module.scss";
 
 type Props = {
   courier: {
@@ -12,7 +14,7 @@ type Props = {
 };
 
 const Courier = (props: Props) => {
-  const { name, secondName, lastName, phoneNumber } = props.courier;
+  const { name, secondName, phoneNumber } = props.courier;
   return (
     <div className={styles.courier}>
       <Heading3 className={styles.heading} color="black">

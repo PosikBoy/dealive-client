@@ -1,18 +1,22 @@
 "use client";
 
-import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
-import styles from "./AuthForm.module.scss";
+import { useRouter } from "next/navigation";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
+
+import InputField from "@/components/Ui/InputField/InputField";
+
+import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import {
   registration as authRegister,
   getProfile,
   login,
 } from "@/store/auth/auth.actions";
-import InputField from "@/components/Ui/InputField/InputField";
-import { FC, useState } from "react";
-import Button from "../Button/Button";
-import { useRouter } from "next/navigation";
 import { IClient } from "@/types/client.interface";
+
+import Button from "../Button/Button";
+
+import styles from "./AuthForm.module.scss";
 
 interface IFormData {
   email: string;
@@ -71,7 +75,7 @@ const AuthForm: FC = () => {
     return "Пароли не совпадают";
   };
 
-  let IsRepeatPasswordShow =
+  const IsRepeatPasswordShow =
     type === "registration" ? " " + styles.authForm__repeatPassword_show : "";
 
   return (

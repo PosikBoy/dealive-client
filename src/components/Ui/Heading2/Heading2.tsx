@@ -1,6 +1,7 @@
-import React, { ReactNode } from "react";
-import styles from "./Heading2.module.scss";
 import clsx from "clsx";
+import React, { ReactNode } from "react";
+
+import styles from "./Heading2.module.scss";
 
 type Heading2Props = {
   children: ReactNode;

@@ -1,5 +1,6 @@
-import OrderPage from "@/components/screens/OrderPage/OrderPage";
 import { Metadata, NextPage, Viewport } from "next";
+
+import OrderPage from "@/components/screens/OrderPage/OrderPage";
 
 export const metadata: Metadata = {
   title: "Оформление экспресс-доставки курьером | Курьерская служба DEALIVE",

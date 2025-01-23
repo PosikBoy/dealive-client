@@ -1,4 +1,5 @@
-import { IAddress } from "@/types/order.interface";
+import type { IAddress } from "@/types/order.interface";
+
 import { FC, useState } from "react";
 
 import "./Address.scss";
@@ -13,7 +14,7 @@ interface IAddressProps {
 const Address: FC<IAddressProps> = ({ index, address }) => {
   const [isAdditionalShown, setIsAdditionalShown] = useState(false);
 
-  let isAdditionalShownClassName = isAdditionalShown ? "active" : "";
+  const isAdditionalShownClassName = isAdditionalShown ? "active" : "";
   const addressString =
     address.address +
     (address.floor ? ", эт. " + address.floor : "") +

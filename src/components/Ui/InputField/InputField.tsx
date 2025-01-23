@@ -1,5 +1,6 @@
-import styles from "./InputField.module.scss";
 import { forwardRef, InputHTMLAttributes } from "react";
+
+import styles from "./InputField.module.scss";
 
 interface IField extends InputHTMLAttributes<HTMLInputElement> {
   type?: string;
@@ -22,7 +23,7 @@ const InputField = forwardRef<HTMLInputElement, IField>(
       className,
       ...rest
     },
-    ref
+    ref,
   ) => {
     return (
       <>
@@ -63,6 +64,6 @@ const InputField = forwardRef<HTMLInputElement, IField>(
         </div>
       </>
     );
-  }
+  },
 );
 export default InputField;

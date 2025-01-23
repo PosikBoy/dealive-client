@@ -1,5 +1,6 @@
-import ExpressDeliveryPage from "@/components/screens/ExpressDeliveryPage/ExpressDelivery";
 import { Metadata } from "next";
+
+import ExpressDeliveryPage from "@/components/screens/ExpressDeliveryPage/ExpressDelivery";
 
 export const metadata: Metadata = {
   title: "Экспресс-доставка курьером в Москве | Курьерская служба DEALIVE",

@@ -1,11 +1,14 @@
-import React from "react";
-import styles from "./Status.module.scss";
-import ClockIcon from "@/assets/icons/clock.png";
-import CourierFoundIcon from "@/assets/icons/found.png";
-import CourierIcon from "@/assets/icons/courier.png";
-import CheckIcon from "@/assets/icons/check.png";
 import Image, { StaticImageData } from "next/image";
+import React from "react";
+
 import Heading3 from "@/components/Ui/Heading3/Heading3";
+
+import styles from "./Status.module.scss";
+
+import CheckIcon from "@/assets/icons/check.png";
+import ClockIcon from "@/assets/icons/clock.png";
+import CourierIcon from "@/assets/icons/courier.png";
+import CourierFoundIcon from "@/assets/icons/found.png";
 
 type Props = {
   statusId: number;

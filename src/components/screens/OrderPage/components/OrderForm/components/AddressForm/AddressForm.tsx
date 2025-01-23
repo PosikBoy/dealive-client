@@ -1,13 +1,16 @@
+import { error } from "console";
+
 import { FC, useState } from "react";
-import styles from "./AddressForm.module.scss";
 import { Control, UseFieldArrayRemove, UseFormRegister } from "react-hook-form";
 
 import AddressInput from "@/components/Ui/AddressInput/AddressInput";
-import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
 import InputField from "@/components/Ui/InputField/InputField";
+import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
 import TextArea from "@/components/Ui/TextArea/TextArea";
+
 import { IOrderCreateDto } from "@/types/order.interface";
-import { error } from "console";
+
+import styles from "./AddressForm.module.scss";
 
 interface IAddressForm {
   remove: UseFieldArrayRemove;

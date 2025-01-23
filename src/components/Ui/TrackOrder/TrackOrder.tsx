@@ -1,23 +1,19 @@
 "use client";
-import React, {
-  Children,
-  MouseEvent,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import "./TrackOrder.scss";
+
+import formatDate from "@/utils/date";
+
 import orderService from "@/services/order/order.service";
+
 import { IOrder } from "@/types/order.interface";
 
-import ClockIcon from "@/assets/icons/clock.png";
-import CourierFoundIcon from "@/assets/icons/found.png";
-import CourierIcon from "@/assets/icons/courier.png";
 import CheckIcon from "@/assets/icons/check.png";
-import Image from "next/image";
-import formatDate from "@/utils/date";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import ClockIcon from "@/assets/icons/clock.png";
+import CourierIcon from "@/assets/icons/courier.png";
+import CourierFoundIcon from "@/assets/icons/found.png";
 
 export enum OrderStatusEnum {
   NEW_ORDER = 1,
@@ -120,7 +116,7 @@ const TrackOrder = () => {
                       order?.statusId - 1 == index ? true : false;
                     if (isActive) {
                       return (
-                        <div className="order__status">
+                        <div className="order__status" key={index}>
                           <div className="order__status-icon">
                             <Image
                               src={icon}

@@ -1,10 +1,10 @@
 import instance from "@/api/api.interceptor";
+import { ORDERS_URL, ORDER_URL } from "@/constants/URLS";
 import {
   IOrderCreateDto,
   IOrder,
   ITrackingInfo,
 } from "@/types/order.interface";
-import { ORDERS_URL, ORDER_URL } from "@/constants/URLS";
 
 class OrderService {
   async getAll() {
@@ -71,7 +71,7 @@ class OrderService {
   }
   saveTrackingInfo(order: IOrder) {
     const previousTrackNumbers = JSON.parse(
-      localStorage.getItem("trackingInfo") || "[]"
+      localStorage.getItem("trackingInfo") || "[]",
     ) as ITrackingInfo[] | null;
     if (previousTrackNumbers) {
       localStorage.setItem(
@@ -83,7 +83,7 @@ class OrderService {
             trackNumber: order.trackNumber,
             code: order.code,
           },
-        ])
+        ]),
       );
     } else {
       localStorage.setItem(
@@ -94,7 +94,7 @@ class OrderService {
             trackNumber: order.trackNumber,
             code: order.code,
           },
-        ])
+        ]),
       );
     }
   }
@@ -105,18 +105,18 @@ class OrderService {
   }
   removeFromTrackList(id: number) {
     const previousTrackNumbers = JSON.parse(
-      localStorage.getItem("trackingInfo") || "[]"
+      localStorage.getItem("trackingInfo") || "[]",
     ) as ITrackingInfo[] | null;
     if (previousTrackNumbers) {
       localStorage.setItem(
         "trackingInfo",
-        JSON.stringify(previousTrackNumbers.filter((item) => item.id !== id))
+        JSON.stringify(previousTrackNumbers.filter((item) => item.id !== id)),
       );
     }
   }
   isInTrackList(id: number) {
     const previousTrackNumbers = JSON.parse(
-      localStorage.getItem("trackingInfo") || "[]"
+      localStorage.getItem("trackingInfo") || "[]",
     ) as ITrackingInfo[] | null;
     if (previousTrackNumbers) {
       return previousTrackNumbers.some((item) => item.id === id);

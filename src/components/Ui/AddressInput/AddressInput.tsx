@@ -1,5 +1,3 @@
-import suggestionsService from "@/services/suggestions/suggestions.service";
-import styles from "./AddressInput.module.scss";
 import {
   ChangeEvent,
   FC,
@@ -9,6 +7,10 @@ import {
   useState,
 } from "react";
 import { Control, Controller } from "react-hook-form";
+
+import suggestionsService from "@/services/suggestions/suggestions.service";
+
+import styles from "./AddressInput.module.scss";
 
 interface IField extends InputHTMLAttributes<HTMLInputElement> {
   onChange: any;

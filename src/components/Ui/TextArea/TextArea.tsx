@@ -1,14 +1,14 @@
-import styles from "./TextArea.module.scss";
 import { forwardRef, InputHTMLAttributes } from "react";
 
+import styles from "./TextArea.module.scss";
+
 interface ITextArea extends InputHTMLAttributes<HTMLTextAreaElement> {
-  type?: string;
   placeholder: string;
-  error?: any;
+  error?: { message?: string } | undefined;
 }
 
 const TextArea = forwardRef<HTMLTextAreaElement, ITextArea>(
-  ({ type = "text", placeholder, error, ...rest }, ref) => {
+  ({ placeholder, error, ...rest }, ref) => {
     return (
       <>
         <div className={styles.field}>
@@ -29,6 +29,6 @@ const TextArea = forwardRef<HTMLTextAreaElement, ITextArea>(
         {error && <span className={styles.field__error}>{error.message}</span>}
       </>
     );
-  }
+  },
 );
 export default TextArea;

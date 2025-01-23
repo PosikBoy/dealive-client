@@ -1,16 +1,17 @@
 import "./ExpressDelivery.scss";
-import Tile from "@/components/Ui/Tile/Tile";
 import { FC } from "react";
+
+import AdditionalService from "@/components/seo/AdditionalService/AdditionalService";
+import HowToUse from "@/components/seo/HowToUse/HowToUse";
+import WhatWeDeliver from "@/components/seo/WhatWeDeliver/WhatWeDeliver";
+import Card from "@/components/Ui/Card/Card";
 import Heading from "@/components/Ui/Heading/Heading";
 import Heading2 from "@/components/Ui/Heading2/Heading2";
 import Heading3 from "@/components/Ui/Heading3/Heading3";
-import Card from "@/components/Ui/Card/Card";
-import mapRoutingImage from "@/assets/images/mapRouting.png";
-
 import MiniForm from "@/components/Ui/MiniForm/MiniForm";
-import WhatWeDeliver from "@/components/seo/WhatWeDeliver/WhatWeDeliver";
-import AdditionalService from "@/components/seo/AdditionalService/AdditionalService";
-import HowToUse from "@/components/seo/HowToUse/HowToUse";
+import Tile from "@/components/Ui/Tile/Tile";
+
+import mapRoutingImage from "@/assets/images/mapRouting.png";
 
 const ExpressDeliveryPage: FC = () => {
   return (

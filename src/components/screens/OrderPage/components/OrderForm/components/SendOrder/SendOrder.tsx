@@ -1,12 +1,15 @@
-import InputField from "@/components/Ui/InputField/InputField";
+import Image from "next/image";
 import React, { FC, useState } from "react";
 import { UseFormRegister } from "react-hook-form";
 
-import styles from "./SendOrder.module.scss";
 import Button from "@/components/Ui/Button/Button";
-import Image from "next/image";
-import PriceInfoModal from "../ModalWindows/PriceInfoModal";
+import InputField from "@/components/Ui/InputField/InputField";
+
 import { IOrderCreateDto } from "@/types/order.interface";
+
+import PriceInfoModal from "../ModalWindows/PriceInfoModal";
+
+import styles from "./SendOrder.module.scss";
 
 interface ISendOrderProps {
   register: UseFormRegister<IOrderCreateDto>;

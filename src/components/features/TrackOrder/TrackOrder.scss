@@ -15,6 +15,15 @@
     overflow-x: hidden;
     @media (max-width: 768px) {
       overflow-x: scroll;
+      scrollbar-width: none; /* Скрыть скроллбар */
+
+      /* Для WebKit-браузеров (Chrome, Safari, Edge) */
+      &::-webkit-scrollbar {
+        display: none; /* Скрыть скроллбар */
+      }
+
+      /* Для IE и Edge (старых версий) */
+      -ms-overflow-style: none;
     }
   }
 }

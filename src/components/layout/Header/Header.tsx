@@ -8,6 +8,7 @@ import { useTypedSelector } from "@/hooks/redux.hooks";
 import { IClient } from "@/types/client.interface";
 
 import styles from "./header.module.scss";
+import ModalWindow from "@/components/shared/ModalWindow/ModalWindow";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -112,8 +113,9 @@ const Header = () => {
                 <button
                   className={styles.navLink}
                   onClick={() => {
-                    onLinkHandler();
                     setIsAuthModalOpen(true);
+                    setIsOpen(!isOpen);
+                    document.body.classList.add("modal-open");
                   }}
                 >
                   Вход
@@ -125,9 +127,15 @@ const Header = () => {
       </nav>
 
       {isAuthModalOpen && (
-        <div className={styles.authForm}>
+        <ModalWindow
+          title="Вход в личный кабинет"
+          callback={() => {
+            setIsAuthModalOpen(false);
+            document.body.classList.remove("modal-open");
+          }}
+        >
           <AuthForm />
-        </div>
+        </ModalWindow>
       )}
     </>
   );

@@ -9,7 +9,7 @@ interface IModalWindow {
   children: ReactNode;
   title?: string;
   callback: () => void;
-  className: string;
+  className?: string;
 }
 
 const ModalWindow: FC<IModalWindow> = ({

@@ -79,7 +79,6 @@ const AuthForm: FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.authForm}>
-      <p className={styles.authForm__heading}>Вход в личный кабинет</p>
       <div className={styles.authForm__toggleType}>
         <button
           type="button"

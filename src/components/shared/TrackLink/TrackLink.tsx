@@ -13,7 +13,7 @@ const TrackLink = (props: Props) => {
   return (
     <div className="track-link">
       <Heading3 className="track-link__title" color="black">
-        Сссылка на отслеживание
+        Трек-ссылка
       </Heading3>
       <div className="track-link__row">
         <InputField

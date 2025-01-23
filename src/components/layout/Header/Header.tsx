@@ -16,7 +16,11 @@ const Header = () => {
   const [client, setClient] = useState<null | IClient>(null);
   const storageClient = useTypedSelector((state) => state.auth.client);
   const isOpenedClassName =
-    isOpen == false ? " " + styles.closed : " " + styles.opened;
+    isOpen == false
+      ? " " + styles.closed
+      : isOpen == null
+      ? styles.init
+      : " " + styles.opened;
 
   const onLinkHandler = () => {
     document.body.classList.toggle("modal-open");

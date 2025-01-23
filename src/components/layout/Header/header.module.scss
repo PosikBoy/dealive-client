@@ -114,6 +114,11 @@
     pointer-events: all;
     animation: jump 0.4s linear forwards;
   }
+  &.init {
+    visibility: hidden;
+    pointer-events: none;
+    left: -100%; /* Резкий скачок на left: -100% */
+  }
   @keyframes jump {
     0% {
       opacity: 1;

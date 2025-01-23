@@ -19,7 +19,7 @@ const Header = () => {
     isOpen == false
       ? " " + styles.closed
       : isOpen == null
-      ? styles.init
+      ? " " + styles.init
       : " " + styles.opened;
 
   const onLinkHandler = () => {

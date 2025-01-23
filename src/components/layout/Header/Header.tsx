@@ -23,7 +23,7 @@ const Header = () => {
       : " " + styles.opened;
 
   const onLinkHandler = () => {
-    document.body.classList.toggle("modal-open");
+    document.body.classList.remove("modal-open");
     setIsOpen(false);
   };
 
@@ -52,7 +52,10 @@ const Header = () => {
             </div>
             <div
               className={styles.headerBurger + isOpenedClassName}
-              onClick={onLinkHandler}
+              onClick={() => {
+                setIsOpen(true);
+                document.body.classList.add("modal-open");
+              }}
             >
               <span></span>
             </div>

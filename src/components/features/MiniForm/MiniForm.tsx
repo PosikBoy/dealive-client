@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import AddressInput from "@/components/ui/AddressInput/AddressInput";
 import Button from "@/components/ui/Button/Button";

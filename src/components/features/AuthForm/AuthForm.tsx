@@ -1,10 +1,9 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import InputField from "@/components/ui/InputField/InputField";
+import styles from "./AuthForm.module.scss";
 
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import {
@@ -12,11 +11,11 @@ import {
   getProfile,
   login,
 } from "@/store/auth/auth.actions";
-import { IClient } from "@/types/client.interface";
 
-import Button from "../../ui/Button/Button";
+import type { IClient } from "@/types/client.interface";
 
-import styles from "./AuthForm.module.scss";
+import Button from "@/components/ui/Button/Button";
+import InputField from "@/components/ui/InputField/InputField";
 
 interface IFormData {
   email: string;

@@ -11,15 +11,16 @@ import styles from "./header.module.scss";
 import ModalWindow from "@/components/shared/ModalWindow/ModalWindow";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<null | boolean>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [client, setClient] = useState<null | IClient>(null);
   const storageClient = useTypedSelector((state) => state.auth.client);
-  const isOpenedClassName = isOpen ? " " + styles.opened : " " + styles.closed;
+  const isOpenedClassName =
+    isOpen == false ? " " + styles.closed : " " + styles.opened;
 
   const onLinkHandler = () => {
     document.body.classList.toggle("modal-open");
-    setIsOpen(!isOpen);
+    setIsOpen(false);
   };
 
   useEffect(() => {
@@ -114,7 +115,7 @@ const Header = () => {
                   className={styles.navLink}
                   onClick={() => {
                     setIsAuthModalOpen(true);
-                    setIsOpen(!isOpen);
+                    setIsOpen(false);
                     document.body.classList.add("modal-open");
                   }}
                 >

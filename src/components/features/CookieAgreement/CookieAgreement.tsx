@@ -28,7 +28,7 @@ const CookieAgreement = () => {
             <div className={styles.text}>
               Сайт использует файлы cookies, продолжая использовать dealive.ru,
               вы соглашаетесь с
-              <a href="/policy.docx" className={styles.link}>
+              <a href="/privacy.docx" className={styles.link}>
                 {" "}
                 политикой обработки персональных данных
               </a>

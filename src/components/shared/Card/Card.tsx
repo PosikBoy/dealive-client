@@ -4,7 +4,7 @@ import { FC } from "react";
 
 import styles from "./Card.module.scss";
 
-import Heading3 from "./../Heading3/Heading3";
+import Heading3 from "../../ui/Heading3/Heading3";
 interface ICardProps {
   img: StaticImageData;
   alt: string;
@@ -29,7 +29,7 @@ const Card: FC<ICardProps> = ({
       className={clsx(
         styles.card,
         transparent && styles.transparent,
-        reversed && styles.reversed,
+        reversed && styles.reversed
       )}
     >
       <div className={styles.card__image}>

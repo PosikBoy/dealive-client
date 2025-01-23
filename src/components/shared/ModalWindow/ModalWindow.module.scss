@@ -1,19 +1,40 @@
 .modalWindow {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 
-  z-index: 9;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  padding: 10px;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: var(--z-index-overlay);
   &__body {
+    z-index: var(--z-index-modal);
+
     display: flex;
     flex-direction: column;
+    align-items: center;
+
     gap: 12px;
     padding: 15px;
     background-color: var(--main-block-color);
     border-radius: 10px;
+
+    animation: scale 0.3s linear forwards;
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(100%);
+    }
   }
   &__heading {
     display: flex;
@@ -22,9 +43,15 @@
   }
   &__close {
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     width: 30px;
     height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &::before,
     &::after {
@@ -34,6 +61,7 @@
       width: 12px;
       top: 50%;
       left: 50%;
+      // transform: translate(-50%, -50%);
       background-color: #bebebe;
     }
 

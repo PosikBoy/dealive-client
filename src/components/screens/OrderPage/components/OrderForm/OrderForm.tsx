@@ -3,13 +3,13 @@
 import React, { useState, useEffect } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 
-import Button from "@/components/Ui/Button/Button";
-import Heading3 from "@/components/Ui/Heading3/Heading3";
+import Button from "@/components/ui/Button/Button";
+import Heading3 from "@/components/ui/Heading3/Heading3";
 
 import orderService from "@/services/order/order.service";
 
 import { useTypedSelector } from "@/hooks/redux.hooks";
-import { IAddress, IOrderCreateDto } from "@/types/order.interface";
+import { IAddress, IOrder, IOrderCreateDto } from "@/types/order.interface";
 
 import styles from "./OrderForm.module.scss";
 
@@ -19,7 +19,7 @@ import OrderInfoForm from "./components/OrderInfoForm/OrderInfoForm";
 import SendOrder from "./components/SendOrder/SendOrder";
 
 const OrderForm = () => {
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [order, setOrder] = useState<IOrder | null>(null);
 
   const state = useTypedSelector((state) => state.orderForm);
 
@@ -52,15 +52,15 @@ const OrderForm = () => {
     const order = await orderService.send(data);
 
     if (order?.id) {
-      setIsSuccessModalOpen(true);
+      setOrder(order);
       reset();
     }
   };
 
   return (
     <>
-      {isSuccessModalOpen && (
-        <SuccessOrderModal callback={setIsSuccessModalOpen} />
+      {order && (
+        <SuccessOrderModal callback={() => setOrder(null)} order={order} />
       )}
 
       <form className={styles.orderForm} onSubmit={handleSubmit(onSubmit)}>

@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import "./AboutPage.scss";
 
-import Button from "@/components/Ui/Button/Button";
-import Card from "@/components/Ui/Card/Card";
-import Heading from "@/components/Ui/Heading/Heading";
-import Heading2 from "@/components/Ui/Heading2/Heading2";
+import Button from "@/components/ui/Button/Button";
+import Card from "@/components/shared/Card/Card";
+import Heading from "@/components/ui/Heading/Heading";
+import Heading2 from "@/components/ui/Heading2/Heading2";
 
 import PresentImage from "@/assets/images/present.png";
 import RosesImage from "@/assets/images/roses.png";

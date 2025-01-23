@@ -2,8 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-import AuthForm from "@/components/Ui/AuthForm/AuthForm";
-import Brightness from "@/components/Ui/Brightness/Brightness";
+import AuthForm from "@/components/features/AuthForm/AuthForm";
 
 import { useTypedSelector } from "@/hooks/redux.hooks";
 import { IClient } from "@/types/client.interface";
@@ -15,7 +14,7 @@ const Header = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [client, setClient] = useState<null | IClient>(null);
   const storageClient = useTypedSelector((state) => state.auth.client);
-  const isOpenedClassName = isOpen ? " " + styles.open : " " + styles.closed;
+  const isOpenedClassName = isOpen ? " " + styles.opened : " " + styles.closed;
 
   const onLinkHandler = () => {
     document.body.classList.toggle("modal-open");
@@ -28,97 +27,109 @@ const Header = () => {
   }, [storageClient]);
 
   return (
-    <header className={styles.header}>
-      <div className="container">
-        <div className={styles.header__body}>
-          <div className={styles.header__logo}>
-            <Link
-              href="/"
-              className={styles.header__link}
-              title="Оставить заказ на доставку"
-              onClick={() => {
-                document.body.classList.remove("modal-open");
-                setIsOpen(false);
-              }}
-            >
-              DEALIVE
-            </Link>
-          </div>
-          <div
-            className={styles.header__burger + isOpenedClassName}
-            onClick={onLinkHandler}
-          >
-            <span></span>
-          </div>
-          <nav className={styles.header__mobileNav + isOpenedClassName}>
-            <Link
-              href="/"
-              className={styles.header__mobileLogo}
-              onClick={() => {
-                document.body.classList.remove("modal-open");
-                setIsOpen(false);
-              }}
-            >
-              DEALIVE
-            </Link>
-            <Link
-              href="/order"
-              className={styles.header__mobileLink}
-              onClick={onLinkHandler}
-            >
-              Оставить заказ
-            </Link>
-            <Link
-              href="/about"
-              className={styles.header__mobileLink}
-              onClick={onLinkHandler}
-            >
-              О нас
-            </Link>
-            {client?.userId ? (
+    <>
+      <header className={styles.header}>
+        <div className="container">
+          <div className={styles.headerBody}>
+            <div className={styles.headerLogo}>
               <Link
-                href="/profile"
-                onClick={onLinkHandler}
-                className={styles.header__mobileLink}
-              >
-                Профиль
-              </Link>
-            ) : (
-              <button
-                className={styles.header__mobileLink}
+                href="/"
+                className={styles.headerLink}
+                title="Оставить заказ на доставку"
                 onClick={() => {
-                  onLinkHandler();
-                  setIsAuthModalOpen(true);
+                  document.body.classList.remove("modal-open");
+                  setIsOpen(false);
                 }}
               >
-                Вход
-              </button>
-            )}
-          </nav>
+                DEALIVE
+              </Link>
+            </div>
+            <div
+              className={styles.headerBurger + isOpenedClassName}
+              onClick={onLinkHandler}
+            >
+              <span></span>
+            </div>
+          </div>
         </div>
-      </div>
-      {isOpen && (
-        <Brightness
-          onClick={() => {
-            document.body.classList.toggle("modal-open");
-            setIsOpen(!isOpen);
-          }}
-        />
-      )}
-      {isAuthModalOpen && (
-        <Brightness
-          onClick={() => {
+      </header>
+      <nav
+        className={styles.nav + isOpenedClassName}
+        onClick={() => {
+          if (isOpen) {
             document.body.classList.remove("modal-open");
-            setIsAuthModalOpen(!isAuthModalOpen);
+            setIsOpen(false);
+          }
+        }}
+      >
+        <div
+          className={styles.navBody + isOpenedClassName}
+          onClick={(e) => {
+            e.stopPropagation();
           }}
-        />
-      )}
+        >
+          <ul className={styles.navList}>
+            <li className={styles.navItem}>
+              <Link
+                href="/"
+                className={styles.navLogo}
+                onClick={() => {
+                  document.body.classList.remove("modal-open");
+                  setIsOpen(false);
+                }}
+              >
+                DEALIVE
+              </Link>
+            </li>
+            <li className={styles.navItem}>
+              <Link
+                href="/order"
+                className={styles.navLink}
+                onClick={onLinkHandler}
+              >
+                Оставить заказ
+              </Link>
+            </li>
+            <li className={styles.navItem}>
+              <Link
+                href="/about"
+                className={styles.navLink}
+                onClick={onLinkHandler}
+              >
+                О нас
+              </Link>
+            </li>
+            <li className={styles.navItem}>
+              {client?.userId ? (
+                <Link
+                  href="/profile"
+                  onClick={onLinkHandler}
+                  className={styles.navLink}
+                >
+                  Профиль
+                </Link>
+              ) : (
+                <button
+                  className={styles.navLink}
+                  onClick={() => {
+                    onLinkHandler();
+                    setIsAuthModalOpen(true);
+                  }}
+                >
+                  Вход
+                </button>
+              )}
+            </li>
+          </ul>
+        </div>
+      </nav>
+
       {isAuthModalOpen && (
         <div className={styles.authForm}>
           <AuthForm />
         </div>
       )}
-    </header>
+    </>
   );
 };
 

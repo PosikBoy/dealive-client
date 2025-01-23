@@ -3,8 +3,8 @@ import { IAddress } from "@/types/order.interface";
 import { FC, useState } from "react";
 
 import "./Address.scss";
-import InputField from "@/components/Ui/InputField/InputField";
-import TextArea from "@/components/Ui/TextArea/TextArea";
+import InputField from "@/components/ui/InputField/InputField";
+import TextArea from "@/components/ui/TextArea/TextArea";
 
 interface IAddressProps {
   address: IAddress;

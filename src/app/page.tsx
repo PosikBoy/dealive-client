@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import "./page.css";
 
 import MainPage from "@/components/screens/MainPage/MainPage";
-import TrackOrder from "@/components/Ui/TrackOrder/TrackOrder";
+import TrackOrder from "@/components/features/TrackOrder/TrackOrder";
 
 export const metadata: Metadata = {
   title: "Срочная доставка курьером в Москве | Курьерская служба DEALIVE",

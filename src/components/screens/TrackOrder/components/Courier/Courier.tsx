@@ -1,6 +1,6 @@
 import React from "react";
 
-import Heading3 from "@/components/Ui/Heading3/Heading3";
+import Heading3 from "@/components/ui/Heading3/Heading3";
 
 import styles from "./Courier.module.scss";
 

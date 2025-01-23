@@ -4,11 +4,11 @@ import { FC } from "react";
 import AdditionalService from "@/components/seo/AdditionalService/AdditionalService";
 import HowToUse from "@/components/seo/HowToUse/HowToUse";
 import WhatWeDeliver from "@/components/seo/WhatWeDeliver/WhatWeDeliver";
-import Heading from "@/components/Ui/Heading/Heading";
-import Heading2 from "@/components/Ui/Heading2/Heading2";
-import Heading3 from "@/components/Ui/Heading3/Heading3";
-import MiniForm from "@/components/Ui/MiniForm/MiniForm";
-import Tile from "@/components/Ui/Tile/Tile";
+import Heading from "@/components/ui/Heading/Heading";
+import Heading2 from "@/components/ui/Heading2/Heading2";
+import Heading3 from "@/components/ui/Heading3/Heading3";
+import MiniForm from "@/components/features/MiniForm/MiniForm";
+import Tile from "@/components/shared/Tile/Tile";
 
 const PickupPVZPage: FC = () => {
   return (

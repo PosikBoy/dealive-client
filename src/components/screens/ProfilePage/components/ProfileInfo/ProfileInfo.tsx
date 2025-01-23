@@ -4,10 +4,10 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import Button from "@/components/Ui/Button/Button";
-import Heading3 from "@/components/Ui/Heading3/Heading3";
-import InputField from "@/components/Ui/InputField/InputField";
-import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
+import Button from "@/components/ui/Button/Button";
+import Heading3 from "@/components/ui/Heading3/Heading3";
+import InputField from "@/components/ui/InputField/InputField";
+import PhoneInputField from "@/components/ui/PhoneInputField/PhoneInputField";
 
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import {

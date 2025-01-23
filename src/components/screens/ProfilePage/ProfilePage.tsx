@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-import Heading from "@/components/Ui/Heading/Heading";
+import Heading from "@/components/ui/Heading/Heading";
 
 import { useTypedSelector } from "@/hooks/redux.hooks";
 

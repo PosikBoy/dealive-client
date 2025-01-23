@@ -3,10 +3,10 @@ import { error } from "console";
 import { FC, useState } from "react";
 import { Control, UseFieldArrayRemove, UseFormRegister } from "react-hook-form";
 
-import AddressInput from "@/components/Ui/AddressInput/AddressInput";
-import InputField from "@/components/Ui/InputField/InputField";
-import PhoneInputField from "@/components/Ui/PhoneInputField/PhoneInputField";
-import TextArea from "@/components/Ui/TextArea/TextArea";
+import AddressInput from "@/components/ui/AddressInput/AddressInput";
+import InputField from "@/components/ui/InputField/InputField";
+import PhoneInputField from "@/components/ui/PhoneInputField/PhoneInputField";
+import TextArea from "@/components/ui/TextArea/TextArea";
 
 import { IOrderCreateDto } from "@/types/order.interface";
 

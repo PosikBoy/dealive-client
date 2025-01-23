@@ -11,4 +11,14 @@
   --red: #ec3030;
   --gap-base: 20px;
   --gap-increased: 20px;
+
+  --z-index-background: 10; /* Фоновые элементы */
+  --z-index-tooltip: 20; /* Всплывающие подсказки */
+  --z-index-widget: 40; /* Виджеты (dropdown, календари) */
+  --z-index-header: 50; /* Хедер */
+  --z-index-header-overlay: 55;
+  --z-index-side-menu: 60; /* Боковое меню */
+  --z-index-overlay: 65; /* Полупрозрачный фон для модалок */
+  --z-index-modal: 70; /* Модальные окна */
+  --z-index-notification: 80; /* Уведомления и тосты */
 }

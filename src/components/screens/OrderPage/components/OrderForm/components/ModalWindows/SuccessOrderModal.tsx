@@ -1,24 +1,36 @@
 import React, { FC } from "react";
 
-import ModalWindow from "@/components/Ui/ModalWindow/ModalWindow";
+import ModalWindow from "@/components/shared/ModalWindow/ModalWindow";
 
 import styles from "./ModalWindows.module.scss";
+import { IOrder } from "@/types/order.interface";
+import TrackLink from "@/components/shared/TrackLink/TrackLink";
 
 type Props = {
-  callback: Function;
+  callback: () => void;
+  order: IOrder;
 };
 
-const SuccessOrderModal: FC<Props> = ({ callback }) => {
+const SuccessOrderModal: FC<Props> = ({ callback, order }) => {
   return (
     <ModalWindow
-      callback={() => callback(false)}
+      callback={callback}
       title="Заказ отправлен!"
       className={styles.modalWindow}
     >
-      <p>
-        Спасибо за заказ! Скоро мы свяжемся по номеру, указанному в первом
-        адресе или по номеру, указанному в вашем личном кабинете
+      <p className={styles.orderText}>
+        Спасибо за заказ! Курьер может позвонить на номер, указанный в личном
+        кабинете или в первом адресе.
       </p>
+      <p className={styles.orderText}>
+        Подготовьте к оплате {order.price} ₽, можете оплатить курьеру на любом
+        адресе.
+      </p>
+      <p className={styles.orderText}>
+        Вы можете отслеживать свой заказ перейдя на главную страницу или по
+        ссылке ниже.
+      </p>
+      <TrackLink trackNumber={order.trackNumber} code={order.code} />
     </ModalWindow>
   );
 };

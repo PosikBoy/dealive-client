@@ -2,7 +2,7 @@ import "./AdditionalService.scss";
 import Image from "next/image";
 import Link from "next/link";
 
-import Heading2 from "@/components/Ui/Heading2/Heading2";
+import Heading2 from "@/components/ui/Heading2/Heading2";
 
 import cardImage1 from "@/assets/images/cardImage1.png";
 import cardImage2 from "@/assets/images/cardImage2.png";

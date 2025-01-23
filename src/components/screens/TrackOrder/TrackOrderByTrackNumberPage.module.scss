@@ -1,10 +1,10 @@
-.loader-wrapper {
+.loaderWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.not-found {
+.notFound {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,24 +14,24 @@
   text-align: center;
 }
 
-.order-page {
+.orderPage {
   --border-radius: 10px;
 
-  &__body {
+  &Body {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
 
-  &__container {
+  &Container {
     max-width: 550px;
     margin: 0 auto;
     padding: 0 15px;
   }
 }
 
-.support-button {
+.supportButton {
   width: 100%;
 
   a {

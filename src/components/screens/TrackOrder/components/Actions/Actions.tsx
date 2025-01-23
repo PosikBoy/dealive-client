@@ -4,7 +4,7 @@ import "./Actions.scss";
 
 import Image from "next/image";
 
-import Heading3 from "@/components/Ui/Heading3/Heading3";
+import Heading3 from "@/components/ui/Heading3/Heading3";
 
 import { extractTimeFromDate } from "@/utils/date";
 

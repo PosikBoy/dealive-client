@@ -4,10 +4,10 @@ import { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 
-import Footer from "@/components/Layout/Footer/Footer";
-import Header from "@/components/Layout/Header/Header";
+import Footer from "@/components/layout/Footer/Footer";
+import Header from "@/components/layout/Header/Header";
 import { StoreProvider } from "@/components/StoreProvider";
-import CookieAgreement from "@/components/Ui/CookieAgreement/CookieAgreement";
+import CookieAgreement from "@/components/features/CookieAgreement/CookieAgreement";
 
 const montserrat = Montserrat({
   weight: ["400", "600", "700"],

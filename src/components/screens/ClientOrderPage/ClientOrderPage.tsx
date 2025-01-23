@@ -4,11 +4,11 @@ import { FC, useEffect, useState } from "react";
 
 import "./ClientOrderPage.scss";
 
-import Heading2 from "@/components/Ui/Heading2/Heading2";
+import Heading2 from "@/components/ui/Heading2/Heading2";
 
 import Image, { StaticImageData } from "next/image";
 
-import Loader from "@/components/Ui/Loader/Loader";
+import Loader from "@/components/shared/Loader/Loader";
 
 import orderService from "@/services/order/order.service";
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import { useForm } from "react-hook-form";
 
-import Heading2 from "@/components/Ui/Heading2/Heading2";
+import Heading2 from "@/components/ui/Heading2/Heading2";
 
 import styles from "./Footer.module.scss";
 

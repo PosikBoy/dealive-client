@@ -7,8 +7,8 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 
-import InputField from "@/components/Ui/InputField/InputField";
-import RadioButton from "@/components/Ui/RadioButton/RadioButton";
+import InputField from "@/components/ui/InputField/InputField";
+import RadioButton from "@/components/ui/RadioButton/RadioButton";
 
 import { IOrderCreateDto } from "@/types/order.interface";
 

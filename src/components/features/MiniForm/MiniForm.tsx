@@ -3,9 +3,9 @@
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 
-import AddressInput from "@/components/Ui/AddressInput/AddressInput";
-import Button from "@/components/Ui/Button/Button";
-import Heading3 from "@/components/Ui/Heading3/Heading3";
+import AddressInput from "@/components/ui/AddressInput/AddressInput";
+import Button from "@/components/ui/Button/Button";
+import Heading3 from "@/components/ui/Heading3/Heading3";
 
 import { useTypedDispatch } from "@/hooks/redux.hooks";
 import { addData } from "@/store/orderForm/orderForm.slice";

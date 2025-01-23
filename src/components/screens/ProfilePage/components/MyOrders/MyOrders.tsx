@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 
-import Heading3 from "@/components/Ui/Heading3/Heading3";
-import Loader from "@/components/Ui/Loader/Loader";
+import Heading3 from "@/components/ui/Heading3/Heading3";
+import Loader from "@/components/shared/Loader/Loader";
 
 import orderService from "@/services/order/order.service";
 
@@ -35,7 +35,9 @@ const MyOrders: FC = () => {
   return (
     <>
       <Heading3>Ваши заказы</Heading3>
-      {orders?.map((item) => <Order key={item.id} order={item} />)}
+      {orders?.map((item) => (
+        <Order key={item.id} order={item} />
+      ))}
     </>
   );
 };

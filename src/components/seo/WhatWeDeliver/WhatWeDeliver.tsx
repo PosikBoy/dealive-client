@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Heading2 from "@/components/Ui/Heading2/Heading2";
+import Heading2 from "@/components/ui/Heading2/Heading2";
 
 import wwd1 from "@/assets/images/wwd1.png";
 import wwd10 from "@/assets/images/wwd10.png";

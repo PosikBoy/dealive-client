@@ -1,8 +1,8 @@
 import "./HowToUse.scss";
 import Link from "next/link";
 
-import Heading2 from "@/components/Ui/Heading2/Heading2";
-import Heading3 from "@/components/Ui/Heading3/Heading3";
+import Heading2 from "@/components/ui/Heading2/Heading2";
+import Heading3 from "@/components/ui/Heading3/Heading3";
 
 interface IProps {
   title: string;

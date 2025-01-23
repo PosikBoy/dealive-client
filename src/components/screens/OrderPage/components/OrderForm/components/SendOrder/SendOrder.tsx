@@ -2,8 +2,8 @@ import Image from "next/image";
 import React, { FC, useState } from "react";
 import { UseFormRegister } from "react-hook-form";
 
-import Button from "@/components/Ui/Button/Button";
-import InputField from "@/components/Ui/InputField/InputField";
+import Button from "@/components/ui/Button/Button";
+import InputField from "@/components/ui/InputField/InputField";
 
 import { IOrderCreateDto } from "@/types/order.interface";
 

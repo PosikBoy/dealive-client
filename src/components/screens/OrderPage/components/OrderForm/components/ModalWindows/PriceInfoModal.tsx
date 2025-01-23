@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import ModalWindow from "@/components/Ui/ModalWindow/ModalWindow";
+import ModalWindow from "@/components/shared/ModalWindow/ModalWindow";
 
 import styles from "./ModalWindows.module.scss";
 

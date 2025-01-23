@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import React from "react";
 
-import Heading from "@/components/Ui/Heading/Heading";
+import Heading from "@/components/ui/Heading/Heading";
 
 import styles from "./OrderPage.module.scss";
 

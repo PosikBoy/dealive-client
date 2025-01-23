@@ -3,13 +3,14 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import React, { FC, useEffect, useState } from "react";
 
-import Button from "@/components/Ui/Button/Button";
-import Heading from "@/components/Ui/Heading/Heading";
-import Loader from "@/components/Ui/Loader/Loader";
+import Button from "@/components/ui/Button/Button";
+import Heading from "@/components/ui/Heading/Heading";
+import Loader from "@/components/shared/Loader/Loader";
+import TrackLink from "@/components/shared/TrackLink/TrackLink";
 
 import orderService from "@/services/order/order.service";
 
-import { IOrder } from "@/types/order.interface";
+import type { IOrder } from "@/types/order.interface";
 
 import styles from "./TrackOrderByTrackNumberPage.module.scss";
 
@@ -18,7 +19,6 @@ import Address from "./components/Address/Address";
 import Courier from "./components/Courier/Courier";
 import Price from "./components/Price/Price";
 import Status from "./components/Status/Status";
-import TrackLink from "./components/TrackLink/TrackLink";
 
 import notFoundCar from "@/assets/icons/notFoundCat.png";
 
@@ -39,7 +39,7 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
     try {
       const order = await orderService.getByTrackNumberAndCode(
         trackNumber,
-        code || "",
+        code || ""
       );
 
       setOrder(order);
@@ -94,16 +94,18 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
 
   return (
     <>
-      <div className="order-page">
-        <div className="order-page__container">
-          <div className="order-page__body">
-            <Heading className="order-page__heading">Заказ {order.id}</Heading>
+      <div className={styles.orderPage}>
+        <div className={styles.orderPageContainer}>
+          <div className={styles.orderPageBody}>
+            <Heading className={styles.orderPageHeading}>
+              Заказ {order.id}
+            </Heading>
             <Status statusId={order.statusId} />
             {order.courierId && order.courier && (
               <Courier courier={order.courier} />
             )}
             <Actions actions={order.actions} />
-            <div className="order-page__support-button support-button">
+            <div className={styles.supportButton}>
               <a href="https://t.me/dealivesupport">Связаться с нами</a>
             </div>
             {order.addresses.map((address, index) => (
@@ -111,7 +113,7 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
             ))}
             <TrackLink trackNumber={order.trackNumber} code={order.code} />
             <Button
-              className="order-page__button"
+              className={styles.orderPageButton}
               color="white"
               onClick={() => handleTrackList()}
             >

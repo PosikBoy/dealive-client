@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import InputField from "@/components/Ui/InputField/InputField";
+import InputField from "@/components/ui/InputField/InputField";
 
 import { useTypedDispatch, useTypedSelector } from "@/hooks/redux.hooks";
 import {
@@ -14,7 +14,7 @@ import {
 } from "@/store/auth/auth.actions";
 import { IClient } from "@/types/client.interface";
 
-import Button from "../Button/Button";
+import Button from "../../ui/Button/Button";
 
 import styles from "./AuthForm.module.scss";
 

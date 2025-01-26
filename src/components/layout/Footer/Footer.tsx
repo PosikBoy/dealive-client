@@ -36,8 +36,8 @@ const Footer = () => {
                 <Link href="/">
                   <span className={styles.footer__logo}>DEALIVE</span>
                 </Link>
-                <span>PROD BY YOUNGG</span>
-                <span>©DEALIVE.RU 2024</span>
+                <span>prod. by yungg</span>
+                <span>dealive.ru 2024-2025</span>
               </div>
               <div className={styles.footer__headingColumn2}>
                 <Heading2 className={styles.footer__headingTitle}>

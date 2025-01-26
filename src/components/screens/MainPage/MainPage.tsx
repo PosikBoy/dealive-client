@@ -30,7 +30,7 @@ const MainPage: FC = () => {
                 </strong>
                 <strong>
                   <Heading2 className="welcome__subtitle">
-                    поможем отыскать курьера по удобной цене
+                    Поможем отыскать курьера по удобной цене
                   </Heading2>
                 </strong>
               </div>

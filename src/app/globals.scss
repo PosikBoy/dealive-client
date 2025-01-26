@@ -21,7 +21,7 @@ html {
 }
 
 .main {
-  margin: 100px 0;
+  margin: var(--header-height) 0;
   flex-grow: 1;
 }
 

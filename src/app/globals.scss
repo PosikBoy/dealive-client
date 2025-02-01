@@ -21,7 +21,7 @@ html {
 }
 
 .main {
-  margin: var(--header-height) 0;
+  margin: calc(var(--header-height) + 30px) 0;
   flex-grow: 1;
 }
 

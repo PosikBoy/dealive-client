@@ -4,6 +4,7 @@
   height: 100%;
   width: 100%;
   gap: 30px;
+  margin-top: -30px;
 }
 
 .welcome {
@@ -81,7 +82,6 @@
 
     &__row {
       flex-direction: column-reverse;
-
       gap: 30px;
       align-items: center;
     }

@@ -9,12 +9,22 @@
 .welcome {
   height: 100%;
   width: 100%;
+
   &__content {
     display: flex;
     width: 100%;
     flex-direction: column;
+    background: url("/background.webp") no-repeat center center/cover;
+
     height: 100%;
-    gap: 30px;
+    padding: 30px 30px 30px 30px;
+
+    gap: 50px;
+    border-radius: 20px;
+
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
   }
 
   &__block {
@@ -59,6 +69,10 @@
   @media (max-width: 992px) {
     &__content {
       align-items: center;
+      gap: 30px;
+      background: url("/background-mobile.webp") no-repeat center center/cover
+        fixed;
+      padding: 30px 18px 18px 18px;
     }
 
     &__block {

@@ -9,6 +9,7 @@ import Heading2 from "@/components/ui/Heading2/Heading2";
 import Heading3 from "@/components/ui/Heading3/Heading3";
 import MiniForm from "@/components/features/MiniForm/MiniForm";
 import Tile from "@/components/shared/Tile/Tile";
+import FAQ from "@/components/seo/FAQ/FAQ";
 
 const DocumentsDeliveryPage: FC = () => {
   return (
@@ -61,6 +62,7 @@ const DocumentsDeliveryPage: FC = () => {
         title="Что мы перевозим?"
         description="Мы готовы забрать и доставить документы, папки, бумаги, файлы, конверты и другие виды документов. Но кроме этого, мы беремся за доставку цветов, тортов, обуви, одежды, коробок и пакетов."
       />
+      <FAQ />
     </main>
   );
 };

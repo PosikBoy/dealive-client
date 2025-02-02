@@ -4,12 +4,19 @@ import "./TrackLink.scss";
 import Button from "@/components/ui/Button/Button";
 import Heading3 from "@/components/ui/Heading3/Heading3";
 import InputField from "@/components/ui/InputField/InputField";
+
 type Props = {
   trackNumber: string;
   code: string;
 };
 
 const TrackLink = (props: Props) => {
+  const onCopyHandler = () => {
+    navigator.clipboard.writeText(
+      `https://dealive.ru/track/${props.trackNumber}?code=${props.code}`
+    );
+  };
+
   return (
     <div className="track-link">
       <Heading3 className="track-link__title" color="black">
@@ -19,17 +26,10 @@ const TrackLink = (props: Props) => {
         <InputField
           placeholder="Ссылка"
           value={`https://dealive.ru/track/${props.trackNumber}?code=${props.code}`}
+          readOnly
         />
         <div className="track-link__button">
-          <Button
-            onClick={() =>
-              navigator.clipboard.writeText(
-                `https://dealive.ru/track/${props.trackNumber}?code=${props.code}`
-              )
-            }
-          >
-            Скопировать
-          </Button>
+          <Button onClick={onCopyHandler}>Скопировать</Button>
         </div>
       </div>
       <span className="track-link__subtitle">

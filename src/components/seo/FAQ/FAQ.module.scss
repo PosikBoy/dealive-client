@@ -1,0 +1,85 @@
+.faq {
+  padding: 20px 0;
+  &Body {
+    background-color: white;
+    padding: 20px;
+    border-radius: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    @media (max-width: 425px) {
+      & {
+        padding: 10px;
+        border-radius: 20px;
+      }
+    }
+  }
+  &Legend {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 130%;
+    color: var(--black);
+  }
+}
+
+.faqItem {
+  border-top: 1px solid var(--black);
+  padding: 10px;
+  &Question {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &Text {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 150%;
+      color: var(--black);
+    }
+    &Plus {
+      transition: all 0.3s;
+      font-weight: 400;
+      font-size: 40px;
+      color: var(--black);
+
+      &.active {
+        transform: rotate(45deg);
+      }
+    }
+  }
+  &Answer {
+    visibility: hidden;
+    max-height: 0;
+    transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+    overflow: hidden;
+    margin-top: 5px;
+
+    & span {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: var(--black);
+    }
+
+    &.active {
+      visibility: visible;
+      max-height: 9999px;
+      height: auto;
+      transition: all 0.3s cubic-bezier(1, 0, 1, 0);
+    }
+  }
+  &Link {
+    text-decoration: underline;
+    color: var(--blue);
+    cursor: pointer;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}

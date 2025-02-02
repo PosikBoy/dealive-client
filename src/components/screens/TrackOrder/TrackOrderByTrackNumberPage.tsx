@@ -31,10 +31,11 @@ const TrackOrderByTrackNumberPage: FC<TrackOrderByTrackNumberPageProps> = ({
 }) => {
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
+
   const [order, setOrder] = useState<IOrder>();
   const [error, setError] = useState<string>("");
   const [isOrderInTrackList, setIsOrderInTrackList] = useState<boolean>(false);
-  console.log(order);
+
   const fetchOrder = async () => {
     try {
       const order = await orderService.getByTrackNumberAndCode(

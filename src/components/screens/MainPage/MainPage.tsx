@@ -12,6 +12,7 @@ import MiniForm from "@/components/features/MiniForm/MiniForm";
 import Tile from "@/components/shared/Tile/Tile";
 
 import courierImage from "@/assets/images/courier.jpg";
+import FAQ from "@/components/seo/FAQ/FAQ";
 
 const MainPage: FC = () => {
   return (
@@ -85,6 +86,7 @@ const MainPage: FC = () => {
         </div>
       </section>
       <AdditionalService />
+      <FAQ />
     </main>
   );
 };

@@ -14,11 +14,15 @@ const Price = (props: Props) => {
       <div className="price__info">
         <div className="price__row">
           <span className="price__detail">Услуга доставки</span>
-          <span className="price__value">{props.price * 0.85} ₽</span>
+          <span className="price__value">
+            {(props.price * 0.85).toFixed(2)} ₽
+          </span>
         </div>
         <div className="price__row">
           <span className="price__detail">Комиссия сервиса</span>
-          <span className="price__value">{props.price * 0.15} ₽</span>
+          <span className="price__value">
+            {(props.price * 0.15).toFixed(2)} ₽
+          </span>
         </div>
         <div className="price__row">
           <span className="price__detail price__detail--black">Итого</span>

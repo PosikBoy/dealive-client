@@ -18,7 +18,7 @@ interface IFAQItem {
 }
 
 const FAQ = () => {
-  const [activeQuestionIndex, setActiveQuestionIndex] = useState(1);
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
 
   const onClick = (id: number) => {
     setActiveQuestionIndex(id);

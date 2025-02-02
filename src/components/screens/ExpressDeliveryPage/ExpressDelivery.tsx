@@ -12,6 +12,7 @@ import MiniForm from "@/components/features/MiniForm/MiniForm";
 import Tile from "@/components/shared/Tile/Tile";
 
 import mapRoutingImage from "@/assets/images/mapRouting.png";
+import FAQ from "@/components/seo/FAQ/FAQ";
 
 const ExpressDeliveryPage: FC = () => {
   return (
@@ -81,6 +82,7 @@ const ExpressDeliveryPage: FC = () => {
           </div>
         </div>
       </section>
+      <FAQ />
     </main>
   );
 };

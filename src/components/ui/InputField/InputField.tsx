@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, RefObject } from "react";
+import { InputHTMLAttributes, Ref } from "react";
 
 import styles from "./InputField.module.scss";
 
@@ -9,7 +9,7 @@ interface IField extends InputHTMLAttributes<HTMLInputElement> {
   required?: boolean;
   error?: any;
   color?: "default" | "white";
-  ref?: RefObject<HTMLInputElement>;
+  ref?: Ref<HTMLInputElement>;
 }
 
 const InputField = (props: IField) => {

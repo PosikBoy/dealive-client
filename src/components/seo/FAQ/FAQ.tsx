@@ -18,10 +18,13 @@ interface IFAQItem {
 }
 
 const FAQ = () => {
-  const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState<null | number>(
+    0
+  );
 
   const onClick = (id: number) => {
-    setActiveQuestionIndex(id);
+    if (activeQuestionIndex !== id) setActiveQuestionIndex(id);
+    else setActiveQuestionIndex(null);
   };
   return (
     <div className={styles.faq}>

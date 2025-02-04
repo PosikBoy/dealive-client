@@ -59,6 +59,9 @@ input,
 textarea,
 button,
 select {
+  input span {
+    font-family: inherit;
+  }
   font-family: inherit;
   font-size: inherit;
   color: inherit;

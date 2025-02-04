@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import styles from "./FAQ.module.scss";
 import Heading2 from "@/components/ui/Heading2/Heading2";
 import clsx from "clsx";
 import faqData from "./FAQData";
 
-interface IFAQItem {
+interface IFAQItemData {
   id: number;
   question: string;
   answer: string;
@@ -13,19 +13,22 @@ interface IFAQItem {
     href: string;
     text: string;
   };
+}
+
+interface IFAQItemProps extends IFAQItemData {
   active: boolean;
   onClick: () => void;
 }
 
-const FAQ = () => {
+const FAQ: FC = () => {
   const [activeQuestionIndex, setActiveQuestionIndex] = useState<null | number>(
     0
   );
 
   const onClick = (id: number) => {
-    if (activeQuestionIndex !== id) setActiveQuestionIndex(id);
-    else setActiveQuestionIndex(null);
+    setActiveQuestionIndex((prev) => (prev === id ? null : id));
   };
+
   return (
     <div className={styles.faq}>
       <div className="container">
@@ -39,7 +42,7 @@ const FAQ = () => {
             {faqData.map((item, index) => {
               return (
                 <FAQItem
-                  key={index}
+                  key={item.id}
                   id={item.id}
                   question={item.question}
                   answer={item.answer}
@@ -56,22 +59,33 @@ const FAQ = () => {
   );
 };
 
-const FAQItem = ({ question, answer, link, active, onClick }: IFAQItem) => {
+const FAQItem = ({
+  question,
+  answer,
+  link,
+  active,
+  onClick,
+}: IFAQItemProps) => {
   return (
     <li className={styles.faqItem}>
-      <div className={styles.faqItemQuestion} onClick={onClick}>
+      <button className={styles.faqItemQuestion} onClick={onClick}>
         <span className={styles.faqItemQuestionText}>{question}</span>
         <span
           className={clsx(styles.faqItemQuestionPlus, active && styles.active)}
         >
           +
         </span>
-      </div>
+      </button>
       <div className={clsx(styles.faqItemAnswer, active && styles.active)}>
         <span>{answer}</span>
         {link && (
           <div>
-            <a href={link.href} className={styles.faqItemLink}>
+            <a
+              href={link.href}
+              className={styles.faqItemLink}
+              target="_blank"
+              rel="nofollow"
+            >
               {link.text}
             </a>
           </div>

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "https://dealive.ru/icon.png", // Must be an absolute URL
+        url: "https://dealive.ru/icon.png",
         width: 128,
         height: 128,
       },
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "https://dealive.ru/favicon.svg", type: "image/svg+xml" }, // SVG favicon
-      { url: "https://dealive.ru/favicon.ico", type: "image/x-icon" }, // Fallback for older browsers
+      { url: "https://dealive.ru/favicon.svg", type: "image/svg+xml" },
+      { url: "https://dealive.ru/favicon.ico", type: "image/x-icon" },
     ],
     shortcut: "https://dealive.ru/favicon.ico",
   },

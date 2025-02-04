@@ -15,6 +15,13 @@
       }
     }
   }
+
+  &Heading {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
   &Legend {
     font-weight: 700;
     font-size: 14px;
@@ -24,28 +31,37 @@
 }
 
 .faqItem {
-  border-top: 1px solid var(--black);
-  padding: 10px;
+  border-top: 1px solid var(--grey);
+  padding: 5px;
   &Question {
-    cursor: pointer;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 
     &Text {
       font-weight: 700;
       font-size: 18px;
       line-height: 150%;
       color: var(--black);
+      text-align: left;
     }
+
     &Plus {
-      transition: all 0.3s;
+      transition: all 0.3s ease-in-out;
       font-weight: 400;
       font-size: 40px;
       color: var(--black);
 
       &.active {
-        transform: rotate(45deg);
+        transition: all 0.3s ease-in-out;
+        transform: rotate(225deg);
+      }
+    }
+    @media (max-width: 425px) {
+      &Text {
+        font-size: 16px;
       }
     }
   }

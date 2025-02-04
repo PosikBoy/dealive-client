@@ -1,4 +1,4 @@
-import { Metadata, NextPage } from "next";
+import { Metadata } from "next";
 
 import TrackOrderByTrackNumberPage from "@/components/screens/TrackOrder/TrackOrderByTrackNumberPage";
 import { use } from "react";
@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     },
   },
 };
+
 const page = (props: { params: Params }) => {
   const params = use(props.params);
   const trackNumber = params.trackNumber;

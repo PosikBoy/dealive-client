@@ -5,16 +5,25 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
+  &__description {
+    color: var(--black);
+
+    text-align: center;
+  }
+
   &__heading {
     margin-bottom: 10px;
     color: var(--black);
   }
+
   &__toggleType {
     display: flex;
     background-color: #d1d1d1;
     border-radius: 12px;
     transition: all 0.3s;
   }
+
   &__error {
     color: red;
     display: flex;
@@ -22,6 +31,7 @@
     align-items: center;
     text-align: center;
   }
+
   &__type {
     display: flex;
     padding: 6px 0;
@@ -39,6 +49,7 @@
     background-color: #3586ff;
     transition: all 0.3s;
   }
+
   &__inputs {
     width: 100%;
     display: flex;
@@ -46,18 +57,21 @@
     gap: 10px;
     margin-bottom: 15px;
   }
+
   @media (hover: hover) {
     &__toggleType:hover {
       transition: all 0.3s;
       background-color: #bebebe !important;
     }
   }
+
   @media (hover: none) {
     &__toggleType:active {
       transition: all 0.3s;
       background-color: #bebebe !important;
     }
   }
+
   &__repeatPassword {
     visibility: hidden;
     max-height: 0;

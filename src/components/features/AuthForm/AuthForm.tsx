@@ -79,6 +79,10 @@ const AuthForm: FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.authForm}>
+      <p className={styles.authForm__description}>
+        Войдите или зарегистрируйтесь, чтобы сохранять свои заказы и
+        просматривать историю заказов.
+      </p>
       <div className={styles.authForm__toggleType}>
         <button
           type="button"
@@ -125,6 +129,10 @@ const AuthForm: FC = () => {
               value: 3,
               message: "Введите электронную почту",
             },
+            maxLength: {
+              value: 255,
+              message: "Максимум 255 символов",
+            },
             pattern: {
               value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
               message: "Введите электронную почту",
@@ -142,6 +150,10 @@ const AuthForm: FC = () => {
             minLength: {
               value: 6,
               message: "Пароль минимум 6 символов",
+            },
+            maxLength: {
+              value: 40,
+              message: "Пароль максимум 40 символов",
             },
           })}
           error={errors?.password}

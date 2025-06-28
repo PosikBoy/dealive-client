@@ -1,6 +1,7 @@
-import "./HowToUse.scss";
 import Link from "next/link";
+import "./HowToUse.scss";
 
+import Container from "@/components/layout/Container/Container";
 import Heading2 from "@/components/ui/Heading2/Heading2";
 import Heading3 from "@/components/ui/Heading3/Heading3";
 
@@ -17,7 +18,7 @@ const HowToUse = (props: IProps) => {
   const { title, description, step1, step2, step3, step4 } = props;
   return (
     <section className="htu">
-      <div className="container">
+      <Container>
         <div className="htu__content">
           <div className="htu__row">
             <div className="htu__column htu__column_1">
@@ -53,7 +54,7 @@ const HowToUse = (props: IProps) => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

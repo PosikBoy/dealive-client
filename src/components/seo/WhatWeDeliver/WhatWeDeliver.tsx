@@ -13,6 +13,7 @@ import wwd6 from "@/assets/images/wwd6.png";
 import wwd7 from "@/assets/images/wwd7.png";
 import wwd8 from "@/assets/images/wwd8.png";
 import wwd9 from "@/assets/images/wwd9.png";
+import Container from "@/components/layout/Container/Container";
 import "./WhatWeDeliver.scss";
 
 interface IProps {
@@ -24,7 +25,7 @@ const WhatWeDeliver = (props: IProps) => {
   const { title, description } = props;
   return (
     <section className="what-we-deliver wwd">
-      <div className="container">
+      <Container>
         <div className="wwd__grid">
           <div className="wwd__item wwd__item_1">
             <Image src={wwd1} alt="Фото цветов" quality={80} loading="lazy" />
@@ -116,7 +117,7 @@ const WhatWeDeliver = (props: IProps) => {
             <p className="wwd__hint">Новогодний подарок</p>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

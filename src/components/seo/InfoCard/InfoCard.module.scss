@@ -1,0 +1,18 @@
+.info {
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  @media (max-width: 768px) {
+    &__content {
+      gap: 30px;
+    }
+  }
+}

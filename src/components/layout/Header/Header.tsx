@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import AuthForm from "@/components/features/AuthForm/AuthForm";
 
 import { useTypedSelector } from "@/hooks/redux.hooks";
 import { IClient } from "@/types/client.interface";
 
-import styles from "./header.module.scss";
 import ModalWindow from "@/components/shared/ModalWindow/ModalWindow";
+import styles from "./header.module.scss";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<null | boolean>(null);
@@ -139,7 +139,6 @@ const Header = () => {
           title="Вход в личный кабинет"
           callback={() => {
             setIsAuthModalOpen(false);
-            document.body.classList.remove("modal-open");
           }}
         >
           <AuthForm />

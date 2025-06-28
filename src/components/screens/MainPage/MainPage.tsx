@@ -1,24 +1,25 @@
-import "./MainPage.scss";
 import { FC } from "react";
+import "./MainPage.scss";
 
+import MiniForm from "@/components/features/MiniForm/MiniForm";
 import AdditionalService from "@/components/seo/AdditionalService/AdditionalService";
 import HowToUse from "@/components/seo/HowToUse/HowToUse";
 import WhatWeDeliver from "@/components/seo/WhatWeDeliver/WhatWeDeliver";
-import Card from "@/components/shared/Card/Card";
+
+import Tile from "@/components/shared/Tile/Tile";
 import Heading from "@/components/ui/Heading/Heading";
 import Heading2 from "@/components/ui/Heading2/Heading2";
 import Heading3 from "@/components/ui/Heading3/Heading3";
-import MiniForm from "@/components/features/MiniForm/MiniForm";
-import Tile from "@/components/shared/Tile/Tile";
 
-import courierImage from "@/assets/images/courier.jpg";
+import Container from "@/components/layout/Container/Container";
 import FAQ from "@/components/seo/FAQ/FAQ";
+import InfoCard from "@/components/seo/InfoCard/InfoCard";
 
 const MainPage: FC = () => {
   return (
     <main className="page-content">
       <section className="welcome">
-        <div className="container">
+        <Container>
           <div className="welcome__content">
             <div className="welcome__block">
               <div className="welcome__offer">
@@ -56,7 +57,7 @@ const MainPage: FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       <WhatWeDeliver
@@ -71,20 +72,7 @@ const MainPage: FC = () => {
         step3="Ваш заказ в процессе выполнения! Курьер уже забирает посылку и доставляет её по указанному адресу. Вы всегда можете отслеживать его маршрут в режиме реального времени, общаться через чат и быть уверены, что всё под контролем"
         step4="Ваш заказ успешно завершён! Мы сделали всё, чтобы доставка прошла быстро и удобно: курьер вовремя забрал посылку и доставил её по назначению. Когда вам снова понадобится доставка — мы всегда готовы помочь."
       />
-      <section className="info">
-        <div className="container">
-          <div className="info__content">
-            <Card
-              img={courierImage}
-              alt="Изображение подарка"
-              title="Идеальное решение для тех, кто ценит свое время, и ждать просто нет возможности! "
-              subtitle="Предлагаем вашему вниманию уникальный сервис доставки, который поможет решить любые ваши задачи! Наши профессиональные курьеры с радостью возьмутся за выполнение любого поручения, от прогулки с домашним питомцем до осмотра квартиры. "
-              imageDescription="На фото курьер Евгений"
-              reversed={true}
-            />
-          </div>
-        </div>
-      </section>
+      <InfoCard />
       <AdditionalService />
       <FAQ />
     </main>

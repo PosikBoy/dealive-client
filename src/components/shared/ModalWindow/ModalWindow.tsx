@@ -5,14 +5,14 @@ import Heading3 from "../../ui/Heading3/Heading3";
 
 import styles from "./ModalWindow.module.scss";
 
-interface IModalWindow {
+interface IModalWindowProps {
   children: ReactNode;
   title?: string;
   callback: () => void;
   className?: string;
 }
 
-const ModalWindow: FC<IModalWindow> = ({
+const ModalWindow: FC<IModalWindowProps> = ({
   children,
   title = "Информация",
   callback,
@@ -27,6 +27,7 @@ const ModalWindow: FC<IModalWindow> = ({
     document.body.appendChild(element);
     setPortalElement(element);
     document.body.classList.add("modal-open");
+
     return () => {
       document.body.removeChild(element);
       document.body.classList.remove("modal-open");

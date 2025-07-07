@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
-import Button from "@/components/ui/Button/Button";
-import Heading from "@/components/ui/Heading/Heading";
 import Loader from "@/components/shared/Loader/Loader";
 import TrackLink from "@/components/shared/TrackLink/TrackLink";
+import Button from "@/components/ui/Button/Button";
+import Heading from "@/components/ui/Heading/Heading";
 
 import orderService from "@/services/order/order.service";
 
-import type { IOrder } from "@/types/order.interface";
+import type { IOrder } from "@/types/models/order";
 
 import styles from "./TrackOrderByTrackNumberPage.module.scss";
 

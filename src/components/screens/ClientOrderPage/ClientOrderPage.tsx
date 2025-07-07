@@ -12,7 +12,7 @@ import Loader from "@/components/shared/Loader/Loader";
 
 import orderService from "@/services/order/order.service";
 
-import { IOrder } from "@/types/order.interface";
+import { IOrder } from "@/types/models/order";
 
 import Address from "./components/Address/Address";
 

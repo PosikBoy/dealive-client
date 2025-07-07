@@ -1,15 +1,17 @@
-import { error } from "console";
-
 import { FC, useState } from "react";
-import { Control, UseFieldArrayRemove, UseFormRegister } from "react-hook-form";
+import {
+  Control,
+  FieldErrors,
+  UseFieldArrayRemove,
+  UseFormRegister,
+} from "react-hook-form";
 
 import AddressInput from "@/components/ui/AddressInput/AddressInput";
 import InputField from "@/components/ui/InputField/InputField";
 import PhoneInputField from "@/components/ui/PhoneInputField/PhoneInputField";
 import TextArea from "@/components/ui/TextArea/TextArea";
 
-import { IOrderCreateDto } from "@/types/order.interface";
-
+import { IOrderCreateDto } from "@/types/dto/order.dto";
 import styles from "./AddressForm.module.scss";
 
 interface IAddressForm {
@@ -17,7 +19,7 @@ interface IAddressForm {
   index: number;
   isRemoveButtonShown: boolean;
   control: Control<IOrderCreateDto>;
-  errors: any;
+  errors: FieldErrors<IOrderCreateDto>;
   register: UseFormRegister<IOrderCreateDto>;
 }
 

@@ -14,7 +14,8 @@ class SuggestionsService {
       });
       return response.data;
     } catch (error: any) {
-      throw Error(error.response.data.message);
+      console.log(error);
+      throw Error(error?.response?.data?.message);
     }
   }
 }

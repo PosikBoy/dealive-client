@@ -1,10 +1,8 @@
 import instance from "@/api/api.interceptor";
-import { ORDERS_URL, ORDER_URL } from "@/constants/URLS";
-import {
-  IOrderCreateDto,
-  IOrder,
-  ITrackingInfo,
-} from "@/types/order.interface";
+import { ORDERS_URL, ORDER_URL, PRICE_URL } from "@/constants/URLS";
+import { GetOrderPriceDto, IOrderCreateDto } from "@/types/dto/order.dto";
+import { IOrder, IOrderPrices, ITrackingInfo } from "@/types/models/order";
+import { AxiosError } from "axios";
 
 class OrderService {
   async getAll() {
@@ -23,7 +21,9 @@ class OrderService {
       }
       return response.data;
     } catch (error: any) {
-      throw Error(error.response.data.message);
+      if (error instanceof AxiosError) {
+        throw Error(error?.response?.data.message);
+      }
     }
   }
   async getById(id: number) {
@@ -69,9 +69,10 @@ class OrderService {
       throw Error(error.response.data.message);
     }
   }
+
   saveTrackingInfo(order: IOrder) {
     const previousTrackNumbers = JSON.parse(
-      localStorage.getItem("trackingInfo") || "[]",
+      localStorage.getItem("trackingInfo") || "[]"
     ) as ITrackingInfo[] | null;
     if (previousTrackNumbers) {
       localStorage.setItem(
@@ -83,7 +84,7 @@ class OrderService {
             trackNumber: order.trackNumber,
             code: order.code,
           },
-        ]),
+        ])
       );
     } else {
       localStorage.setItem(
@@ -94,34 +95,49 @@ class OrderService {
             trackNumber: order.trackNumber,
             code: order.code,
           },
-        ]),
+        ])
       );
     }
   }
+
   getTrackingInfo() {
     return JSON.parse(localStorage.getItem("trackingInfo") || "[]") as
       | ITrackingInfo[]
       | null;
   }
+
   removeFromTrackList(id: number) {
     const previousTrackNumbers = JSON.parse(
-      localStorage.getItem("trackingInfo") || "[]",
+      localStorage.getItem("trackingInfo") || "[]"
     ) as ITrackingInfo[] | null;
     if (previousTrackNumbers) {
       localStorage.setItem(
         "trackingInfo",
-        JSON.stringify(previousTrackNumbers.filter((item) => item.id !== id)),
+        JSON.stringify(previousTrackNumbers.filter((item) => item.id !== id))
       );
     }
   }
+
   isInTrackList(id: number) {
     const previousTrackNumbers = JSON.parse(
-      localStorage.getItem("trackingInfo") || "[]",
+      localStorage.getItem("trackingInfo") || "[]"
     ) as ITrackingInfo[] | null;
     if (previousTrackNumbers) {
       return previousTrackNumbers.some((item) => item.id === id);
     }
     return false;
+  }
+
+  async getPrice(data: GetOrderPriceDto): Promise<IOrderPrices> {
+    console.log("Отправка данных на сервер", data);
+
+    try {
+      const response = await instance.post(PRICE_URL, data);
+      return response.data;
+    } catch (error: any) {
+      console.log(error);
+      throw Error(error.response.data.message);
+    }
   }
 }
 

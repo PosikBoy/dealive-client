@@ -1,10 +1,10 @@
-import { IAddress } from "@/types/order.interface";
+import { IAddress } from "@/types/models/order";
 
 import { FC, useState } from "react";
 
-import "./Address.scss";
 import InputField from "@/components/ui/InputField/InputField";
 import TextArea from "@/components/ui/TextArea/TextArea";
+import "./Address.scss";
 
 interface IAddressProps {
   address: IAddress;

@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import ModalWindow from "@/components/shared/ModalWindow/ModalWindow";
 
-import styles from "./ModalWindows.module.scss";
-import { IOrder } from "@/types/order.interface";
 import TrackLink from "@/components/shared/TrackLink/TrackLink";
+import { IOrder } from "@/types/models/order";
+import styles from "./ModalWindows.module.scss";
 
 type Props = {
   callback: () => void;

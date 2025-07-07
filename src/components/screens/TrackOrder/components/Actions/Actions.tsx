@@ -1,4 +1,4 @@
-import type { IAction } from "@/types/order.interface";
+import type { IAction } from "@/types/models/order";
 
 import "./Actions.scss";
 

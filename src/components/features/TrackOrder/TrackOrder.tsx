@@ -8,7 +8,7 @@ import formatDate from "@/utils/date";
 
 import orderService from "@/services/order/order.service";
 
-import { IOrder } from "@/types/order.interface";
+import { IOrder } from "@/types/models/order";
 
 import CheckIcon from "@/assets/icons/check.png";
 import ClockIcon from "@/assets/icons/clock.png";

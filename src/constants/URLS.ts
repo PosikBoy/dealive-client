@@ -6,3 +6,4 @@ export const ORDERS_URL = SERVER_URL + "/orders";
 export const CREATE_ORDER_URL = SERVER_URL + "/order/create";
 export const PROFILE_URL = SERVER_URL + "/client";
 export const SUGGESTIONS_URL = SERVER_URL + "/suggestions";
+export const PRICE_URL = SERVER_URL + "/price";

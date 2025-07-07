@@ -3,7 +3,7 @@ import React, { FC, ReactNode } from "react";
 
 import styles from "./Button.module.scss";
 
-interface IButtonProps {
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   type?: "button" | "submit" | "reset" | undefined;
   color?: "white" | "blue";
   children: ReactNode;
@@ -17,6 +17,7 @@ const Button: FC<IButtonProps> = ({
   children,
   onClick,
   className,
+  ...rest
 }) => {
   const buttonStyles =
     color === "white" ? styles.whiteButton : styles.blueButton;
@@ -25,6 +26,7 @@ const Button: FC<IButtonProps> = ({
       type={type}
       className={clsx(styles.button, buttonStyles, className)}
       onClick={onClick}
+      {...rest}
     >
       {children}
     </button>

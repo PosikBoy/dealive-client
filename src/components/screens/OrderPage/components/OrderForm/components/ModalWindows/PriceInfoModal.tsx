@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import ModalWindow from "@/components/shared/ModalWindow/ModalWindow";
 
@@ -28,13 +28,6 @@ const PriceInfoModal: FC<Props> = ({ callback }) => {
           привлекательную ставку, вы гарантированно получите быструю и надежную
           доставку вашего заказа.
         </p>
-
-        <p>
-          <strong>Ориентировочные тарифы:</strong>
-        </p>
-        <p>Доставка внутри МКАД: от 700 руб.</p>
-        <p>Доставка за МКАД до 5 км: от 1000 руб.</p>
-        <p>Доставка за МКАД до 15 км: от 1400 руб.</p>
 
         <p>
           Определите справедливую цену и обеспечьте себе максимально выгодные

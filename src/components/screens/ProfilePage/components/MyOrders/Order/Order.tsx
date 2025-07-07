@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
+import { FC } from "react";
 
 import formatDate from "@/utils/date";
 
-import { IOrder } from "@/types/order.interface";
+import { IOrder } from "@/types/models/order";
 
 import styles from "./Order.module.scss";
 

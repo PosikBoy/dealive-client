@@ -1,11 +1,11 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
-import Heading3 from "@/components/ui/Heading3/Heading3";
 import Loader from "@/components/shared/Loader/Loader";
+import Heading3 from "@/components/ui/Heading3/Heading3";
 
 import orderService from "@/services/order/order.service";
 
-import { IOrder } from "@/types/order.interface";
+import { IOrder } from "@/types/models/order";
 
 import Order from "./Order/Order";
 

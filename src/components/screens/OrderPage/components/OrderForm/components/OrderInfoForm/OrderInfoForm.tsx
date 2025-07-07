@@ -1,24 +1,24 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 import {
   Control,
   Controller,
-  SetFieldValue,
+  FieldErrors,
   UseFormClearErrors,
   UseFormRegister,
+  UseFormSetValue,
 } from "react-hook-form";
 
 import InputField from "@/components/ui/InputField/InputField";
 import RadioButton from "@/components/ui/RadioButton/RadioButton";
 
-import { IOrderCreateDto } from "@/types/order.interface";
-
+import { IOrderCreateDto } from "@/types/dto/order.dto";
 import styles from "./OrderInfoForm.module.scss";
 
 interface IOrderInfoForm {
   control: Control<IOrderCreateDto>;
-  errors: any;
+  errors: FieldErrors<IOrderCreateDto>;
   register: UseFormRegister<IOrderCreateDto>;
-  setValue: SetFieldValue<any>;
+  setValue: UseFormSetValue<IOrderCreateDto>;
   clearErrors: UseFormClearErrors<IOrderCreateDto>;
 }
 

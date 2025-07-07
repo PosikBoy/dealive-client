@@ -74,6 +74,7 @@ const AddressInput = forwardRef<HTMLInputElement, IField>(
     const [suggestions, setSuggestions] = useState<SuggestionItem[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [isSuggestionChosen, setIsSuggestionChosen] = useState(false);
+
     useEffect(() => {
       let timeoutId = null;
       if (value && !isSuggestionChosen) {

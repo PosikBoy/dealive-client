@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: frontend
+
+    expose:
+      - "3000"
+
+    env_file:
+      - .env.production
+
+    networks:
+      - app-network
+
+    restart: unless-stopped
+
+networks:
+  app-network:
+    external: true

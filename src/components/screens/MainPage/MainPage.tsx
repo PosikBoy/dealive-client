@@ -75,6 +75,7 @@ const MainPage: FC = () => {
       <InfoCard />
       <AdditionalService />
       <FAQ />
+      {/* <CorporativeForm /> */}
     </main>
   );
 };

@@ -45,6 +45,7 @@ const OrderInfoForm: FC<IOrderInfoForm> = ({
           placeholder="Что везем"
           autoComplete="off"
           required
+          error={errors.parcelType}
           {...register("parcelType", {
             required: "Это коробка, документы, а может цветы? Нам важно знать",
             maxLength: {
@@ -52,12 +53,11 @@ const OrderInfoForm: FC<IOrderInfoForm> = ({
               message: "Максимум 44 символа",
             },
           })}
-          error={errors.parcelType}
         />
         <div className={styles.info__parcelSuggestions}>
           {parcelSuggestions.map((value, index) => {
             return (
-              <span
+              <button
                 key={index}
                 className={styles.info__parcelSuggestion}
                 onClick={() => {
@@ -66,7 +66,7 @@ const OrderInfoForm: FC<IOrderInfoForm> = ({
                 }}
               >
                 {value}
-              </span>
+              </button>
             );
           })}
         </div>

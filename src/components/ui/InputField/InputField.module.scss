@@ -1,16 +1,71 @@
 .field {
   position: relative;
   width: 100%;
+
+  &.default {
+    --placeholder-color: var(--black);
+    --placeholder-color-focus: var(--blue);
+    --placeholder-background-color: transparent;
+    --placeholder-background-color-focus: var(--white);
+
+    --input-text-color: var(--black);
+    --input-border-color: var(--grey);
+    --input-border-color-focus: var(--blue);
+    --input-border-color-hover: var(--blue);
+
+    --error-color: var(--red);
+
+    &.error {
+      --placeholder-color: var(--error-color);
+      --placeholder-color-focus: var(--error-color);
+
+      --input-text-color: var(--error-color);
+      --input-border-color: var(--error-color);
+      --input-border-color-focus: var(--error-color);
+
+      --input-border-color-hover: var(--error-color);
+    }
+  }
+
+  &.white {
+    --placeholder-color: var(--white);
+    --placeholder-color-focus: var(--white);
+    --placeholder-background-color: transparent;
+    --placeholder-background-color-focus: var(--blue);
+
+    --input-text-color: var(--white);
+    --input-border-color: var(--white);
+    --input-border-color-focus: var(--white);
+    --input-border-color-hover: var(--white);
+
+    --error-color: var(--red);
+
+    &.error {
+      --placeholder-color: var(--error-color);
+      --placeholder-color-focus: var(--error-color);
+
+      --input-text-color: var(--error-color);
+      --input-border-color: var(--error-color);
+      --input-border-color-focus: var(--error-color);
+
+      --input-border-color-hover: var(--error-color);
+    }
+  }
+
   &__input {
-    border: 1px solid var(--grey);
-    border-radius: 9px;
+    position: relative;
     padding: 10px 15px;
     width: 100%;
-    color: var(--black);
+
     font-size: 14px;
-    position: relative;
+    color: var(--input-text-color);
+
+    border: 1px solid var(--input-border-color);
+    border-radius: 9px;
+
     transition: all 0.3s;
   }
+
   &__placeholder {
     position: absolute;
     left: 15px;
@@ -18,47 +73,38 @@
     transform: translateY(-50%);
 
     font-size: 12px;
-    color: var(--black);
     font-weight: 400;
+    color: var(--placeholder-color);
+    background-color: var(--placeholder-background-color);
 
     pointer-events: none;
     transition: all 0.3s;
-    background-color: var(--white);
   }
+
   &__error {
-    color: var(--red);
-    font-size: 12px;
     margin-top: 5px;
-    transition: all 0.3s;
     margin-left: 8px;
-  }
-  &__input.white {
-    border: 1px solid var(--white);
-  }
-  &__input:focus {
-    border-color: var(--blue) !important;
+
+    color: var(--error-color);
+    font-size: 12px;
+
     transition: all 0.3s;
   }
+
+  &__input:focus {
+    border-color: var(--input-border-color-focus);
+    transition: all 0.3s;
+  }
+
   &__input:focus + &__placeholder,
   &__placeholder.top {
     top: -8.5px;
     left: 2px;
     transform: scale(85%);
     transition: all 0.3s;
-    color: var(--blue) !important;
-  }
 
-  &__input.error {
-    border: 1px solid var(--red);
-    transition: all 0.3s;
-  }
-  &__input.error + &__placeholder {
-    color: var(--red);
-    transition: all 0.3s;
-  }
-
-  &__placeholder.error {
-    transition: all 0.3s;
+    color: var(--placeholder-color-focus);
+    background-color: var(--placeholder-background-color-focus);
   }
 
   &__input:not(:placeholder-shown) + &__placeholder {
@@ -66,18 +112,17 @@
     left: 2px;
     transform: scale(85%);
     transition: all 0.3s;
-  }
-  &__input:focus + &__placeholder.error {
-    transition: all 0.3s;
-    color: var(--red);
+
+    background-color: var(--placeholder-background-color-focus);
   }
 
   @media (hover: hover) {
     &__input:hover {
-      border: 1px solid var(--blue) !important;
+      border-color: var(--input-border-color-hover);
     }
+
     &__input:hover + &__placeholder {
-      color: var(--blue) !important;
+      color: var(--input-border-color-hover);
     }
   }
 }

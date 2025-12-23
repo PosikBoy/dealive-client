@@ -129,8 +129,6 @@ class OrderService {
   }
 
   async getPrice(data: GetOrderPriceDto): Promise<IOrderPrices> {
-    console.log("Отправка данных на сервер", data);
-
     try {
       const response = await instance.post(PRICE_URL, data);
       return response.data;

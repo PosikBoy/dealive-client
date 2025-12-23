@@ -64,6 +64,7 @@ const OrderInfoForm: FC<IOrderInfoForm> = ({
                   setValue("parcelType", value);
                   clearErrors("parcelType");
                 }}
+                type="button"
               >
                 {value}
               </button>
